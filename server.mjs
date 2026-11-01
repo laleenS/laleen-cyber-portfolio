@@ -3,7 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import { createGuideHandler } from './lib/guide-server.mjs';
 const root = process.cwd();
-const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml'};
+const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.woff2':'font/woff2'};
 const guide = createGuideHandler();
 http.createServer(async (req,res) => {
   res.setHeader('X-Content-Type-Options','nosniff');

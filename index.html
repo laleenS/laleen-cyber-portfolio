@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111f29">
+<script src="theme-init.js"></script>
 <title>Laleen Salim — Root Access</title>
 <meta name="description" content="A cyber garden by Laleen Salim. Computer Science, Political Science, and a growing practice in cybersecurity.">
 <meta property="og:title" content="Root Access — Laleen Salim">
@@ -10,8 +12,12 @@
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/garden.svg">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="typography.css">
+<link rel="preload" href="assets/fonts/garden-oldstyle-regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="experience.css">
+<link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="field-station.css">
 <script src="app.js" type="module">
 </script>
 </head>
@@ -38,6 +44,7 @@
 </details>
 </div>
 </header>
+<button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Switch to golden-hour garden"><svg viewBox="0 0 24 24" aria-hidden="true"><circle class="sun-core" cx="12" cy="12" r="4"/><path class="sun-rays" d="M12 1V4M12 20V23M1 12H4M20 12H23M4 4 6 6M18 18 20 20M4 20 6 18M18 6 20 4"/><path class="moon-mark" d="M17 3A9 9 0 1 0 21 17 8 8 0 0 1 17 3Z"/></svg><span id="theme-label">Moonlit</span></button>
 <div id="garden-announcement" class="sr-only" role="status">
 </div>
 <main>
@@ -50,13 +57,14 @@
 <em>access.</em>
 <span class="title-star" aria-hidden="true">✳︎</span>
 </h1>
-<p class="hero-line">A curious mind.<br>A growing cyber garden.</p>
-<p class="intro">I’m Laleen — studying Computer Science &amp; Political Science, and exploring the systems that connect and protect us.</p>
+<p class="hero-line">Hi, I’m Laleen.<br>Come look around.</p>
+<p class="intro">I’m a senior at UNC Charlotte studying cybersecurity and security intelligence through Computer Science and Political Science. I like to investigate things—and make things, too.</p>
 <a class="enter" href="#living-lab">Enter the garden <span>↓</span>
 </a>
 <div class="hero-tools">
 <button id="lens-toggle" class="outline-button" aria-pressed="false" aria-controls="garden-world">◇ Reveal the system</button>
 <button class="text-button" data-explore="soc">Investigate a signal →</button>
+<button id="open-field-station" class="text-button">Open the field station →</button>
 <button id="motion-toggle" class="text-button" aria-pressed="false" aria-controls="garden-world">Pause motion</button>
 </div>
 <div class="hero-note">
@@ -66,6 +74,7 @@
 </div>
 <div class="garden-world" id="garden-world">
 <img class="garden-art" src="assets/garden.svg" alt="An original moonlit garden: a glass greenhouse, an observatory and flowers connected by illuminated network paths.">
+<img class="golden-art" src="assets/garden-golden.svg" alt="The same botanical network at golden hour, with a low amber sun, warm glass and soft sage-green leaves.">
 <span class="world-label label-top">FIG. 01 — A LIVING SYSTEM</span>
 <a class="hotspot observatory" href="#soc">
 <span>01</span> SOC observatory →</a>
@@ -116,13 +125,15 @@
 <section id="about" class="about chapter">
 <div class="chapter-label">01 / THE GARDENER</div>
 <div>
-<h2>Between systems<br>and <em>the people in them.</em>
+<h2>I like getting to<br><em>the bottom of things.</em>
 </h2>
 <div class="about-columns">
-<p>I’m Laleen Salim, a senior at UNC Charlotte, completing a B.S. in Computer Science and a B.A. in Political Science in December 2026.</p>
-<p>My studies bring technical systems into conversation with people, institutions, policy, and risk. This garden is a space for my cybersecurity labs, questions, and work in progress.</p>
+<p>I’m a senior at UNC Charlotte studying Computer Science with a concentration in Cybersecurity and Political Science with a concentration in Security Intelligence. A bit of a mouthful, I know.</p>
+<p>I first became interested in law and policy because I wanted to help people. Studying computers brought me to cybersecurity, where I found a lot to be curious about. When something catches my attention, I like to keep looking, ask questions, and understand what’s really going on.</p>
 </div>
-<p class="annotation">Currently exploring · Security analysis · IAM · Cyber defense · GRC · Cloud security</p>
+<p class="personal-direction">I’m especially interested in the policy side of cyber, and I want to build my technical skills along the way. I’m still exploring where that combination will take me.</p>
+<p class="annotation">OUTSIDE CLASS / Arabic calligraphy, community service, and time with friends.</p>
+<details class="garden-origin"><summary>Why a garden?</summary><p>This garden is a little nod to <cite>The Secret Garden</cite>, one of my favorite childhood books.</p></details>
 </div>
 </section>
 <section id="living-lab" class="living-lab chapter" aria-labelledby="lab-heading">
@@ -317,8 +328,8 @@
 <div class="section-heading">
 <div>
 <div class="chapter-label">04 / FIELDWORK</div>
-<h2>Small labs.<br>
-<em>Deeper questions.</em>
+<h2>Here’s what I’m<br>
+<em>working on.</em>
 </h2>
 </div>
 <p>Three growing investigations into how we detect, grant, and protect.<br>
@@ -335,25 +346,25 @@
 <div class="chapter-label">05 / THE STUDY</div>
 <div class="study-grid">
 <div>
-<h2>Always<br>
-<em>taking root.</em>
+<h2>A few things<br>
+<em>about me.</em>
 </h2>
-<p>A place for the things I’m learning.<br>And the questions still unfolding.</p>
+<p>Education, a little console, and room for the notes I’ll add along the way.</p>
 <details class="education">
 <summary>+ Open the education ledger</summary>
 <div>
 <h3>University of North Carolina at Charlotte</h3>
-<p>B.S. Computer Science<br>B.A. Political Science</p>
+<p>B.S. Computer Science · Cybersecurity concentration<br>B.A. Political Science · Security Intelligence concentration</p>
 <p>Expected graduation: December 2026</p>
 </div>
 </details>
 <details>
 <summary>+ Skills &amp; field notes</summary>
-<p>Skills inventory and field notes are awaiting confirmed content. Project topics appear in the case files; they are not a claim of proficiency.</p>
+<p>I’ll add a skills list and field notes here as the projects take shape. The case files describe what I’m exploring now.</p>
 </details>
 <details id="resume">
 <summary>+ Résumé</summary>
-<p>A résumé will be available here once Laleen adds the reviewed PDF.</p>
+<p>I’ll add my résumé here when it’s ready.</p>
 </details>
 </div>
 <div class="terminal">
@@ -396,8 +407,8 @@
 <section id="build-notebook" class="build-notebook chapter">
 <div>
 <div class="chapter-label">BEHIND THE GLASS</div>
-<h2>Wonder is better<br>
-<em>when you can open it.</em>
+<h2>Curious how<br>
+<em>this works?</em>
 </h2>
 <p>Curious how the garden works? Look at the materials, the math, and the decisions behind the experience.</p>
 </div>
@@ -405,21 +416,22 @@
 </section>
 <section id="contact" class="contact chapter">
 <div class="chapter-label">06 / AN OPEN GATE</div>
-<p class="eyebrow">GROWING TOWARD EARLY-CAREER CYBERSECURITY OPPORTUNITIES</p>
-<h2>Good things start<br>with a <em>connection.</em>
+<p class="eyebrow">EXPLORING EARLY-CAREER CYBERSECURITY</p>
+<h2>Want to<br><em>say hello?</em>
 </h2>
 <div class="contact-links">
 <a href="https://github.com/laleenS" target="_blank" rel="noopener noreferrer">GitHub →</a>
 <span>LinkedIn · Coming soon</span>
-<span>Contact · Details to follow</span>
+<span>Email · Coming soon</span>
 <a href="#resume">Résumé →</a>
 </div>
 </section>
 </main>
 <footer>
 <a class="brand" href="#home">✳︎ ROOT ACCESS</a>
-<span>A little nature. A little network. A lot of curiosity.</span>
+<span>Thanks for spending a little time in my corner of the internet.</span>
 <a href="#home">BACK TO THE GATE ↑</a>
+<svg class="footer-roots" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 75Q180 20 360 65T720 60T1200 72M210 48 250 15M340 60 390 100M650 65 700 22M910 58 965 102"/></svg>
 </footer>
 <dialog id="case-dialog" aria-labelledby="case-title">
 <button class="close" aria-label="Close case file">Close ×</button>
@@ -431,7 +443,7 @@
 <button id="open-guide">Ask the guide</button>
 <button id="dock-journal">Journal <span id="dock-count">0/11</span>
 </button>
-<button id="dock-craft" aria-label="Open build notebook">{ }</button>
+<button id="dock-station" aria-label="Open field station">Desk</button>
 </div>
 <dialog id="drawer-dialog" class="garden-drawer" aria-labelledby="drawer-title">
 <button class="drawer-close close" aria-label="Close exploration drawer">Close ×</button>

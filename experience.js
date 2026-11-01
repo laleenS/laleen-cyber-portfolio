@@ -239,7 +239,7 @@ export function initExperience() {
   document.querySelectorAll('[data-open-drawer]').forEach(button=>button.addEventListener('click',()=>openDrawer(button.dataset.openDrawer,button)));
   $('#open-map').addEventListener('click',event=>openDrawer('map',event.currentTarget));
   for(const id of ['open-journal','dock-journal'])$(`#${id}`).addEventListener('click',event=>openDrawer('journal',event.currentTarget));
-  for(const id of ['open-craft','dock-craft'])$(`#${id}`).addEventListener('click',event=>openDrawer('craft',event.currentTarget));
+  for(const id of ['open-craft'])$(`#${id}`).addEventListener('click',event=>openDrawer('craft',event.currentTarget));
   $('.drawer-close').addEventListener('click',()=>drawer.close());drawer.addEventListener('close',()=>drawerOpener?.focus());
   $('#honeytoken').addEventListener('click',()=>{$('#honey-result').textContent='DEMO ALERT / decoy bloom touched. A honeytoken is a monitored decoy: its use can be a signal worth reviewing. This event stays in this page; no monitoring service was contacted.';$('#honeytoken').classList.add('bloom-alert');discover('honey');});
   for(const milestone of growth){const item=make('article',null,milestone.complete?'growth-item grown':'growth-item');item.append(make('span',milestone.complete?'✳︎':'○','growth-marker'),make('p',milestone.date,'case-number'),make('h3',milestone.title),make('p',milestone.detail));if(milestone.source)item.append(make('code',milestone.source));$('#growth-timeline').append(item);}

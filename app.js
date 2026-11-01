@@ -1,4 +1,6 @@
-import { projects } from './content.js';
+import { initTheme } from './theme.js';
+import { initFieldStationLauncher } from './field-station-launcher.js';
+import { projects, profile } from './content.js';
 import { $, make } from './lib/dom.js';
 import { initExperience, openDrawer } from './experience.js';
 import { initMotion } from './motion.js';
@@ -63,10 +65,10 @@ dialog.addEventListener('click', event => {
 
 const responses = {
   help: 'Commands: help, about, projects, skills, education, contact, clear, whoami, ls, cat about.txt, open soc, open iam, open baseline, open journal, help --curious',
-  about: 'Laleen Salim — UNC Charlotte senior studying Computer Science + Political Science. Expected graduation: December 2026.',
+  about: profile.introduction+' Expected graduation: '+profile.graduation+'.',
   projects: '001 SOC Investigation Lab\n002 IAM Access Review\n003 Security Baseline Checker\nAll are student labs in progress. Try open soc.',
   skills: 'The confirmed skills inventory is awaiting content. Browse case files for project topics.',
-  education: 'UNC Charlotte\nB.S. Computer Science\nB.A. Political Science\nExpected December 2026',
+  education: profile.school+'\n'+profile.degrees.map(degree=>degree.title+' / '+degree.concentration).join('\n')+'\nExpected '+profile.graduation,
   contact: 'GitHub: https://github.com/laleenS\nEmail and LinkedIn await confirmed details.',
   whoami: 'guest — welcome to Laleen’s cyber garden.',
   ls: 'about.txt  projects/  education/  field-notes/',
@@ -106,6 +108,8 @@ $('#cipher-form').addEventListener('submit', event => {
   if (ok) discover('cipher');
 });
 
+initTheme();
+initFieldStationLauncher();
 initSound();
 initJournal();
 initExperience();

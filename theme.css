@@ -1,0 +1,160 @@
+:root {
+  color-scheme: dark;
+  --particle-rgb: 231, 219, 164;
+  --packet-color: #e7dcb6;
+  --ripple-rgb: 180, 211, 201;
+}
+.golden-art { display: none; }
+.theme-toggle {
+  position: fixed;
+  top: 123px;
+  right: 20px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background: var(--bg);
+  color: var(--cream);
+  font: 10px/1.5 var(--font-mono);
+  box-shadow: 0 5px 20px #0000000a;
+}
+.theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.3; }
+.sun-core, .sun-rays { display: none; }
+.golden-art {
+  width: 100%; height: 100%; object-fit: contain;
+  transform-origin: 50% 65%; will-change: transform;
+}
+/* Two lights, one world. The warm mode changes materials as well as the page palette. */
+:root[data-theme='golden'] {
+  color-scheme: light;
+  --bg: #f2e8d8;
+  --cream: #2e3b35;
+  --muted: #58665c;
+  --pink: #925543;
+  --line: #c8bba4;
+  --green: #53683f;
+  --mint: #53683f;
+  --rose: #925543;
+  --ink: #eee1cb;
+  --panel: #e4d5b9;
+  --edge: #b7aa8b;
+  --particle-rgb: 145, 100, 47;
+  --packet-color: #845f31;
+  --ripple-rgb: 93, 124, 110;
+}
+[data-theme='golden'] .garden-art { display: none; }
+[data-theme='golden'] .golden-art { display: block; }
+[data-theme='golden'] .sun-core, [data-theme='golden'] .sun-rays { display: block; }
+[data-theme='golden'] .moon-mark { display: none; }
+[data-theme='golden'] body {
+  background: radial-gradient(ellipse at 90% 0%, #f8dfbb80, transparent 38%), var(--bg);
+}
+[data-theme='golden'] .hero { isolation: isolate; }
+[data-theme='golden'] .hero::before {
+  content: '';
+  position: absolute;
+  inset: -50px 0 0;
+  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(118deg, transparent 47%, #f1cd8f20 49%, #fff8e460 53%, transparent 57%, transparent 65%, #efc78a20 68%, transparent 74%);
+  transform-origin: 80% 0;
+  animation: evening-light 22s ease-in-out infinite alternate;
+}
+[data-theme='golden'] body:has(#motion-toggle[aria-pressed='true']) .hero::before { animation-play-state: paused; }
+[data-theme='golden'] body:has(#garden-world:not(.motion-running)) .hero::before { animation-play-state: paused; }
+[data-theme='golden'] .about { background: linear-gradient(110deg, #d2d6b240, transparent); }
+[data-theme='golden'] .hotspot { background: #f8f0dfeF; border-color: #9f9f79; color: #364835; }
+[data-theme='golden'] .hotspot:hover { background: #e5d8b8; }
+[data-theme='golden'] .system-view .golden-art { filter: saturate(.55) brightness(.97); }
+[data-theme='golden'] .system-overlay { color: #4e705b; }
+[data-theme='golden'] .system-text { fill: #364835; }
+[data-theme='golden'] .system-overlay .trust-boundary { stroke: #925543; }
+[data-theme='golden'] .world-label, [data-theme='golden'] .pond-note { color: #5f6c54; }
+[data-theme='golden'] .sway-leaf { fill: #87965b; stroke: #748658; fill-opacity: .3; }
+[data-theme='golden'] .pond { fill: #6eaa9c; fill-opacity: .2; stroke: #6f9175; }
+[data-theme='golden'] .pond-ring { stroke: #577e72; }
+[data-theme='golden'] .firefly { background: #b28749; box-shadow: 0 0 12px #d8af7c; }
+[data-theme='golden'] .outline-button { border-color: #8b9472; }
+[data-theme='golden'] .outline-button:hover { background: #cad0ae40; }
+[data-theme='golden'] .lab-tabs button { background: #ece2cf; }
+[data-theme='golden'] .lab-tabs button[aria-selected='true'] { background: #d6d8ba; }
+[data-theme='golden'] .lab-panel { background: linear-gradient(145deg, #e7dfc8, #eee4d3); }
+[data-theme='golden'] .evidence-slip { background: #fff8e7; color: #33462e; border-color: #b8b794; }
+[data-theme='golden'] .evidence-slip:hover, [data-theme='golden'] .evidence-slip[aria-pressed='true'] { background: #fffdf2; }
+[data-theme='golden'] .evidence-slip .case-number { color: #51654a; }
+[data-theme='golden'] .evidence-reader { background: #f7efdf; border-color: #aeb295; }
+[data-theme='golden'] .evidence-reader pre, [data-theme='golden'] .craft-entry pre {
+  background: #e9dfca; color: #344d3d; border-color: #899a70;
+}
+[data-theme='golden'] .analyst-notebook { border-color: #9b9e79; background: repeating-linear-gradient(transparent, transparent 26px, #7a805a0a 27px); }
+[data-theme='golden'] .pinned-slip { background: #d4d6b4; color: #344b34; }
+[data-theme='golden'] textarea, [data-theme='golden'] select { background: #f7efdf; border-color: #939c7b; color: #2e3b35; }
+[data-theme='golden'] textarea::placeholder, [data-theme='golden'] input::placeholder { color: #6b7065; opacity: 1; }
+[data-theme='golden'] .assistant-card { background: #e7d6c8; border-color: #b6a18c; }
+[data-theme='golden'] .assistant-card #assistant-correction { color: #33472f; }
+[data-theme='golden'] .permission-door { background: linear-gradient(#c6cda266, #ece4d3); border-color: #9ca17c; }
+[data-theme='golden'] .permission-door.permitted { background: linear-gradient(#b7c79970, #e0e1bf); border-color: #708551; }
+[data-theme='golden'] .permission-door.permitted .door-status { color: #465c33; }
+[data-theme='golden'] .permission-door::after { background: linear-gradient(120deg, #fff5da50, transparent); border-color: #a4ac7d; }
+[data-theme='golden'] .locked .door-symbol { color: #69705d; }
+[data-theme='golden'] .root-diagnostic svg path { stroke: #687e53; }
+[data-theme='golden'] .root-diagnostic circle { fill: #b87460; }
+[data-theme='golden'] .root-diagnostic circle.healthy { fill: #607c41; }
+[data-theme='golden'] .root-diagnostic:has(.healthy) svg path { stroke: #607c41; }
+[data-theme='golden'] .baseline-control, [data-theme='golden'] .identity-drawer { border-color: #b3b797; }
+[data-theme='golden'] .cabinet-object { border-color: #b7b38e; background: radial-gradient(ellipse at 50% 20%, #f9dcac66, transparent 65%); }
+[data-theme='golden'] .cabinet-object:hover { background-color: #e8d7b630; }
+[data-theme='golden'] .terminal { background: #eee1ca; border-color: #9da27e; box-shadow: 12px 12px 0 #d7d6b8; }
+[data-theme='golden'] .terminal input { color: #2e3b35; }
+[data-theme='golden'] dialog { background: #f2e8d8; border-color: #8c9772; }
+[data-theme='golden'] dialog p { color: var(--muted); }
+[data-theme='golden'] dialog .case-status { color: var(--green); }
+[data-theme='golden'] dialog::backdrop { background: #514b3ca8; }
+[data-theme='golden'] .garden-drawer .hash-value { background: #e8dcc4; }
+[data-theme='golden'] .packet-track span { background: #e3dcc3; border-color: #9ba67c; }
+[data-theme='golden'] .packet-track span.active { background: #c5d09f; color: #2e3b35; }
+[data-theme='golden'] .packet-track::after { background: #ae763c; box-shadow: 0 0 14px #c7955999; }
+[data-theme='golden'] #guide-question { background: #fcf6e9; }
+[data-theme='golden'] .explorer-dock { background: #f8f0dff0; border-color: #999f7e; box-shadow: 0 12px 40px #7b623820; }
+[data-theme='golden'] .explorer-dock>button, [data-theme='golden'] .explorer-dock>a { border-color: #c8bba4; }
+[data-theme='golden'] .growth { background: linear-gradient(120deg, #cbd3ab33, transparent); }
+[data-theme='golden'] .project::before { background: linear-gradient(90deg, #c3cc9f44, transparent); }
+[data-theme='golden'] .project button { border-color: #85936c; }
+[data-theme='golden'] .project button:hover { background: #d9dcbd; }
+[data-theme='golden'] .growth-item { border-color: #9fa882; }
+@keyframes evening-light { from { transform: rotate(-2deg) translateX(-10px); opacity: .65; } to { transform: rotate(2deg) translateX(12px); opacity: 1; } }
+@media(max-width:700px) {
+  .theme-toggle { top: auto; bottom: 85px; right: 13px; padding: 9px 12px; font-size: 9px; }
+  [data-theme='golden'] .hero::before { animation: none; opacity: .65; }
+  [data-theme='golden'] .terminal { box-shadow: 6px 6px 0 #d7d6b8; }
+}
+@media(prefers-reduced-motion:reduce) {
+  [data-theme='golden'] .hero::before { animation: none; }
+  .golden-art { transform: none!important; }
+}
+/* Garden HUD: the controls float over the same environment rather than framing it as a separate page. */
+header { border-bottom: 0; background: transparent; position: relative; z-index: 7; }
+header nav { gap: 24px; }
+header nav a { position: relative; }
+header nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 1px; background: var(--pink); transform: scaleX(0); transform-origin: left; transition: transform .2s; }
+header nav a:hover::after, header nav a:focus-visible::after { transform: scaleX(1); }
+.hero-bottom { border-top: 0; opacity: .85; }
+.chapter { border-bottom: 0; }
+footer { position: relative; isolation: isolate; background: transparent; min-height: 175px; }
+.footer-roots { position: absolute; width: 100%; height: 110px; left: 0; bottom: 0; z-index: -1; fill: none; stroke: var(--green); stroke-width: .6; opacity: .28; pointer-events: none; }
+h1, h2 { letter-spacing: -1.5px; }
+.hero-copy .intro { font-size: 14px; }
+@media(max-width:1000px) { header nav { gap: 15px; } }
+@media(max-width:700px) { header nav { gap: 10px; } h1,h2 { letter-spacing: -1px; } }
+.personal-direction { max-width: 740px; color: var(--muted); font-size: 14px; margin: 20px 0; }
+.garden-origin { max-width: 740px; border-bottom: 0; padding: 10px 0; }
+.garden-origin p { color: var(--muted); font-size: 13px; }
+.garden-origin summary { font: italic 20px/1.6 var(--font-display); }
+/* Keep the drifting light inside the scene's paint bounds on narrow tablets. */
+[data-theme='golden'] .hero { overflow: clip; }
+[data-theme='golden'] .hotspot { box-shadow: 0 6px 20px #8a6b3020; }
+html { scroll-padding-bottom: 150px; }

@@ -1,9 +1,22 @@
 // Confirmed personal facts and editable project copy live here. Add URLs only after review.
 export const profile = {
+  name: 'Laleen Salim',
+  school: 'UNC Charlotte',
+  graduation: 'December 2026',
+  degrees: [
+    {title: 'B.S. Computer Science', concentration: 'Cybersecurity'},
+    {title: 'B.A. Political Science', concentration: 'Security Intelligence'},
+  ],
+  introduction: 'I’m a senior at UNC Charlotte studying Computer Science with a concentration in Cybersecurity and Political Science with a concentration in Security Intelligence. A bit of a mouthful, I know.',
+  story: 'I first became interested in law and policy because I wanted to help people. Studying computers brought me to cybersecurity, where I found a lot to be curious about. When something catches my attention, I like to keep looking, ask questions, and understand what’s really going on.',
+  direction: 'I’m especially interested in the policy side of cyber, and I want to build my technical skills along the way. I’m still exploring where that combination will take me.',
+  outsideClass: 'Arabic calligraphy, community service, and time with friends.',
+  gardenNote: 'This garden is a little nod to The Secret Garden, one of my favorite childhood books.',
   github: 'https://github.com/laleenS',
   email: null, linkedin: null, resume: null,
   skills: [], fieldNotes: [],
 };
+
 export const projects = [
   {slug:'soc', number:'001', symbol:'✧', title:'SOC Investigation Lab', subtitle:'The observatory', summary:'Following the signals. Exploring how authentication events become an investigation.', status:'Student lab · In progress · Synthetic data', problem:'How can unusual authentication patterns be investigated without confusing every anomaly with an incident?', work:'The planned lab uses synthetic security logs and Python to explore repeated failed logins, a success after failures, off-hours authentication, unfamiliar source IPs, and encoded PowerShell. Implementation evidence and completed findings have not yet been supplied.', tools:['Python (planned lab tooling)', 'Synthetic authentication logs'], skills:['Detection reasoning', 'Evidence review', 'False-positive analysis'], findings:'No verified findings published yet. This case file is prepared for investigation notes, supporting evidence, and analyst decisions.', learning:'Learning notes will be added after the lab is documented.', future:'Windows Event Logs, Sysmon, Splunk integration, and MITRE ATT&CK mapping are planned; they are not presented as complete.', github:null, screenshots:[], flow:['Telemetry', 'Detection', 'Investigation', 'Evidence', 'Analyst decision']},
   {slug:'iam', number:'002', symbol:'⚿', title:'IAM Access Review', subtitle:'The access greenhouse', summary:'The right key, for the right person. Exploring who should have access to what.', status:'Student lab · In progress', problem:'How can an access review identify permissions that no longer match someone’s role or employment status?', work:'The project scope includes joiner / mover / leaver scenarios, terminated users, expired contractors, privilege creep, privileged access, MFA, stale accounts, separation of duties, and access exceptions. Completed reviews have not yet been supplied.', tools:['Review dataset and tooling to be confirmed'], skills:['Least privilege', 'Access certification', 'Identity lifecycle'], findings:'No completed access decisions published yet. Future examples will be clearly labeled as synthetic lab scenarios.', learning:'Learning notes will be added after the review is documented.', future:'Add a documented review dataset, access decisions with rationale, and an exceptions register.', github:null, screenshots:[], flow:['Identity', 'Entitlement', 'Review', 'Exception', 'Certification']},

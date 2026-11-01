@@ -13,7 +13,7 @@ npm test
 npm run dev
 ```
 
-Open localhost on port 5173 in your browser. Stop the server with Control-C. There is no build step, package dependency, external font, or required API key. The included server is for local development; production hosting is a separate decision.
+Open localhost on port 5173 in your browser. Stop the server with Control-C. There is no build step, package dependency, external font request, or required API key. The included server is for local development; production hosting is a separate decision.
 
 ## Explore the experience
 
@@ -115,8 +115,20 @@ These are not physical-device Safari/Android tests or a complete screen-reader/c
 
 Native headings, links, details and dialogs; keyboard-operable tabs and visible focus; direct navigation; non-drag alternatives; text equivalents for security outcomes; motion pause and OS reduced-motion support. Mobile gives the garden a prominent vertical scene and uses tap-friendly controls. Core introduction, education, project summaries and contact placeholders remain accessible without JavaScript; interactive demos require JavaScript.
 
-Zero package dependencies. The hero caps particles and pixel density, uses elapsed-time animation, and stops when hidden or offscreen. There is no WebGL, giant animation framework, third-party tracking, account, contact backend or required network asset. Optional discoveries alone use local storage; analyst notes, access reviews and guide conversations are not persisted.
+Zero package dependencies. The hero caps particles and pixel density, uses elapsed-time animation, and stops when hidden or offscreen. There is no WebGL, giant animation framework, third-party tracking, account, contact backend or required network asset. Discoveries and the explicit lighting preference use local storage; analyst notes, access reviews and guide conversations are not persisted.
 
 The server keeps provider keys out of the browser, denies hidden paths, limits served file types and sends CSP, referrer, MIME and permission headers. User-facing text uses safe DOM creation. No claim of perfect security is made.
 
 Research and original-design decisions are recorded in `docs/DESIGN.md`. Nothing has been deployed, published, pushed or connected to a paid service. The latest user instruction authorizes a local commit after validation.
+
+## Two lights and the field station
+
+The fixed control on the right switches between **Moonlit** and **Golden hour**. The choice persists locally when browser storage is available. Golden hour has its own original SVG sun/material treatment, warm page palette and gentle light rays. Both modes retain the same project evidence and navigation.
+
+**Open the field station** in the hero, or **Desk** in the floating dock, opens an optional desktop-style scene. It has original animated constellation wallpaper, a movable/expandable/minimizable window, and direct Field files / About / Console / Contact apps. On desktop, drag the window title or focus it and use arrow keys; Home recenters it. Mobile uses a fixed pane. A separate wallpaper pause and reduced-motion support keep the view usable. No OS emulator or virtual filesystem is loaded. The module loads only when requested.
+
+Typography now uses self-hosted Latin subsets of Linden Hill (display regular/italic) and Commissioner (body regular/semibold), renamed Garden Oldstyle and Garden Humanist. Four WOFF2 files total about 78 KB; no external font request is required. Licenses are in `assets/fonts/`. `tools/subset-fonts.py` reproduces the subsets from locally supplied originals and requires temporary fonttools/brotli tooling, not an application dependency.
+
+Run the new browser suite with `python3 tests/theme_station_smoke.py` after starting the server. It covers both themes, storage denial, font loading, seven layout widths, draggable/keyboard window controls, apps, safe console input, theme switching inside the scene and reduced motion.
+
+The detailed four-part concept/engine/puzzle/UX blueprint is in [docs/IMMERSIVE-BLUEPRINT.md](docs/IMMERSIVE-BLUEPRINT.md). Personal-writing questions are tracked in [docs/CONTENT-INTERVIEW.md](docs/CONTENT-INTERVIEW.md); the introduction now adapts Laleen’s own interview answers. Project evidence and contact details remain pending. Site research distinguishes direct public GitHub documentation from indirect references. Access to the three live inspiration websites remains subject to the environment network settings.

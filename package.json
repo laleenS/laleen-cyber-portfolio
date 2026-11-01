@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "check": "node --check app.js && node --check content.js && node --check experience.js && node --check motion.js && node --check sound.js && node --check journal.js && node --check guide.js && node --check garden-data.js && node --check knowledge.js && node --check lib/dom.js && node --check lib/guide-server.mjs && node --check server.mjs",
+    "check": "node --check app.js && node --check content.js && node --check experience.js && node --check motion.js && node --check sound.js && node --check journal.js && node --check guide.js && node --check garden-data.js && node --check knowledge.js && node --check lib/dom.js && node --check lib/guide-server.mjs && node --check server.mjs && node --check theme-init.js && node --check theme.js && node --check field-station-launcher.js && node --check field-station.js",
     "test": "node --test tests/*.test.mjs"
   },
   "engines": {
