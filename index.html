@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laleen Salim — Root Access</title>
+<meta name="description" content="A cyber garden by Laleen Salim. Computer Science, Political Science, and a growing practice in cybersecurity.">
+<meta property="og:title" content="Root Access — Laleen Salim">
+<meta property="og:description" content="A computer network that has grown into a garden.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/garden.svg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="experience.css">
+<script src="app.js" type="module">
+</script>
+</head>
+<body>
+<a class="skip" href="#about">Skip to content</a>
+<header>
+<a class="brand" href="#home">
+<span class="brand-icon">✳︎</span> LALEEN SALIM <span class="brand-sub">A GROWING PRACTICE</span>
+</a>
+<nav aria-label="Main navigation">
+<a href="#about">The gardener</a>
+<a href="#projects">Fieldwork</a>
+<a href="#living-lab">Explore</a>
+<a href="#archive">Archive</a>
+<a href="#contact">Say hello <span>→</span>
+</a>
+</nav>
+<div class="sensory-controls">
+<button id="sound" class="small-button" aria-pressed="false">Sound off</button>
+<details class="sound-settings">
+<summary aria-label="Sound volume settings">≋</summary>
+<label for="volume">Volume <input id="volume" type="range" min="0" max="70" value="30">
+</label>
+</details>
+</div>
+</header>
+<div id="garden-announcement" class="sr-only" role="status">
+</div>
+<main>
+<section id="home" class="hero" aria-labelledby="title">
+<div class="hero-copy">
+<div class="eyebrow">
+<span class="status-dot">
+</span> PERSONAL PORTFOLIO / VOL. 01</div>
+<h1 id="title">Root<br>
+<em>access.</em>
+<span class="title-star" aria-hidden="true">✳︎</span>
+</h1>
+<p class="hero-line">A curious mind.<br>A growing cyber garden.</p>
+<p class="intro">I’m Laleen — studying Computer Science &amp; Political Science, and exploring the systems that connect and protect us.</p>
+<a class="enter" href="#living-lab">Enter the garden <span>↓</span>
+</a>
+<div class="hero-tools">
+<button id="lens-toggle" class="outline-button" aria-pressed="false" aria-controls="garden-world">◇ Reveal the system</button>
+<button class="text-button" data-explore="soc">Investigate a signal →</button>
+<button id="motion-toggle" class="text-button" aria-pressed="false" aria-controls="garden-world">Pause motion</button>
+</div>
+<div class="hero-note">
+<span>UNC CHARLOTTE</span>
+<span>CLASS OF DEC. 2026</span>
+</div>
+</div>
+<div class="garden-world" id="garden-world">
+<img class="garden-art" src="assets/garden.svg" alt="An original moonlit garden: a glass greenhouse, an observatory and flowers connected by illuminated network paths.">
+<span class="world-label label-top">FIG. 01 — A LIVING SYSTEM</span>
+<a class="hotspot observatory" href="#soc">
+<span>01</span> SOC observatory →</a>
+<a class="hotspot greenhouse" href="#iam">
+<span>02</span> The access greenhouse →</a>
+<a class="hotspot baseline" href="#baseline">
+<span>03</span> System roots →</a>
+<span class="world-label label-bottom">EVERY CONNECTION TELLS A STORY.</span>
+<svg class="system-overlay" viewBox="0 0 850 850" aria-hidden="true">
+<g fill="none" stroke="currentColor">
+<path class="network-stream" d="M240 410 Q320 260 540 410 T690 579 M240 410 Q230 600 400 595 L518 697 M540 410 400 595 690 579"/>
+<path class="trust-boundary" d="M360 275 Q275 390 350 520 T410 730"/>
+</g>
+<g fill="currentColor">
+<circle cx="240" cy="410" r="7"/>
+<circle cx="540" cy="410" r="7"/>
+<circle cx="400" cy="595" r="7"/>
+<circle cx="690" cy="579" r="7"/>
+</g>
+<g class="system-text">
+<text x="160" y="340">SENSOR / AUTH EVENTS</text>
+<text x="490" y="290">POLICY ENGINE</text>
+<text x="370" y="665">CONFIGURATION</text>
+<text x="255" y="240">TRUST BOUNDARY</text>
+</g>
+</svg>
+<div class="lens-caption" aria-live="polite">Botanical view · a network beneath the leaves</div>
+<svg class="foreground-botanical" viewBox="0 0 850 850" aria-hidden="true">
+<ellipse class="pond" cx="530" cy="680" rx="71" ry="22"/>
+<ellipse class="pond-ring" cx="530" cy="680" rx="58" ry="15"/>
+<g class="sway-leaf leaf-left">
+<path d="M130 730Q90 615 152 541M130 694Q60 675 65 629Q116 620 130 694M123 655Q164 606 184 626Q182 662 123 655M126 614Q78 594 98 562Q134 570 126 614"/>
+</g>
+<g class="sway-leaf leaf-right">
+<path d="M735 677Q785 569 740 485M753 616Q809 600 807 552Q759 549 753 616M764 569Q708 539 710 511Q750 510 764 569"/>
+</g>
+</svg>
+<span class="pond-note">A LITTLE REFLECTION / MOVE OR TAP</span>
+<div class="firefly" aria-hidden="true">
+</div>
+</div>
+<div class="hero-bottom">
+<span>SECURITY × SYSTEMS × THE HUMAN SIDE</span>
+<a href="#about">FOLLOW THE ROOTS ↓</a>
+<span>EST. 2026</span>
+</div>
+</section>
+<section id="about" class="about chapter">
+<div class="chapter-label">01 / THE GARDENER</div>
+<div>
+<h2>Between systems<br>and <em>the people in them.</em>
+</h2>
+<div class="about-columns">
+<p>I’m Laleen Salim, a senior at UNC Charlotte, completing a B.S. in Computer Science and a B.A. in Political Science in December 2026.</p>
+<p>My studies bring technical systems into conversation with people, institutions, policy, and risk. This garden is a space for my cybersecurity labs, questions, and work in progress.</p>
+</div>
+<p class="annotation">Currently exploring · Security analysis · IAM · Cyber defense · GRC · Cloud security</p>
+</div>
+</section>
+<section id="living-lab" class="living-lab chapter" aria-labelledby="lab-heading">
+  <div class="section-heading">
+<div>
+<div class="chapter-label">02 / THE LIVING SYSTEM</div>
+<h2 id="lab-heading">Every signal has<br>
+<em>a story beneath it.</em>
+</h2>
+</div>
+<p>A small world with real security principles.<br>
+<span class="muted">Fictional teaching scenarios. No live systems.</span>
+</p>
+</div>
+  <div class="lab-tabs" role="tablist" aria-label="Choose a garden station">
+<button id="tab-soc" role="tab" aria-selected="true" aria-controls="panel-soc" data-station="soc">01 <span>Observatory</span>
+<small>Investigate</small>
+</button>
+<button id="tab-iam" role="tab" aria-selected="false" aria-controls="panel-iam" tabindex="-1" data-station="iam">02 <span>Greenhouse</span>
+<small>Review access</small>
+</button>
+<button id="tab-baseline" role="tab" aria-selected="false" aria-controls="panel-baseline" tabindex="-1" data-station="baseline">03 <span>System roots</span>
+<small>Check a baseline</small>
+</button>
+</div>
+  <div id="panel-soc" role="tabpanel" aria-labelledby="tab-soc" class="lab-panel">
+    <div class="station-heading">
+<div>
+<span class="case-number">SIMULATION 001 / THE NIGHT SHIFT</span>
+<h3>The flower that woke at 2 a.m.</h3>
+</div>
+<span class="live-label">
+<span class="status-dot">
+</span> SYNTHETIC SIGNAL</span>
+</div>
+    <p class="station-intro">A service account has a burst of failed logins, then a success. Follow the evidence before deciding what it means.</p>
+    <div class="evidence-desk">
+<div class="evidence-list">
+<h4>01 / Collect context</h4>
+<div id="evidence-buttons">
+</div>
+<p class="tiny">Select a slip to inspect it. Dragging is optional.</p>
+</div>
+<article id="evidence-reader" class="evidence-reader" aria-live="polite">
+</article>
+<aside class="analyst-notebook">
+<h4>02 / Connect the evidence</h4>
+<p>Pin the observed pattern and its possible explanation. Drag slips here, or use “Pin evidence”.</p>
+<div id="evidence-pins" aria-label="Pinned evidence">
+</div>
+<div id="connection-reasoning" class="reasoning-note" role="status">One signal is a starting point, not a verdict.</div>
+</aside>
+</div>
+    <div class="investigation-bottom">
+<div class="decision-desk">
+<h4>03 / Record an analyst decision</h4>
+<label for="analyst-reason">What supports your decision?</label>
+<textarea id="analyst-reason" maxlength="500" rows="2" placeholder="For example: verify the change owner and script hash before closure.">
+</textarea>
+<div class="button-row">
+<button class="outline-button" data-verdict="escalate">Escalate for investigation</button>
+<button class="outline-button" data-verdict="verify">Verify maintenance first</button>
+<button class="outline-button" data-verdict="close">Close as benign</button>
+</div>
+<p id="verdict-result" role="status">Review all three evidence slips before recording a decision.</p>
+<button id="reset-incident" class="text-button">Reset this investigation</button>
+</div>
+<aside class="assistant-card">
+<span class="case-number">ASSISTANT UNDER REVIEW</span>
+<h4>“Encoded PowerShell means this is malicious.”</h4>
+<p>A deliberately flawed, scripted assistant hypothesis. Test the claim against the evidence.</p>
+<button id="challenge-assistant" class="text-button">Challenge this conclusion →</button>
+<p id="assistant-correction" role="status">
+</p>
+</aside>
+</div>
+  </div>
+  <div id="panel-iam" role="tabpanel" aria-labelledby="tab-iam" class="lab-panel" hidden>
+    <div class="station-heading">
+<div>
+<span class="case-number">SIMULATION 002 / THE KEY ARCHIVE</span>
+<h3>Who belongs behind this door?</h3>
+</div>
+<span class="live-label">LEAST PRIVILEGE</span>
+</div>
+<p class="station-intro">Choose a fictional identity. Their keys light up the doors they can currently open. Review whether those permissions still belong.</p>
+    <div class="iam-scene">
+<div class="identity-drawer">
+<label for="identity">Identity under review</label>
+<select id="identity">
+</select>
+<p id="identity-note">
+</p>
+<label class="toggle-label">
+<input type="checkbox" id="role-move"> Simulate a move to a read-only role</label>
+<p class="tiny">A role change does not automatically remove old entitlements.</p>
+<label for="access-rationale">Review rationale</label>
+<textarea id="access-rationale" rows="2" maxlength="300" placeholder="Explain the business need or lifecycle change.">
+</textarea>
+</div>
+<div>
+<div id="permission-doors" class="permission-doors">
+</div>
+<div class="button-row">
+<button id="review-access" class="outline-button">Apply least-privilege review</button>
+<button id="access-exception" class="text-button">Record a 24-hour exception</button>
+<button id="reset-access" class="text-button">Reset identity</button>
+</div>
+<p id="access-result" role="status">MFA strengthens authentication; it does not make excess permissions appropriate.</p>
+<ol id="access-ledger" class="access-ledger" aria-label="Access review decisions">
+</ol>
+</div>
+</div>
+  </div>
+  <div id="panel-baseline" role="tabpanel" aria-labelledby="tab-baseline" class="lab-panel" hidden>
+    <div class="station-heading">
+<div>
+<span class="case-number">SIMULATION 003 / ROOT HEALTH</span>
+<h3>Good care starts underneath.</h3>
+</div>
+<span class="live-label">CONFIGURATION / NOT A LIVE SCAN</span>
+</div>
+<p class="station-intro">Change this fictional host’s configuration, then compare it with an explicit teaching baseline. A failed check identifies a mismatch, not proof of compromise.</p>
+    <div class="baseline-scene">
+<div id="baseline-controls">
+</div>
+<div class="root-diagnostic">
+<svg viewBox="0 0 400 220" aria-hidden="true">
+<path d="M200 10V85M200 50Q100 20 80 65M200 55Q280 5 330 65M200 85 100 140 60 205M100 140 165 200M200 85 300 140 345 205M300 140 240 200M200 85V210"/>
+<g id="root-lights">
+<circle cx="60" cy="205" r="7"/>
+<circle cx="165" cy="200" r="7"/>
+<circle cx="240" cy="200" r="7"/>
+<circle cx="345" cy="205" r="7"/>
+</g>
+</svg>
+<div class="button-row">
+<button id="run-baseline" class="outline-button">Compare with baseline</button>
+<button id="reset-baseline" class="text-button">Load risky sample</button>
+</div>
+<div id="baseline-results" role="status">Four explicit checks. No claims about a real host.</div>
+</div>
+</div>
+  </div>
+  <div class="lab-footnote">
+<span>THESE DEMOS TEACH CONCEPTS. PROJECT EVIDENCE LIVES IN THE CASE FILES BELOW.</span>
+<button class="text-button" data-open-drawer="packet">Follow a packet →</button>
+</div>
+</section>
+<section id="curiosity" class="curiosity chapter" aria-labelledby="curiosity-heading">
+<div class="section-heading">
+<div>
+<div class="chapter-label">03 / THE CURIOSITY CABINET</div>
+<h2 id="curiosity-heading">For the ones who<br>
+<em>look a little closer.</em>
+</h2>
+</div>
+<p>Small discoveries, no locked content.<br>Everything important has a direct path.</p>
+</div>
+<div class="cabinet-grid">
+<button data-open-drawer="packet" class="cabinet-object">
+<span class="object-art packet-art" aria-hidden="true">· · ◇ · ·</span>
+<span class="case-number">01 / FOLLOW A FIREFLY</span>
+<strong>A request crosses the garden.</strong>
+<span>Authentication, authorization &amp; trust →</span>
+</button>
+<button data-open-drawer="integrity" class="cabinet-object">
+<span class="object-art" aria-hidden="true">{ ✳︎ }</span>
+<span class="case-number">02 / THE SPECIMEN DRAWER</span>
+<strong>Same label. Different contents.</strong>
+<span>Fingerprints, encoding &amp; integrity →</span>
+</button>
+<button id="honeytoken" class="cabinet-object">
+<span class="object-art honey-art" aria-hidden="true">❋</span>
+<span class="case-number">03 / A DECOY BLOOM</span>
+<strong>This flower is a honeytoken.</strong>
+<span>Touch to generate a local demo alert →</span>
+</button>
+</div>
+<p id="honey-result" role="status">
+</p>
+<div class="journal-preview">
+<div>
+<span class="case-number">YOUR FIELD JOURNAL</span>
+<p>
+<span id="discovery-count">0</span> of 11 small discoveries. Saved only in this browser.</p>
+</div>
+<button id="open-journal" class="outline-button">Open discoveries →</button>
+</div>
+</section>
+<section id="projects" class="fieldwork chapter">
+<div class="section-heading">
+<div>
+<div class="chapter-label">04 / FIELDWORK</div>
+<h2>Small labs.<br>
+<em>Deeper questions.</em>
+</h2>
+</div>
+<p>Three growing investigations into how we detect, grant, and protect.<br>
+<span class="muted">Student labs · Work in progress</span>
+</p>
+</div>
+<div id="project-list">
+</div>
+<noscript>
+<p>JavaScript opens interactive case files. Project summaries: SOC Investigation Lab explores synthetic authentication events; IAM Access Review explores identity lifecycle and permissions; Security Baseline Checker explores secure configuration. All are student projects in progress; completed results are not yet supplied.</p>
+</noscript>
+</section>
+<section id="archive" class="archive chapter">
+<div class="chapter-label">05 / THE STUDY</div>
+<div class="study-grid">
+<div>
+<h2>Always<br>
+<em>taking root.</em>
+</h2>
+<p>A place for the things I’m learning.<br>And the questions still unfolding.</p>
+<details class="education">
+<summary>+ Open the education ledger</summary>
+<div>
+<h3>University of North Carolina at Charlotte</h3>
+<p>B.S. Computer Science<br>B.A. Political Science</p>
+<p>Expected graduation: December 2026</p>
+</div>
+</details>
+<details>
+<summary>+ Skills &amp; field notes</summary>
+<p>Skills inventory and field notes are awaiting confirmed content. Project topics appear in the case files; they are not a claim of proficiency.</p>
+</details>
+<details id="resume">
+<summary>+ Résumé</summary>
+<p>A résumé will be available here once Laleen adds the reviewed PDF.</p>
+</details>
+</div>
+<div class="terminal">
+<div class="terminal-bar">
+<span>✳︎ GARDEN CONSOLE</span>
+<span>LOCAL / SIMULATED</span>
+</div>
+<div id="terminal-output" aria-label="Garden console output" role="log" aria-live="polite">
+<p>Welcome, curious visitor.</p>
+<p>This is a little window into the garden.<br>Type help to find your way.</p>
+</div>
+<form id="terminal-form">
+<label for="command">guest@root:~ $</label>
+<input id="command" name="command" maxlength="80" autocomplete="off" spellcheck="false" aria-label="Garden console command">
+<button aria-label="Run command">↵</button>
+</form>
+<details class="secret">
+<summary>A small secret, if you like puzzles →</summary>
+<p>Caesar left a note: URRW. Shift each letter back three places.</p>
+<form id="cipher-form">
+<label for="cipher">Decoded word</label>
+<input id="cipher" maxlength="20" autocomplete="off">
+<button>Check</button>
+</form>
+<p id="cipher-result" role="status">
+</p>
+</details>
+</div>
+</div>
+</section>
+<section id="growth" class="growth chapter">
+<div class="chapter-label">A GARDEN THAT GROWS WITH THE WORK</div>
+<h2>Evidence becomes<br>
+<em>new branches.</em>
+</h2>
+<div id="growth-timeline">
+</div>
+<p class="tiny">This timeline reflects implemented portfolio features. New lab growth is added only when reviewed evidence is published.</p>
+</section>
+<section id="build-notebook" class="build-notebook chapter">
+<div>
+<div class="chapter-label">BEHIND THE GLASS</div>
+<h2>Wonder is better<br>
+<em>when you can open it.</em>
+</h2>
+<p>Curious how the garden works? Look at the materials, the math, and the decisions behind the experience.</p>
+</div>
+<button id="open-craft" class="outline-button">Open the build notebook →</button>
+</section>
+<section id="contact" class="contact chapter">
+<div class="chapter-label">06 / AN OPEN GATE</div>
+<p class="eyebrow">GROWING TOWARD EARLY-CAREER CYBERSECURITY OPPORTUNITIES</p>
+<h2>Good things start<br>with a <em>connection.</em>
+</h2>
+<div class="contact-links">
+<a href="https://github.com/laleenS" target="_blank" rel="noopener noreferrer">GitHub →</a>
+<span>LinkedIn · Coming soon</span>
+<span>Contact · Details to follow</span>
+<a href="#resume">Résumé →</a>
+</div>
+</section>
+</main>
+<footer>
+<a class="brand" href="#home">✳︎ ROOT ACCESS</a>
+<span>A little nature. A little network. A lot of curiosity.</span>
+<a href="#home">BACK TO THE GATE ↑</a>
+</footer>
+<dialog id="case-dialog" aria-labelledby="case-title">
+<button class="close" aria-label="Close case file">Close ×</button>
+<div id="case-content">
+</div>
+</dialog>
+<div class="explorer-dock" aria-label="Garden tools">
+<button id="open-map">Map</button>
+<button id="open-guide">Ask the guide</button>
+<button id="dock-journal">Journal <span id="dock-count">0/11</span>
+</button>
+<button id="dock-craft" aria-label="Open build notebook">{ }</button>
+</div>
+<dialog id="drawer-dialog" class="garden-drawer" aria-labelledby="drawer-title">
+<button class="drawer-close close" aria-label="Close exploration drawer">Close ×</button>
+<div id="drawer-content">
+</div>
+</dialog>
+<dialog id="guide-dialog" class="guide-dialog" aria-labelledby="guide-title">
+<button class="guide-close close" aria-label="Close garden guide">Close ×</button>
+<span class="case-number">THE GARDEN KEEPER</span>
+<h2 id="guide-title">Ask. Trace. <em>Verify.</em>
+</h2>
+<p id="guide-mode" class="tiny">Local cited guide · no generative model · no question leaves your browser</p>
+<div class="guide-prompts">
+<button data-question="What has Laleen actually built?">What’s actually built?</button>
+<button data-question="Which project relates to IAM?">Show me IAM.</button>
+<button data-question="Is Splunk complete?">Is Splunk complete?</button>
+</div>
+<div id="guide-log" aria-label="Guide conversation" role="log" aria-live="polite">
+<p class="guide-welcome">I can point to what this portfolio says, and tell you what it doesn’t. Every answer includes its sources.</p>
+</div>
+<form id="guide-form">
+<label for="guide-question">Your question about the portfolio</label>
+<div class="guide-input-row">
+<input id="guide-question" maxlength="400" required autocomplete="off" placeholder="What is planned, and what is complete?">
+<button class="outline-button">Ask →</button>
+</div>
+</form>
+<p class="tiny">No chat history is saved. AI mode, if enabled by the site owner, sends your question and public portfolio context to OpenAI; never enter private information.</p>
+</dialog>
+<!-- Under the soil: the console accepts `cat seed.txt`. A harmless clue, never a credential. -->
+</body>
+</html>
