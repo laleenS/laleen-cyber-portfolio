@@ -83,12 +83,22 @@
   --grass: #708f58;
   --firefly: #fff4cf;
   --firefly-amount: 0.45;
+  --stone-light: #eadbc0;
+  --hedge-base: #4f6b42;
+  --hedge-1: #5f7d4f;
+  --hedge-2: #6f8e5a;
+  --hedge-3: #86a26b;
+  --hedge-rose-pink: #e7a9ad;
+  --hedge-rose-cream: #f6e8cf;
+  --ray: rgba(255, 238, 196, 0.55);
+  --grain: 0.22;
 
   --font-display: 'Garden Oldstyle', Georgia, serif;
   --font-body: 'Garden Humanist', system-ui, sans-serif;
   --font-code: 'Courier New', monospace;
 
   --page-width: 40rem;  /* how wide the text column can get */
+  --nav-h: 3.6rem;      /* height of the top menu (the gate fits under it) */
 }
 
 /* NIGHT: the same names, darker values. theme.js turns this on. */
@@ -119,6 +129,15 @@
   --grass: #2f5a41;
   --firefly: #ffe9a3;
   --firefly-amount: 1;
+  --stone-light: #5d6480;
+  --hedge-base: #0f1d16;
+  --hedge-1: #152a1e;
+  --hedge-2: #1c3627;
+  --hedge-3: #264632;
+  --hedge-rose-pink: #7d5468;
+  --hedge-rose-cream: #8c8270;
+  --ray: rgba(200, 214, 255, 0.4);
+  --grain: 0.3;
 }
 
 
@@ -160,47 +179,127 @@ a:hover {
 /* 4. THE GARDEN GATE (artwork that opens as you scroll) ---------
    gate.js sets --p from 0 (closed) to 1 (walked through).
    Everything below is worked out from --p:
-     --unlock  0 to 1 while the padlock opens    (first 12% of the scroll)
-     --open    0 to 1 while the doors swing      (12% to 62%)
-     --through 0 to 1 while you move into the arch (45% to 100%)  */
+     --unlock  0 to 1 while the padlock opens      (first 8% of the scroll)
+     --open    0 to 1 while the doors swing        (8% to 53%)
+     --through 0 to 1 while you move into the arch (35% to 100%)  */
 
 .gate-scene {
   --p: 0;
-  --unlock: clamp(0, calc(var(--p) / 0.12), 1);
-  --open: clamp(0, calc((var(--p) - 0.12) / 0.5), 1);
-  --through: clamp(0, calc((var(--p) - 0.45) / 0.55), 1);
+  --unlock: clamp(0, calc(var(--p) / 0.08), 1);
+  --open: clamp(0, calc((var(--p) - 0.08) / 0.45), 1);
+  --through: clamp(0, calc((var(--p) - 0.35) / 0.65), 1);
   position: relative;
   height: 100svh;                 /* without gate.js: one screen, gate closed */
 }
 
 /* With gate.js running, the area is taller, so scrolling has room to open it */
 .gate-scene.is-scroll-driven {
-  height: 260svh;
+  height: 170svh;                 /* shorter = less scrolling to open it */
 }
 
 /* The stage stays pinned to the screen while you scroll through the area */
 .gate-stage {
   position: sticky;
-  top: 0;
-  height: 100svh;
+  top: var(--nav-h);              /* sits right under the top menu */
+  height: calc(100svh - var(--nav-h));
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 3rem;              /* room for the top menu */
+  justify-content: space-between; /* name at the top, gate standing on the bottom */
+  padding-top: 1.5rem;
   background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom) 75%);
   /* fade the whole stage out at the very end, so the page takes over */
-  opacity: calc(1 - clamp(0, calc((var(--p) - 0.8) / 0.2), 1));
+  opacity: calc(1 - clamp(0, calc((var(--p) - 0.78) / 0.22), 1));
 }
 
 /* The artwork box keeps the drawing's shape (400 wide by 560 tall) */
 .gate-box {
   position: relative;
-  height: min(78svh, calc(92vw * 1.4));
+  height: min(calc(100svh - var(--nav-h) - 8rem), calc(96vw * 1.4));   /* as big as fits under your name */
   aspect-ratio: 400 / 560;
   /* moving through: grow toward the center of the doorway */
   transform: scale(calc(1 + var(--through) * 1.1));
   transform-origin: 50% 64%;
+}
+
+/* Your name above the gate. It drifts up and fades as the doors open. */
+.gate-title {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 0.25rem;
+  opacity: calc(1 - var(--open) * 1.6);
+  transform: translateY(calc(var(--open) * -24px));
+}
+
+.gate-eyebrow {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--leaf);
+}
+
+.gate-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 8vw, 4.75rem);
+  line-height: 1.05;
+  color: var(--ink);
+}
+
+/* Rose hedges: they start under each pillar and run off the screen */
+.gate-hedge {
+  position: absolute;
+  top: 36%;
+  height: 62.4%;
+  width: 100vw;
+  border-bottom: 14px solid var(--ground);
+  overflow: visible;
+}
+
+.gate-hedge-left  { right: 86%; }
+.gate-hedge-right { left: 86%; }
+
+.h-base  { fill: var(--hedge-base); }
+.h-leaf1 { fill: var(--hedge-1); }
+.h-leaf2 { fill: var(--hedge-2); }
+.h-leaf3 { fill: var(--hedge-3); }
+/* Roses in the hedges. At night they stay soft (no glow), so the gate is the star. */
+.h-rose-pink  { fill: var(--hedge-rose-pink);  color: var(--rose-pink-core); }
+.h-rose-cream { fill: var(--hedge-rose-cream); color: var(--rose-cream-core); }
+
+/* Shading on the stone pillars */
+.g-stone-light { stop-color: var(--stone-light); }
+.g-stone-mid   { stop-color: var(--stone); }
+.g-stone-dark  { stop-color: var(--mortar); }
+.g-stone-shadow { fill: var(--mortar); opacity: 0.35; }
+
+/* Light rays coming from the doorway. They get brighter as the gate opens. */
+.gate-rays {
+  position: absolute;
+  left: -40%;
+  right: -40%;
+  top: 0;
+  bottom: -10%;
+  pointer-events: none;
+  background: repeating-conic-gradient(from 150deg at 50% 66%,
+    transparent 0deg, var(--ray) 3deg, transparent 8deg, transparent 13deg);
+  -webkit-mask-image: radial-gradient(ellipse 45% 55% at 50% 66%, #000 15%, transparent 70%);
+  mask-image: radial-gradient(ellipse 45% 55% at 50% 66%, #000 15%, transparent 70%);
+  opacity: calc(0.25 + var(--open) * 0.6);
+}
+
+/* A soft paper grain over the whole scene, for a painted, storybook feel */
+.gate-grain {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: var(--grain);
+  mix-blend-mode: multiply;
 }
 
 .gate-behind,
@@ -321,19 +420,14 @@ a:hover {
   100% { opacity: 0; transform: translate(18px, -40px); }
 }
 
-/* "Scroll to open the gate" fades away as soon as you start */
+/* "Scroll to open the gate" sits under your name and fades as soon as you start */
 .gate-hint {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 0;
-  right: 0;
-  margin: 0;
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
+  margin: 0.5rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink);
-  opacity: calc(0.7 - var(--p) * 8);
+  opacity: calc(0.65 - var(--p) * 8);
 }
 
 /* REDUCED MOTION: no scroll effect. Show the gate already open and still. */
@@ -577,12 +671,12 @@ a:hover {
     gap: 0.2rem 1rem;
     font-size: 0.85rem;
   }
-  .gate-stage {
-    padding-top: 5.5rem;
-    align-items: flex-start;
+  :root {
+    --nav-h: 5rem;              /* the phone menu is two rows */
   }
   .gate-box {
-    height: min(72svh, calc(88vw * 1.4));
+    /* a little wider than the screen, so the gate fills it */
+    height: min(calc(100svh - var(--nav-h) - 7rem), calc(112vw * 1.4));
   }
 }
 
