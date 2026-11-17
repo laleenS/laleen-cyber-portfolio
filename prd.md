@@ -30,11 +30,15 @@ Recruiters, and people who study or work in cybersecurity.
 - One scrolling page
 - No photo
 - Day and night with a switch. Day first.
-- Resume: open PDF download, with phone number removed
+- Resume: open PDF download, with phone number removed (until that PDF exists, the site says to email for it)
 - Email: shown to people, hidden from spam bots
 - Contact is job email, LinkedIn and GitHub only
 - Hosting: GitHub Pages to start
 - Laleen edits on the GitHub website, so files stay simple
+
+## Visual principle
+
+The first screen is the calmest. Effects build up the further a visitor scrolls, so it never overstimulates but still shows off creativity. Feel: advanced and game-like, inspired by the reference sites, without being hard to navigate.
 
 ## Security and privacy rules
 

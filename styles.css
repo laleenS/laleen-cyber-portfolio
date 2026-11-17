@@ -191,6 +191,108 @@ a:hover {
   padding-left: 0;
 }
 
+/* One job, school or project. Title on the left, date on the right. */
+.entry {
+  margin: 0 0 1.75rem;
+}
+
+.entry-head {
+  display: flex;
+  flex-wrap: wrap;              /* on a phone, the date drops below the title */
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0 1rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Entry titles are h3 for screen readers, but styled like normal bold text */
+.station .entry-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.entry-date {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--leaf);
+}
+
+/* Skills: group name, then what's in it */
+.skills dt {
+  margin-top: 0.75rem;
+  font-weight: 600;
+}
+
+.skills dd {
+  margin: 0;
+}
+
+/* Currently building: no bullets, a little more space */
+.station ul.status-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.status-list li {
+  margin-bottom: 1rem;
+}
+
+.contact-links {
+  flex-wrap: wrap;
+}
+
+
+/* 4c. TOP MENU ---------------------------------------------------- */
+
+.site-nav {
+  position: sticky;            /* stays at the top while you scroll */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--paper);
+  border-bottom: 1px solid rgba(79, 111, 76, 0.2);
+  font-size: 0.9rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav a {
+  text-decoration: none;
+}
+
+.nav-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+/* When the menu jumps to a section, leave room so the title isn't hidden under the sticky menu */
+section[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+/* Smooth jumps between sections, unless the visitor asked for less motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 
 /* 5. FOOTER ----------------------------------------------------- */
 

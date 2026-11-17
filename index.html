@@ -33,6 +33,18 @@
   <!-- ACCESSIBILITY: keyboard users can press Tab once and jump past the top of the page -->
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- TOP MENU: jumps straight to any station. Each href matches a section id below. -->
+  <nav class="site-nav" aria-label="Sections">
+    <a class="nav-name" href="#gate">Laleen Salim</a>
+    <ul>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#security">Security</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <main id="main">
 
     <!-- ============================================================
@@ -75,13 +87,249 @@
     </section>
 
     <!-- ============================================================
-         STATIONS 2 TO 6 GO HERE, IN THIS ORDER:
-         2. Education
-         3. Experience
-         4. Leadership
-         5. Security work and things I've built
-         6. Currently building
+         STATION 2: EDUCATION
          ============================================================ -->
+    <section id="education" class="station" aria-labelledby="education-title">
+
+      <h2 id="education-title">Education</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">The University of North Carolina at Charlotte</h3>
+          <p class="entry-date">Graduating Dec 2026</p>
+        </div>
+        <ul>
+          <li>B.S. Computer Science, concentration in Cybersecurity</li>
+          <li>B.A. Political Science, concentration in Security and Intelligence</li>
+        </ul>
+      </article>
+
+      <h3>Skills</h3>
+      <!-- A description list: each <dt> is a group, each <dd> is what's in it -->
+      <dl class="skills">
+        <dt>Security and risk</dt>
+        <dd>Risk assessment, threat analysis, IAM (MFA, RBAC, least privilege), endpoint security, SOC 2, digital forensics</dd>
+        <dt>Frameworks</dt>
+        <dd>NIST Cybersecurity Framework, NIST SP 800-53</dd>
+        <dt>Cloud and data</dt>
+        <dd>AWS IAM, Google Workspace, Microsoft 365 and SharePoint, SQL (MySQL, PostgreSQL), log analysis</dd>
+        <dt>Programming</dt>
+        <dd>Python, Java, C, JavaScript, HTML and CSS</dd>
+        <dt>Tools</dt>
+        <dd>CrowdStrike, FTK Imager, Autopsy, Git and GitHub, Power BI, Power Automate, SAP, Excel</dd>
+        <dt>Languages</dt>
+        <dd>English, Urdu, Hindi</dd>
+      </dl>
+
+    </section>
+
+    <!-- ============================================================
+         STATION 3: EXPERIENCE
+         Newest first. Copy one <article> block to add a new role.
+         ============================================================ -->
+    <section id="experience" class="station" aria-labelledby="experience-title">
+
+      <h2 id="experience-title">Experience</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Co-op, Schaeffler</h3>
+          <p class="entry-date">Nov 2025 to now</p>
+        </div>
+        <ul>
+          <li>Digitized quality workflows in Procella, SAP and SAP DRM, making data easier to trace and control.</li>
+          <li>Built Excel databases covering 100+ parts for 20+ users.</li>
+          <li>Ran root-cause analysis across system, machine, test and human factors.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Truist Immersive Learning Event, winning team</h3>
+          <p class="entry-date">Apr 2026</p>
+        </div>
+        <ul>
+          <li>Designed a SharePoint setup with role-based access controls to protect confidential business data.</li>
+          <li>Set permission and visibility controls so data couldn't be shared across the wrong roles.</li>
+          <li>Built Power BI dashboards and Power Automate workflows, and presented the winning solution to Truist leaders.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Cybersecurity Accelerator Program, The Washington Center</h3>
+          <p class="entry-date">Mar 2026</p>
+        </div>
+        <ul>
+          <li>Selected for a program on security operations, cyber policy and national security, including a site visit to ICANN.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">IT and Security Intern, PIMOSH</h3>
+          <p class="entry-date">Summer 2024</p>
+        </div>
+        <ul>
+          <li>Set up MFA and access controls across Google Workspace and AWS for a 15-person startup, using least privilege.</li>
+          <li>Helped prepare for a SOC 2 audit by collecting evidence and documenting security controls.</li>
+          <li>Watched endpoint security alerts, looked into suspicious activity, and escalated issues.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">IT Lab Technician, Eliminate the Digital Divide</h3>
+          <p class="entry-date">2022 to 2025</p>
+        </div>
+        <ul>
+          <li>Imaged and configured laptops to standard deployment baselines.</li>
+          <li>Wiped data from retired devices so nothing sensitive went out with them.</li>
+          <li>Diagnosed hardware and software problems and tested machines before they went out.</li>
+        </ul>
+      </article>
+
+    </section>
+
+    <!-- ============================================================
+         STATION 4: LEADERSHIP
+         ============================================================ -->
+    <section id="leadership" class="station" aria-labelledby="leadership-title">
+
+      <h2 id="leadership-title">Leadership</h2>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">President, Muslim Technology Collaborative</h3>
+          <p class="entry-date">Aug 2025 to now</p>
+        </div>
+        <ul>
+          <li>Lead a 13+ member executive board, partnering with LPL Financial and TIAA on cybersecurity and career programs.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Secretary, United Mission for Relief and Development, Women</h3>
+          <p class="entry-date">2023 to 2025</p>
+        </div>
+        <ul>
+          <li>Kept records for a 12+ member team and helped run a 300+ person fundraiser that raised $17,000+ in one night.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Member, Girls Who Code and ACM-W</h3>
+          <p class="entry-date">Nov 2023 to now</p>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- ============================================================
+         STATION 5: SECURITY WORK AND THINGS I'VE BUILT
+         Security work first. Class reports are summarized, not linked.
+         ============================================================ -->
+    <section id="work" class="station" aria-labelledby="work-title">
+
+      <h2 id="work-title">Security work and things I've built</h2>
+
+      <h3>Security work</h3>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Web application penetration test</h3>
+          <p class="entry-date">Fall 2026</p>
+        </div>
+        <ul>
+          <li>Used SQL injection to bypass a login and change account data, and found stored and reflected XSS.</li>
+          <li>Wrote up the findings, their impact and how to fix them in a formal pentest report.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Digital forensics investigations</h3>
+          <p class="entry-date">Fall 2026</p>
+        </div>
+        <ul>
+          <li>Acquiring and analyzing disk images with FTK Imager and Autopsy, and documenting findings in SANS-style reports.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Research: AI and the future of cyber operations</h3>
+          <p class="entry-date">Fall 2026</p>
+        </div>
+        <ul>
+          <li>Researching how AI could change offensive cyber tools and cause unintended consequences, using Stuxnet as a case study.</li>
+        </ul>
+      </article>
+
+      <h3>Things I've built</h3>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">This site</h3>
+        </div>
+        <ul>
+          <li>Plain HTML and CSS, no backend, built with security rules from day one. See <a href="#security">how I secured it</a>.</li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">by_laleen</h3>
+        </div>
+        <ul>
+          <li>A site for my Arabic calligraphy art.</li>
+          <li><a href="https://github.com/laleenS/by-laleen-art" rel="noopener noreferrer">Code on GitHub</a></li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Lazat Catering</h3>
+        </div>
+        <ul>
+          <li>A demo site for an Indo-Pakistani catering business, with a mobile menu that works with a keyboard.</li>
+          <li><a href="https://github.com/laleenS/lazat-catering" rel="noopener noreferrer">Code on GitHub</a></li>
+        </ul>
+      </article>
+
+      <article class="entry">
+        <div class="entry-head">
+          <h3 class="entry-title">Our Big Family Tree</h3>
+        </div>
+        <ul>
+          <li>A Next.js and TypeScript app for searching and adding people to a family tree, grouped by generation. Uses made-up sample data.</li>
+          <li><a href="https://github.com/laleenS/our-big-family-tree" rel="noopener noreferrer">Code on GitHub</a></li>
+        </ul>
+      </article>
+
+    </section>
+
+    <!-- ============================================================
+         STATION 6: CURRENTLY BUILDING
+         Nothing here is finished. When something is, move it to station 5.
+         ============================================================ -->
+    <section id="building" class="station" aria-labelledby="building-title">
+
+      <h2 id="building-title">Currently building</h2>
+
+      <p>These are in progress or planned. Nothing here is finished yet.</p>
+
+      <ul class="status-list">
+        <li><strong>Hisaab.</strong> A private receipt tracker for my family's small business, built on Cloudflare. It stays private until its security checks pass.</li>
+        <li><strong>SOC Investigation Lab.</strong> Planned. Detection logic in Python for things like repeated failed logins and encoded PowerShell.</li>
+        <li><strong>IAM Access Review.</strong> Planned. Finds risky access in a made-up company, like old accounts and admins without MFA.</li>
+        <li><strong>Security Baseline Checker.</strong> Planned. Checks sample system settings for weak security.</li>
+        <li><strong>CompTIA Security+</strong> and <strong>Microsoft SC-300</strong> certifications. Both expected Dec 2026.</li>
+      </ul>
+
+    </section>
 
     <!-- ============================================================
          STATION 7: HOW I SECURED THIS SITE
@@ -120,13 +368,38 @@
     </section>
 
     <!-- ============================================================
-         STATION 8 (RESUME AND CONTACT) GOES HERE
+         STATION 8: RESUME AND CONTACT
+         The email is written in a bot-unfriendly way here. If scripts
+         are on, contact.js turns it into a normal clickable link.
          ============================================================ -->
+    <section id="contact" class="station" aria-labelledby="contact-title">
+
+      <h2 id="contact-title">Say hello</h2>
+
+      <p>I graduate in December 2026. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+
+      <ul class="links contact-links">
+        <li>
+          <!-- contact.js reads data-user and data-domain to build the link -->
+          <span class="email" data-user="laleensalim786" data-domain="gmail.com">laleensalim786 at gmail dot com</span>
+        </li>
+        <li><a href="https://www.linkedin.com/in/laleen-s" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/laleenS" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+
+      <!-- RESUME: once a PDF without the phone number is added to assets/,
+           replace this line with a download link to it. -->
+      <p>Want my full resume? Email me and I'll send it over.</p>
+
+    </section>
 
   </main>
 
   <footer class="site-footer">
     <p>Built by Laleen Salim. No trackers, no cookies.</p>
   </footer>
+
+  <!-- Scripts go last so the words load first. "defer" means: run after the page is ready. -->
+  <script src="contact.js" defer></script>
 </body>
 </html>

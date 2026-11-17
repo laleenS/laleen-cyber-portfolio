@@ -2,7 +2,7 @@
 
 My portfolio site. It is a plain HTML and CSS site with no backend, no trackers and no outside scripts.
 
-It is being built one station at a time. Right now it has station 1, the gate.
+It is being built one station at a time. All eight stations are in as a plain base. Visual effects come next.
 
 The first version of this site (the "Root Access" garden) is kept on the `root-access-review` branch as a reference.
 
@@ -12,6 +12,7 @@ The first version of this site (the "Root Access" garden) is kept on the `root-a
 | --- | --- |
 | `index.html` | All the words on the site. Each station is marked with a big comment. |
 | `styles.css` | All the looks: colors, fonts, spacing. Colors are at the top. |
+| `contact.js` | Turns the email into a clickable link, so spam bots don't see it in the page. |
 | `assets/fonts/` | The fonts, stored here so nothing loads from another site. Licenses are beside them. |
 | `tools/check.mjs` | A safety check that looks for broken links, inline code, and private info. |
 | `.github/workflows/check.yml` | Makes GitHub run the safety check on every push. |
