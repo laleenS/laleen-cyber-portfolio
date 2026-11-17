@@ -54,108 +54,43 @@
   <main id="main">
 
     <!-- ============================================================
-         THE GARDEN GATE (artwork)
+         THE GARDEN GATE
          Decoration only, so screen readers skip it (aria-hidden).
-         gate.js opens the gate as you scroll. The drawing is made in
-         code (SVG). You don't need to edit anything in this block,
-         except the two lines of text in "gate-title" if you want.
+         The two paintings (golden hour and night) are in assets/.
+         gate.js opens the iron gate as you scroll. You don't need to
+         edit this block, except the text in "gate-title" if you want.
          ============================================================ -->
     <div class="gate-scene" aria-hidden="true">
       <div class="gate-stage">
 
-        <!-- Your name over the sky. The real heading for screen readers
-             is in Station 1 below, so this one is decoration. -->
+        <!-- Your name over the top of the scene -->
         <div class="gate-title">
           <p class="gate-name">Laleen Salim</p>
           <p class="gate-eyebrow">Cybersecurity portfolio</p>
           <p class="gate-hint">Scroll to open the gate</p>
         </div>
 
-        <div class="gate-box">
+        <!-- The world: both paintings stacked, with the gate fitted into the doorway.
+             It keeps the paintings' shape (1672 by 941) at every screen size. -->
+        <div class="gate-world">
+          <img class="gate-painting gate-painting-day" src="assets/garden-day.webp" alt="" width="1672" height="941" decoding="async">
+          <img class="gate-painting gate-painting-night" src="assets/garden-night.webp" alt="" width="1672" height="941" decoding="async">
 
-          <!-- The garden you see through the gate, plus shared shapes -->
-          <svg class="gate-behind" viewBox="0 0 400 560" focusable="false">
-            <defs>
-<symbol id="g-leaf" overflow="visible"><path d="M0 0C4-6 12-6 16 0C12 6 4 6 0 0Z"/></symbol>
-<symbol id="g-rose" overflow="visible"><circle r="7"/><circle r="7" fill="url(#g-rose-shading)"/><path d="M-2.5 .5a2.5 2.5 0 1 1 3 2.2M-4.5 -1a5 5 0 0 1 8.5 -2" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></symbol>
-<symbol id="g-wisteria" overflow="visible"><circle cx="-6.5" cy="0" r="2.6"/><circle cx="-2.5" cy="0" r="2.6"/><circle cx="2.3" cy="0" r="2.6"/><circle cx="5.8" cy="0" r="2.6"/><circle cx="-6.3" cy="5.2" r="2.4"/><circle cx="-2.3" cy="5.2" r="2.4"/><circle cx="1.6" cy="5.2" r="2.4"/><circle cx="6.3" cy="5.2" r="2.4"/><circle cx="-4.8" cy="10.4" r="2.2"/><circle cx="-0.1" cy="10.4" r="2.2"/><circle cx="3.7" cy="10.4" r="2.2"/><circle cx="-4.7" cy="15.6" r="2"/><circle cx="-0.1" cy="15.6" r="2"/><circle cx="4.6" cy="15.6" r="2"/><circle cx="-2.6" cy="20.8" r="1.8"/><circle cx="1.8" cy="20.8" r="1.8"/><circle cx="-1.9" cy="26" r="1.6"/><circle cx="2.6" cy="26" r="1.6"/><circle cx="0.1" cy="31.2" r="1.4"/></symbol>
-<symbol id="g-door" viewBox="0 0 130 340" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 72 10 71.8 16 71.4 22 70.9 28 70.2 34 69.4 40 68.4 46 67.2 52 65.9 58 64.4 64 62.8 70 61 76 59 82 56.9 88 54.6 94 52.1 100 49.5 106 46.7 112 43.8 118 40.7 124 37.4" stroke-width="4.5"/><path d="M4 72V332M126 34V332M4 332H126M4 110H126M4 204H126M4 300H126" stroke-width="4"/><path d="M22 70.9V300" stroke-width="2.6"/><path d="M22 53.9l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="22" cy="69.4" r="2.4" fill="currentColor" stroke="none"/><path d="M41 68.2V300" stroke-width="2.6"/><path d="M41 51.2l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="41" cy="66.7" r="2.4" fill="currentColor" stroke="none"/><path d="M60 63.9V300" stroke-width="2.6"/><path d="M60 46.9l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="60" cy="62.4" r="2.4" fill="currentColor" stroke="none"/><path d="M79 58V300" stroke-width="2.6"/><path d="M79 41l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="79" cy="56.5" r="2.4" fill="currentColor" stroke="none"/><path d="M98 50.4V300" stroke-width="2.6"/><path d="M98 33.4l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="98" cy="48.9" r="2.4" fill="currentColor" stroke="none"/><path d="M113 43.3V300" stroke-width="2.6"/><path d="M113 26.3l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="113" cy="41.8" r="2.4" fill="currentColor" stroke="none"/><path d="M10 200C10 150 64 168 62 134C61 116 40 114 38 128C37 138 50 141 54 134" stroke-width="3"/><path d="M124 200C124 166 84 162 86 140C88 124 108 124 109 138C110 148 98 150 96 143" stroke-width="3"/><path d="M62 134C70 120 100 116 120 112" stroke-width="2.2"/><path d="M65 294C34 276 32 224 65 214C98 224 96 276 65 294Z" stroke-width="3"/><path d="M65 276C50 266 50 238 65 232C78 238 78 258 68 262C62 264 60 256 65 252" stroke-width="2.2"/><circle cx="16" cy="316" r="6" stroke-width="2"/><circle cx="34" cy="316" r="6" stroke-width="2"/><circle cx="52" cy="316" r="6" stroke-width="2"/><circle cx="70" cy="316" r="6" stroke-width="2"/><circle cx="88" cy="316" r="6" stroke-width="2"/><circle cx="106" cy="316" r="6" stroke-width="2"/><circle cx="124" cy="316" r="6" stroke-width="2"/></symbol>
-<linearGradient id="g-stone-shade" x1="0" x2="1"><stop offset="0" class="g-stone-light"/><stop offset=".6" class="g-stone-mid"/><stop offset="1" class="g-stone-dark"/></linearGradient>
-<radialGradient id="g-rose-shading"><stop offset=".45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></radialGradient>
-</defs>
-            <!-- Only show the garden inside the arch opening -->
-            <clipPath id="g-opening"><path d="M70 548V182A130 130 0 0 1 330 182V548Z"/></clipPath>
-            <radialGradient id="g-sun-fade">
-              <stop offset="0" class="g-sun-in"/>
-              <stop offset="1" class="g-sun-out"/>
-            </radialGradient>
-            <g clip-path="url(#g-opening)">
-            <circle class="g-tree g-tree-far" cx="59" cy="299" r="33"/>
-            <circle class="g-tree g-tree-far" cx="81" cy="298" r="29"/>
-            <circle class="g-tree g-tree-far" cx="98" cy="298" r="30"/>
-            <circle class="g-tree g-tree-far" cx="127" cy="288" r="26"/>
-            <circle class="g-tree g-tree-far" cx="139" cy="305" r="30"/>
-            <circle class="g-tree g-tree-far" cx="160" cy="310" r="34"/>
-            <circle class="g-tree g-tree-far" cx="188" cy="301" r="24"/>
-            <circle class="g-tree g-tree-far" cx="201" cy="299" r="23"/>
-            <circle class="g-tree g-tree-far" cx="224" cy="292" r="22"/>
-            <circle class="g-tree g-tree-far" cx="249" cy="297" r="32"/>
-            <circle class="g-tree g-tree-far" cx="270" cy="301" r="28"/>
-            <circle class="g-tree g-tree-far" cx="293" cy="297" r="25"/>
-            <circle class="g-tree g-tree-far" cx="318" cy="310" r="32"/>
-            <circle class="g-tree g-tree-far" cx="335" cy="294" r="25"/>
-            <circle class="g-tree" cx="47" cy="330" r="37"/>
-            <circle class="g-tree" cx="81" cy="347" r="31"/>
-            <circle class="g-tree" cx="123" cy="347" r="26"/>
-            <circle class="g-tree" cx="144" cy="348" r="33"/>
-            <circle class="g-tree" cx="241" cy="335" r="39"/>
-            <circle class="g-tree" cx="285" cy="331" r="29"/>
-            <circle class="g-tree" cx="308" cy="329" r="37"/>
-            <circle class="g-tree" cx="342" cy="340" r="32"/>
-            <path class="g-path" d="M190 318H210L300 560H100Z"/>
-            <circle class="g-wisteria" cx="182" cy="330" r="1.2"/>
-            <circle class="g-rose-cream" cx="224" cy="330" r="1.2"/>
-            <circle class="g-rose-pink" cx="171" cy="345" r="1.4"/>
-            <circle class="g-rose-pink" cx="226" cy="345" r="1.4"/>
-            <circle class="g-wisteria" cx="171" cy="361" r="1.6"/>
-            <circle class="g-rose-pink" cx="232" cy="361" r="1.6"/>
-            <circle class="g-rose-cream" cx="163" cy="376" r="1.8"/>
-            <circle class="g-wisteria" cx="245" cy="376" r="1.8"/>
-            <circle class="g-rose-pink" cx="152" cy="391" r="2.1"/>
-            <circle class="g-rose-pink" cx="242" cy="391" r="2.1"/>
-            <circle class="g-rose-cream" cx="150" cy="407" r="2.3"/>
-            <circle class="g-wisteria" cx="248" cy="407" r="2.3"/>
-            <circle class="g-rose-cream" cx="142" cy="422" r="2.5"/>
-            <circle class="g-rose-pink" cx="258" cy="422" r="2.5"/>
-            <circle class="g-wisteria" cx="138" cy="438" r="2.7"/>
-            <circle class="g-rose-pink" cx="267" cy="438" r="2.7"/>
-            <circle class="g-rose-cream" cx="127" cy="453" r="2.9"/>
-            <circle class="g-rose-pink" cx="274" cy="453" r="2.9"/>
-            <circle class="g-rose-cream" cx="117" cy="468" r="3.1"/>
-            <circle class="g-rose-pink" cx="282" cy="468" r="3.1"/>
-            <circle class="g-rose-pink" cx="111" cy="484" r="3.3"/>
-            <circle class="g-rose-cream" cx="287" cy="484" r="3.3"/>
-            <circle class="g-wisteria" cx="104" cy="499" r="3.6"/>
-            <circle class="g-rose-pink" cx="289" cy="499" r="3.6"/>
-            <circle class="g-wisteria" cx="105" cy="514" r="3.8"/>
-            <circle class="g-rose-pink" cx="303" cy="514" r="3.8"/>
-            <circle class="g-rose-cream" cx="94" cy="530" r="4.0"/>
-            <circle class="g-wisteria" cx="308" cy="530" r="4.0"/>
-            <circle class="g-rose-pink" cx="93" cy="545" r="4.2"/>
-            <circle class="g-rose-pink" cx="307" cy="545" r="4.2"/>
-            <circle class="g-sun" cx="200" cy="300" r="120" fill="url(#g-sun-fade)"/>
-            <circle class="g-sun" cx="200" cy="300" r="120" fill="url(#g-sun-fade)"/>
-            <circle class="g-sun" cx="200" cy="300" r="120" fill="url(#g-sun-fade)"/>
-            </g>
-          </svg>
+          <!-- Soft glows placed on the sun (golden hour) and on the lanterns (night) -->
+          <span class="glow glow-sun"></span>
+          <span class="glow glow-lantern glow-lantern-1"></span>
+          <span class="glow glow-lantern glow-lantern-2"></span>
+          <span class="glow glow-lantern glow-lantern-3"></span>
+          <span class="glow glow-lantern glow-lantern-4"></span>
 
-          <!-- Soft light rays coming through the doorway -->
+          <!-- Light rays from the sun -->
           <div class="gate-rays"></div>
 
-          <!-- The two iron doors. The right one is the left one, flipped. -->
+          <!-- The two iron doors, fitted into the doorway. The right one is the left one, flipped. -->
           <div class="gate-doors">
-            <svg class="gate-door gate-door-left" viewBox="0 0 130 340" focusable="false"><use href="#g-door"/></svg>
-            <svg class="gate-door gate-door-right" viewBox="0 0 130 340" focusable="false"><use href="#g-door" transform="matrix(-1 0 0 1 130 0)"/></svg>
+            <svg class="gate-shapes" focusable="false"><defs><symbol id="g-door" viewBox="0 0 220 340" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 64 13 63.9 21 63.6 29 63.3 37 62.9 45 62.3 53 61.7 61 60.9 69 60.1 77 59.1 85 58 93 56.9 101 55.6 109 54.2 117 52.7 125 51.1 133 49.4 141 47.6 149 45.7 157 43.6 165 41.5 173 39.3 181 36.9 189 34.5 197 31.9 205 29.3 213 26.5" stroke-width="5"/><path d="M5 64V334M216 24V334M5 334H216M5 106H216M5 206H216M5 300H216" stroke-width="4.5"/><path d="M26 63.4V300" stroke-width="2.8"/><path d="M26 45.4l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="26" cy="61.9" r="2.6" fill="currentColor" stroke="none"/><path d="M47 62.2V300" stroke-width="2.8"/><path d="M47 44.2l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="47" cy="60.7" r="2.6" fill="currentColor" stroke="none"/><path d="M68 60.2V300" stroke-width="2.8"/><path d="M68 42.2l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="68" cy="58.7" r="2.6" fill="currentColor" stroke="none"/><path d="M89 57.5V300" stroke-width="2.8"/><path d="M89 39.5l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="89" cy="56" r="2.6" fill="currentColor" stroke="none"/><path d="M110 54V300" stroke-width="2.8"/><path d="M110 36l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="110" cy="52.5" r="2.6" fill="currentColor" stroke="none"/><path d="M131 49.8V300" stroke-width="2.8"/><path d="M131 31.8l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="131" cy="48.3" r="2.6" fill="currentColor" stroke="none"/><path d="M152 44.9V300" stroke-width="2.8"/><path d="M152 26.9l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="152" cy="43.4" r="2.6" fill="currentColor" stroke="none"/><path d="M173 39.3V300" stroke-width="2.8"/><path d="M173 21.3l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="173" cy="37.8" r="2.6" fill="currentColor" stroke="none"/><path d="M194 32.9V300" stroke-width="2.8"/><path d="M194 14.9l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="194" cy="31.4" r="2.6" fill="currentColor" stroke="none"/><g transform="scale(1.7 1)"><path vector-effect="non-scaling-stroke" d="M10 200C10 150 64 168 62 134C61 116 40 114 38 128C37 138 50 141 54 134" stroke-width="3.2"/><path vector-effect="non-scaling-stroke" d="M124 200C124 166 84 162 86 140C88 124 108 124 109 138C110 148 98 150 96 143" stroke-width="3.2"/><path vector-effect="non-scaling-stroke" d="M62 134C70 120 100 116 120 112" stroke-width="2.4"/><path vector-effect="non-scaling-stroke" d="M65 294C34 276 32 224 65 214C98 224 96 276 65 294Z" stroke-width="3.2"/><path vector-effect="non-scaling-stroke" d="M65 276C50 266 50 238 65 232C78 238 78 258 68 262C62 264 60 256 65 252" stroke-width="2.4"/></g><circle cx="15" cy="317" r="6.5" stroke-width="2.2"/><circle cx="34" cy="317" r="6.5" stroke-width="2.2"/><circle cx="53" cy="317" r="6.5" stroke-width="2.2"/><circle cx="72" cy="317" r="6.5" stroke-width="2.2"/><circle cx="91" cy="317" r="6.5" stroke-width="2.2"/><circle cx="110" cy="317" r="6.5" stroke-width="2.2"/><circle cx="129" cy="317" r="6.5" stroke-width="2.2"/><circle cx="148" cy="317" r="6.5" stroke-width="2.2"/><circle cx="167" cy="317" r="6.5" stroke-width="2.2"/><circle cx="186" cy="317" r="6.5" stroke-width="2.2"/><circle cx="205" cy="317" r="6.5" stroke-width="2.2"/></symbol></defs></svg>
+            <svg class="gate-door gate-door-left" viewBox="0 0 220 340" focusable="false"><use href="#g-door"/></svg>
+            <svg class="gate-door gate-door-right" viewBox="0 0 220 340" focusable="false"><use href="#g-door" transform="matrix(-1 0 0 1 220 0)"/></svg>
 
             <!-- The padlock. It unlocks first, a small nod to security. -->
             <svg class="gate-lock" viewBox="0 0 40 52" focusable="false">
@@ -165,233 +100,14 @@
               <path class="lock-hole" d="M18.6 34h2.8l1 7h-4.8z"/>
             </svg>
           </div>
-
-          <!-- Stone arch, pillars, roses, wisteria and vines, in front of the doors -->
-          <svg class="gate-frame" viewBox="0 0 400 560" focusable="false">
-            <rect class="g-stone" x="24" y="176" width="46" height="370" rx="3" fill="url(#g-stone-shade)"/>
-<rect class="g-stone-shadow" x="58" y="182" width="12" height="364"/>
-<path class="g-mortar" d="M24 200H70"/>
-<path class="g-mortar" d="M47 200V226"/>
-<path class="g-mortar" d="M24 226H70"/>
-<path class="g-mortar" d="M35 226V252"/>
-<path class="g-mortar" d="M24 252H70"/>
-<path class="g-mortar" d="M47 252V278"/>
-<path class="g-mortar" d="M24 278H70"/>
-<path class="g-mortar" d="M35 278V304"/>
-<path class="g-mortar" d="M24 304H70"/>
-<path class="g-mortar" d="M47 304V330"/>
-<path class="g-mortar" d="M24 330H70"/>
-<path class="g-mortar" d="M35 330V356"/>
-<path class="g-mortar" d="M24 356H70"/>
-<path class="g-mortar" d="M47 356V382"/>
-<path class="g-mortar" d="M24 382H70"/>
-<path class="g-mortar" d="M35 382V408"/>
-<path class="g-mortar" d="M24 408H70"/>
-<path class="g-mortar" d="M47 408V434"/>
-<path class="g-mortar" d="M24 434H70"/>
-<path class="g-mortar" d="M35 434V460"/>
-<path class="g-mortar" d="M24 460H70"/>
-<path class="g-mortar" d="M47 460V486"/>
-<path class="g-mortar" d="M24 486H70"/>
-<path class="g-mortar" d="M35 486V512"/>
-<path class="g-mortar" d="M24 512H70"/>
-<path class="g-mortar" d="M47 512V538"/>
-<path class="g-mortar" d="M24 538H70"/>
-<path class="g-mortar" d="M35 538V564"/>
-<rect class="g-stone g-cap" x="18" y="166" width="58" height="16" rx="3"/>
-<rect class="g-stone" x="330" y="176" width="46" height="370" rx="3" fill="url(#g-stone-shade)"/>
-<rect class="g-stone-shadow" x="364" y="182" width="12" height="364"/>
-<path class="g-mortar" d="M330 200H376"/>
-<path class="g-mortar" d="M353 200V226"/>
-<path class="g-mortar" d="M330 226H376"/>
-<path class="g-mortar" d="M341 226V252"/>
-<path class="g-mortar" d="M330 252H376"/>
-<path class="g-mortar" d="M353 252V278"/>
-<path class="g-mortar" d="M330 278H376"/>
-<path class="g-mortar" d="M341 278V304"/>
-<path class="g-mortar" d="M330 304H376"/>
-<path class="g-mortar" d="M353 304V330"/>
-<path class="g-mortar" d="M330 330H376"/>
-<path class="g-mortar" d="M341 330V356"/>
-<path class="g-mortar" d="M330 356H376"/>
-<path class="g-mortar" d="M353 356V382"/>
-<path class="g-mortar" d="M330 382H376"/>
-<path class="g-mortar" d="M341 382V408"/>
-<path class="g-mortar" d="M330 408H376"/>
-<path class="g-mortar" d="M353 408V434"/>
-<path class="g-mortar" d="M330 434H376"/>
-<path class="g-mortar" d="M341 434V460"/>
-<path class="g-mortar" d="M330 460H376"/>
-<path class="g-mortar" d="M353 460V486"/>
-<path class="g-mortar" d="M330 486H376"/>
-<path class="g-mortar" d="M341 486V512"/>
-<path class="g-mortar" d="M330 512H376"/>
-<path class="g-mortar" d="M353 512V538"/>
-<path class="g-mortar" d="M330 538H376"/>
-<path class="g-mortar" d="M341 538V564"/>
-<rect class="g-stone g-cap" x="324" y="166" width="58" height="16" rx="3"/>
-<path class="g-arch" d="M48 182A152 152 0 0 1 352 182"/>
-<path class="g-arch-line" d="M64 182A136 136 0 0 1 336 182"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(77.8 128.4) scale(1)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(98.9 97) scale(1.2)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(127.9 72.7) scale(0.9)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(164.8 56.6) scale(1.2)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(235.2 56.6) scale(1)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(272.1 72.7) scale(0.9)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(301.1 97) scale(0.9)"/>
-<use href="#g-wisteria" class="g-wisteria" transform="translate(322.2 128.4) scale(1)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(44.3 187.4) rotate(206.1)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(47.7 168.7) rotate(221.2)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(50.8 150.3) rotate(233.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(54.9 132) rotate(344.4)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(64.2 115.7) rotate(345)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(68.3 96.4) rotate(347)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(80.9 82) rotate(247.5)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(98 72.6) rotate(378.3)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(109 56.8) rotate(377.3)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(128.8 53.5) rotate(370.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(143.8 42.8) rotate(385.7)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(159.2 29.8) rotate(302.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(178.7 30.6) rotate(397.2)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(197.4 31.8) rotate(411.4)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(215.8 31.4) rotate(329.3)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(234.1 34.2) rotate(309.8)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(252.8 36.9) rotate(423.5)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(268.4 47.8) rotate(422.7)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(284.7 56.4) rotate(347.3)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(299.7 67.3) rotate(359)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(309.7 83.3) rotate(354.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(328.6 91.9) rotate(452.4)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(333.7 110.9) rotate(483.5)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(345.5 126.2) rotate(485.2)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(353.1 143.8) rotate(499.7)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(346.7 164) rotate(382.5)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(353.9 182) rotate(399.5)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(51.3 180.6) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(48 160.1) scale(1.5)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(54.5 137.1) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(63.3 117) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(71.4 103.6) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(85.9 88.3) scale(1.2)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(92.8 72.3) scale(1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(113.7 63.7) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(129.2 52.1) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(150 40.7) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(167.6 33.7) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(192 35.2) scale(1.2)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(212.5 25.9) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(233.5 27.3) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(255.1 47.5) scale(1.2)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(275 56.4) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(297.3 67.9) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(310.6 81.3) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(328.6 94.4) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(339.5 113.7) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(345.8 128.8) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(344.4 150.9) scale(1.5)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(357.7 170.1) scale(1.5)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(52.5 168.6) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(53.4 142.7) scale(1.5)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(72 96.1) scale(1)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(114 49.8) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(169 37.8) scale(1.2)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(237.8 28) scale(1.3)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(284.8 62.9) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(318.7 95) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(348.8 133.3) scale(1.4)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(351.6 163.7) scale(1)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(21.5 234) rotate(180.4) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(61.2 246) rotate(196) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(65 258) rotate(266.4) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(64 282) rotate(297.8) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(67.4 294) rotate(54.7) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(61.9 330) rotate(51) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(53.4 342) rotate(22.2) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(56.8 354) rotate(173.7) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(23.1 378) rotate(15.2) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(25.3 390) rotate(10) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(68.3 402) rotate(117.2) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(30.8 426) rotate(182.9) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(63.6 438) rotate(89.2) scale(.9)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(61.9 204) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(33.2 236) scale(1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(40 268) scale(0.9)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(30.8 300) scale(1)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(32.6 342) scale(1.2)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(52.5 390) scale(0.9)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(61.5 440) scale(0.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(377.4 186) rotate(175.4) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(334.7 210) rotate(185.6) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(344.3 222) rotate(114.7) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(365 234) rotate(199.5) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(349.8 246) rotate(119.3) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(359.7 258) rotate(23.1) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(378.5 282) rotate(95.6) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(340.6 306) rotate(152) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(340 330) rotate(330.9) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(330.8 354) rotate(247.8) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(349 366) rotate(337.8) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(350.5 414) rotate(199.1) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(376 426) rotate(46.5) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(354.5 438) rotate(39.4) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(334.7 450) rotate(72.6) scale(.9)"/>
-<use href="#g-leaf" class="g-vine" transform="translate(342.8 462) rotate(273.4) scale(.9)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(345 204) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(344.3 236) scale(1.2)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(335.4 268) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(354.9 300) scale(1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(343.3 342) scale(0.9)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(365.1 390) scale(1.1)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(354.7 440) scale(1.2)"/>
-<path class="g-ground" d="M0 548C80 530 150 540 200 536C260 532 330 528 400 546V560H0Z"/>
-<path class="g-grass" d="M4 552q-2.3 -6.8 -1.6 -13.7"/>
-<path class="g-grass" d="M13 552q3.1 -6.2 1.4 -12.4"/>
-<path class="g-grass" d="M22 552q3.9 -5.8 2.9 -11.7"/>
-<path class="g-grass" d="M31 552q-3.9 -10 0.8 -20"/>
-<path class="g-grass" d="M40 552q-0.6 -10.3 -2.7 -20.6"/>
-<path class="g-grass" d="M49 552q-1 -9 0 -18"/>
-<path class="g-grass" d="M58 552q0.8 -10.8 1.2 -21.7"/>
-<path class="g-grass" d="M67 552q-2.5 -5.3 -1.4 -10.5"/>
-<path class="g-grass" d="M76 552q-1.1 -5 -1 -10"/>
-<path class="g-grass" d="M320 552q-1.4 -10.9 -2.8 -21.8"/>
-<path class="g-grass" d="M329 552q-2.3 -10.3 -1.9 -20.6"/>
-<path class="g-grass" d="M338 552q-3.3 -7 -1.3 -14"/>
-<path class="g-grass" d="M347 552q-2 -8.9 1.7 -17.9"/>
-<path class="g-grass" d="M356 552q2.5 -5.5 -2.1 -11.1"/>
-<path class="g-grass" d="M365 552q-0.8 -8.5 -1.2 -17"/>
-<path class="g-grass" d="M374 552q-3.3 -8.8 2.7 -17.6"/>
-<path class="g-grass" d="M383 552q-2.8 -10.1 2.4 -20.2"/>
-<path class="g-grass" d="M392 552q0.8 -9.7 1.6 -19.4"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(14 538) scale(.9)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(34 544) scale(.9)"/>
-<use href="#g-rose" class="g-rose-pink" transform="translate(372 540) scale(.9)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(390 548) scale(.9)"/>
-<use href="#g-rose" class="g-rose-cream" transform="translate(356 548) scale(.9)"/>
-          </svg>
         </div>
 
-        <!-- A soft paper grain over everything, for a painted look -->
-        <svg class="gate-grain" focusable="false">
-          <filter id="g-grain"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .35  0 0 0 0 .28  0 0 0 0 .2  0 0 0 .55 0"/></filter>
-          <rect width="100%" height="100%" filter="url(#g-grain)"/>
-        </svg>
+        <!-- A soft shade at the top so your name stays easy to read -->
+        <div class="gate-shade"></div>
 
-        <!-- Stars (night only) and a few drifting lights -->
-        <div class="gate-clouds"></div>
-        <!-- A tree line on the horizon, behind the gate, across the whole screen -->
-        <svg class="gate-horizon" focusable="false">
-          <defs>
-            <pattern id="hz-far-pattern" width="150" height="90" patternUnits="userSpaceOnUse"><circle class="hz-far" cx="93" cy="45" r="21"/><circle class="hz-far" cx="-57" cy="45" r="21"/><circle class="hz-far" cx="243" cy="45" r="21"/><circle class="hz-far" cx="141" cy="47" r="21"/><circle class="hz-far" cx="-9" cy="47" r="21"/><circle class="hz-far" cx="291" cy="47" r="21"/><circle class="hz-far" cx="4" cy="47" r="19"/><circle class="hz-far" cx="-146" cy="47" r="19"/><circle class="hz-far" cx="154" cy="47" r="19"/><circle class="hz-far" cx="97" cy="36" r="23"/><circle class="hz-far" cx="-53" cy="36" r="23"/><circle class="hz-far" cx="247" cy="36" r="23"/><circle class="hz-far" cx="70" cy="42" r="16"/><circle class="hz-far" cx="-80" cy="42" r="16"/><circle class="hz-far" cx="220" cy="42" r="16"/><circle class="hz-far" cx="86" cy="37" r="14"/><circle class="hz-far" cx="-64" cy="37" r="14"/><circle class="hz-far" cx="236" cy="37" r="14"/><circle class="hz-far" cx="42" cy="45" r="23"/><circle class="hz-far" cx="-108" cy="45" r="23"/><circle class="hz-far" cx="192" cy="45" r="23"/><circle class="hz-far" cx="24" cy="36" r="22"/><circle class="hz-far" cx="-126" cy="36" r="22"/><circle class="hz-far" cx="174" cy="36" r="22"/><circle class="hz-far" cx="93" cy="34" r="15"/><circle class="hz-far" cx="-57" cy="34" r="15"/><circle class="hz-far" cx="243" cy="34" r="15"/><rect class="hz-far" y="40" width="150" height="50"/></pattern>
-            <pattern id="hz-near-pattern" width="110" height="90" patternUnits="userSpaceOnUse" patternTransform="translate(37 0)"><circle class="hz-near" cx="96" cy="49" r="19"/><circle class="hz-near" cx="-14" cy="49" r="19"/><circle class="hz-near" cx="206" cy="49" r="19"/><circle class="hz-near" cx="108" cy="50" r="26"/><circle class="hz-near" cx="-2" cy="50" r="26"/><circle class="hz-near" cx="218" cy="50" r="26"/><circle class="hz-near" cx="106" cy="55" r="22"/><circle class="hz-near" cx="-4" cy="55" r="22"/><circle class="hz-near" cx="216" cy="55" r="22"/><circle class="hz-near" cx="23" cy="56" r="27"/><circle class="hz-near" cx="-87" cy="56" r="27"/><circle class="hz-near" cx="133" cy="56" r="27"/><circle class="hz-near" cx="106" cy="50" r="27"/><circle class="hz-near" cx="-4" cy="50" r="27"/><circle class="hz-near" cx="216" cy="50" r="27"/><circle class="hz-near" cx="40" cy="48" r="18"/><circle class="hz-near" cx="-70" cy="48" r="18"/><circle class="hz-near" cx="150" cy="48" r="18"/><circle class="hz-near" cx="7" cy="54" r="20"/><circle class="hz-near" cx="-103" cy="54" r="20"/><circle class="hz-near" cx="117" cy="54" r="20"/><rect class="hz-near" y="52" width="110" height="38"/></pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#hz-far-pattern)"/>
-          <rect y="14" width="100%" height="100%" fill="url(#hz-near-pattern)"/>
-        </svg>
-        <div class="gate-stars"></div>
+        <!-- A few drifting lights (mostly at night) -->
         <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
         <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
-
-        <p class="gate-hint">Scroll to open the gate</p>
       </div>
     </div>
 

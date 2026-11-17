@@ -17,6 +17,7 @@ The first version of this site (the "Root Access" garden) is kept on the `root-a
 | `theme.js` | Makes the golden hour / night switch in the menu work. |
 | `reveal.js` | Makes each section ease in the first time you scroll to it. Skips the first screen, and turns off for people who ask for less motion. |
 | `contact.js` | Turns the email into a clickable link, so spam bots don't see it in the page. |
+| `assets/garden-day.webp`, `assets/garden-night.webp` | The two gate paintings (golden hour and night), made by Laleen with an AI image tool. Compressed, with no hidden file details. |
 | `assets/fonts/` | The fonts, stored here so nothing loads from another site. Licenses are beside them. |
 | `tools/check.mjs` | A safety check that looks for broken links, inline code, and private info. |
 | `.github/workflows/check.yml` | Makes GitHub run the safety check on every push. |

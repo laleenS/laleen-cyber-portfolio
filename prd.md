@@ -38,6 +38,8 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 ## Visual principle
 
+The gate scene now uses two painted images Laleen generated (golden hour and night, same garden archway). Code adds the iron gate in the doorway, light rays, lantern glows and fireflies, and crossfades between the two paintings. Code-drawn scenery looked too flat.
+
 The gate: a symmetrical wrought-iron double gate under a rose and wisteria arch, storybook and old-Disney whimsy, with a few odd details (a padlock that unlocks, a little mushroom). It opens as you scroll (a short scroll, not a long one). Her name floats over a realistic sky gradient (golden hour: blue sky with gold-lit clouds fading to a bright gold horizon and warm yellow-green light, from her photos; night: blue-violet twilight with stars, tree silhouettes, and warm golden light glowing through the gate and up the stone, like a castle or lit building at night). Soft light rays and a paper grain for a painted feel. Tone must stay professional, nothing childish. Hedges and the welcome line were tried and removed. Three.js 3D is planned for later.
 
 The first screen is the calmest. Effects build up the further a visitor scrolls, so it never overstimulates but still shows off creativity. Feel: advanced and game-like, inspired by the reference sites, without being hard to navigate.

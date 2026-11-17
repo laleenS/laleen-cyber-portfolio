@@ -62,45 +62,24 @@
   --petal: #a85f6c;   /* accent: dusty rose */
   --glow:  #c98a2b;   /* accent: warm lamp light */
 
-  /* GOLDEN HOUR: the gate artwork.
-     The sky is a real golden-hour fade: dusky blue up high,
-     soft lilac and peach in the middle, warm gold at the horizon. */
-  --sky: linear-gradient(to bottom,
-         #3f66a6 0%, #6f93c8 26%, #b9c6c4 46%, #f1d985 62%, #f6c35f 74%, #f3d58e 86%);
-  --cloud-body: rgba(70, 86, 122, 0.42);
-  --cloud-light: rgba(255, 226, 160, 0.75);
-  --clouds: 1;
-  --horizon-far: #b7b24e;     /* distant trees lit gold */
-  --horizon-near: #7e8f36;
+  /* GOLDEN HOUR: the gate scene */
+  --stage-sky: linear-gradient(to bottom, #4d72b4, #8fa9d4);   /* shows above the painting on phones */
+  --night: 0;                 /* 0 = show the golden hour painting */
   --title-color: #fffaf0;
-  --title-shadow: rgba(40, 30, 60, 0.35);
-  --stars: 0;
-  --sun-in: #fff6c4;
-  --sun-out: rgba(255, 214, 110, 0);
-  --tree: #8fa543;
-  --tree-far: #c3c25a;
-  --path: #f7dd8f;
-  --iron: #3b3027;
-  --stone: #e2c48a;
-  --mortar: #bb945a;
-  --vine: #6a8636;
-  --rose-pink: #e7a9ad;
-  --rose-pink-core: #b0606e;
-  --rose-cream: #f6e8cf;
-  --rose-cream-core: #c99d63;
-  --wisteria: #b9a2d8;
-  --ground: #7f9a3e;
-  --grass: #5c7a2c;
-  --firefly: #fff4cf;
-  --firefly-amount: 0.45;
-  --stone-light: #f7e0a6;
-  --ray: rgba(255, 232, 160, 0.6);
-  --uplight: rgba(255, 210, 140, 0);   /* lamp light on the pillars, only at night */
-  --grain: 0.22;
-
-  --font-display: 'Garden Oldstyle', Georgia, serif;
-  --font-body: 'Garden Humanist', system-ui, sans-serif;
-  --font-code: 'Courier New', monospace;
+  --title-shadow: rgba(20, 24, 40, 0.55);
+  --shade: rgba(20, 28, 52, 0.45);
+  --iron: #1f1813;
+  --glow: #e3a33f;
+  --ray: rgba(255, 228, 150, 0.5);
+  --sun-glow: 1;
+  --lantern-glow: 0;
+  --firefly: #fff1c2;
+  --firefly-amount: 0.35;
+  /* where the doorway sits in the golden hour painting (percent of the painting) */
+  --door-left: 32.6%;
+  --door-width: 34.27%;
+  --door-bottom: 11.8%;
+  --door-height: 47.1%;
 
   --page-width: 40rem;  /* how wide the text column can get */
   --nav-h: 3.6rem;      /* height of the top menu (the gate fits under it) */
@@ -108,47 +87,29 @@
 
 /* NIGHT: the same names, darker values. theme.js turns this on. */
 [data-theme="night"] {
-  /* NIGHT, inspired by a lit-up stone building at night:
-     a deep royal blue sky (not black), and warm golden light
-     shining up onto the stone. */
+  /* NIGHT: blue-violet twilight, warm lanterns and lit stone */
   --paper: #11163a;
   --ink:   #efe7d6;
   --leaf:  #b7c9a8;
   --petal: #e6b0bb;
   --glow:  #f2c46d;
 
-  --sky: linear-gradient(to bottom,
-         #0b1236 0%, #1b2160 34%, #33307a 66%, #4a3c86 84%, #5b4790 96%);
+  --stage-sky: linear-gradient(to bottom, #0b1236, #1b2160);
+  --night: 1;                 /* 1 = show the night painting */
   --title-color: #f6efe0;
-  --title-shadow: rgba(0, 0, 0, 0.55);
-  --stars: 0.75;
-  --cloud-body: rgba(28, 20, 70, 0.5);
-  --cloud-light: rgba(150, 130, 210, 0.2);
-  --clouds: 0.7;
-  --horizon-far: #1b1c3a;     /* tree silhouettes against the twilight */
-  --horizon-near: #0f1424;
-  --sun-in: #ffd892;      /* warm light glowing through the gate */
-  --sun-out: rgba(255, 196, 110, 0);
-  --tree: #13261d;
-  --tree-far: #1a3226;
-  --path: #e6c584;
-  --iron: #0a0c12;
-  --stone: #d6bf95;       /* stone lit warm from below */
-  --stone-light: #efdbb0;
-  --mortar: #a38b65;
-  --vine: #2c563c;
-  --rose-pink: #d38a9b;
-  --rose-pink-core: #8a4256;
-  --rose-cream: #eee0c2;
-  --rose-cream-core: #b58e57;
-  --wisteria: #8d79c6;
-  --ground: #0d1420;
-  --grass: #1d3a2b;
+  --title-shadow: rgba(0, 0, 0, 0.6);
+  --shade: rgba(5, 8, 25, 0.5);
+  --iron: #08090f;
+  --ray: rgba(255, 214, 140, 0);
+  --sun-glow: 0;
+  --lantern-glow: 1;
   --firefly: #ffd98a;
-  --firefly-amount: 0.7;
-  --ray: rgba(255, 214, 140, 0.35);
-  --uplight: rgba(255, 190, 105, 0.5);
-  --grain: 0.28;
+  --firefly-amount: 0.8;
+  /* the doorway sits slightly differently in the night painting */
+  --door-left: 33.6%;
+  --door-width: 31.1%;
+  --door-bottom: 9.1%;
+  --door-height: 42.7%;
 }
 
 
@@ -187,12 +148,12 @@ a:hover {
 }
 
 
-/* 4. THE GARDEN GATE (artwork that opens as you scroll) ---------
+/* 4. THE GARDEN GATE (two paintings, with an iron gate that opens) ---
    gate.js sets --p from 0 (closed) to 1 (walked through).
    Everything below is worked out from --p:
      --unlock  0 to 1 while the padlock opens      (first 8% of the scroll)
      --open    0 to 1 while the doors swing        (8% to 53%)
-     --through 0 to 1 while you move into the arch (35% to 100%)  */
+     --through 0 to 1 while you move into the garden (35% to 100%)  */
 
 .gate-scene {
   --p: 0;
@@ -200,47 +161,180 @@ a:hover {
   --open: clamp(0, calc((var(--p) - 0.08) / 0.45), 1);
   --through: clamp(0, calc((var(--p) - 0.35) / 0.65), 1);
   position: relative;
-  height: 100svh;                 /* without gate.js: one screen, gate closed */
+  height: calc(100svh - var(--nav-h));   /* without gate.js: one screen, gate closed */
 }
 
 /* With gate.js running, the area is taller, so scrolling has room to open it */
 .gate-scene.is-scroll-driven {
-  height: 170svh;                 /* shorter = less scrolling to open it */
+  height: 170svh;
 }
 
-/* The stage stays pinned to the screen while you scroll through the area */
+/* The stage stays pinned under the menu while you scroll through the area */
 .gate-stage {
   position: sticky;
-  top: var(--nav-h);              /* sits right under the top menu */
+  top: var(--nav-h);
   height: calc(100svh - var(--nav-h));
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;      /* the gate stands on the bottom of the screen */
-  background: var(--sky);
+  background: var(--stage-sky);
   /* fade the whole stage out at the very end, so the page takes over */
   opacity: calc(1 - clamp(0, calc((var(--p) - 0.78) / 0.22), 1));
 }
 
-/* The artwork box keeps the drawing's shape (400 wide by 560 tall) */
-.gate-box {
-  position: relative;
-  z-index: 1;                     /* in front of the clouds and stars */
-  height: min(calc(100svh - var(--nav-h) - 11rem), calc(96vw * 1.4));   /* the welcome text floats over the top of it */
-  aspect-ratio: 400 / 560;
-  /* moving through: grow toward the center of the doorway */
-  transform: scale(calc(1 + var(--through) * 1.1));
+/* The world box keeps the paintings' shape and always fills the screen
+   (like a background photo set to "cover"), standing on the bottom edge. */
+.gate-world {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: max(100vw, calc((100svh - var(--nav-h)) * 1.7768));
+  aspect-ratio: 1672 / 941;
+  /* moving through: grow toward the doorway */
+  transform: translateX(-50%) scale(calc(1 + var(--through) * 1.3));
   transform-origin: 50% 64%;
 }
 
-/* Your name floats over the sky. It rises a little faster than the
-   garden as you scroll (that makes it feel like a separate layer),
-   then fades as the doors open. */
+/* Both paintings sit on top of each other. The mode decides which one shows. */
+.gate-painting {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.8s ease;
+}
+.gate-painting-day   { opacity: calc(1 - var(--night)); }
+.gate-painting-night { opacity: var(--night); }
+
+/* Soft glows placed on the painting's sun and lanterns (positions are percent of the painting) */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 0.8s ease;
+}
+
+.glow-sun {
+  left: 34.2%;
+  top: 38.5%;
+  width: 16%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 236, 170, 0.85), rgba(255, 200, 100, 0) 65%);
+  opacity: calc(var(--sun-glow) * (0.55 + var(--open) * 0.45));
+  animation: breathe 7s ease-in-out infinite;
+}
+
+.glow-lantern {
+  width: 5%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 210, 130, 0.9), rgba(255, 170, 80, 0) 65%);
+  opacity: var(--lantern-glow);
+  animation: flicker 3.2s ease-in-out infinite;
+}
+.glow-lantern-1 { left: 38%;   top: 56.8%; }
+.glow-lantern-2 { left: 47%;   top: 56.3%; animation-delay: -1.1s; }
+.glow-lantern-3 { left: 52%;   top: 54.2%; animation-delay: -2s; width: 3.5%; }
+.glow-lantern-4 { left: 56.2%; top: 54.7%; animation-delay: -0.6s; width: 3.5%; }
+
+@keyframes breathe {
+  0%, 100% { filter: brightness(1); }
+  50%      { filter: brightness(1.15); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: calc(var(--lantern-glow) * 0.85); }
+  40%      { opacity: calc(var(--lantern-glow) * 1); }
+  55%      { opacity: calc(var(--lantern-glow) * 0.7); }
+}
+
+/* Light rays fanning out from the sun. Brighter as the gate opens. */
+.gate-rays {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-conic-gradient(from 90deg at 34.2% 38.5%,
+    transparent 0deg, var(--ray) 3deg, transparent 8deg, transparent 14deg);
+  -webkit-mask-image: radial-gradient(ellipse 30% 45% at 34.2% 38.5%, #000 10%, transparent 75%);
+  mask-image: radial-gradient(ellipse 30% 45% at 34.2% 38.5%, #000 10%, transparent 75%);
+  mix-blend-mode: screen;
+  opacity: calc(0.35 + var(--open) * 0.5);
+}
+
+/* The doors fill the painting's doorway. Its position comes from the mode's colors above. */
+.gate-doors {
+  position: absolute;
+  left: var(--door-left);
+  width: var(--door-width);
+  bottom: var(--door-bottom);
+  height: var(--door-height);
+  perspective: 1100px;            /* this is what makes the swing look 3D */
+}
+
+.gate-shapes {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.gate-door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  stroke: var(--iron);
+  color: var(--iron);             /* the spear tips and dots use this */
+  overflow: visible;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35));
+}
+
+/* Each door swings away from you, on its outer hinge */
+.gate-door-left {
+  left: 0;
+  transform-origin: left center;
+  transform: rotateY(calc(var(--open) * 100deg));
+}
+
+.gate-door-right {
+  right: 0;
+  transform-origin: right center;
+  transform: rotateY(calc(var(--open) * -100deg));
+}
+
+/* The padlock: the shackle lifts, then the whole lock fades as the doors part */
+.gate-lock {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 7%;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--open) * 5);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.lock-shackle {
+  stroke: var(--glow);
+  transform: translateY(calc(var(--unlock) * -6px));
+}
+
+.lock-body { fill: var(--glow); }
+.lock-hole { fill: var(--iron); }
+
+/* A soft dark shade at the top of the screen, behind your name */
+.gate-shade {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 38%;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--shade), transparent);
+}
+
+/* Your name floats over the scene. It rises a little faster than the
+   garden as you scroll, then fades as the doors open. */
 .gate-title {
   position: absolute;
   z-index: 3;
-  top: 1.25rem;
+  top: 1.5rem;
   left: 0;
   right: 0;
   padding: 0 1rem;
@@ -252,13 +346,6 @@ a:hover {
   transform: translateY(calc(var(--p) * -140px));
 }
 
-.gate-eyebrow {
-  margin: 0.5rem 0 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-}
-
 .gate-name {
   margin: 0;
   font-family: var(--font-display);
@@ -266,205 +353,25 @@ a:hover {
   line-height: 1.05;
 }
 
-/* Shading on the stone pillars */
-.g-stone-light { stop-color: var(--stone-light); }
-.g-stone-mid   { stop-color: var(--stone); }
-.g-stone-dark  { stop-color: var(--mortar); }
-.g-stone-shadow { fill: var(--mortar); opacity: 0.35; }
-
-/* Light rays coming from the doorway. They get brighter as the gate opens. */
-.gate-rays {
-  position: absolute;
-  left: -40%;
-  right: -40%;
-  top: 0;
-  bottom: -10%;
-  pointer-events: none;
-  background: repeating-conic-gradient(from 150deg at 50% 66%,
-    transparent 0deg, var(--ray) 3deg, transparent 8deg, transparent 13deg);
-  -webkit-mask-image: radial-gradient(ellipse 45% 55% at 50% 66%, #000 15%, transparent 70%);
-  mask-image: radial-gradient(ellipse 45% 55% at 50% 66%, #000 15%, transparent 70%);
-  opacity: calc(0.25 + var(--open) * 0.6);
+.gate-eyebrow {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
 }
 
-/* Lamp light shining up the stone pillars (only visible at night) */
-.gate-box::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 16% 42% at 11.5% 100%, var(--uplight), transparent 100%),
-    radial-gradient(ellipse 16% 42% at 88.5% 100%, var(--uplight), transparent 100%);
-  mix-blend-mode: screen;
+.gate-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: calc(0.8 - var(--p) * 8);
 }
-
-/* The tree line on the horizon. Lit warm at golden hour, dark at night. */
-.gate-horizon {
-  position: absolute;
-  left: 0;
-  bottom: 6%;
-  width: 100%;
-  height: 90px;
-  pointer-events: none;
-}
-.hz-far  { fill: var(--horizon-far); }
-.hz-near { fill: var(--horizon-near); }
-
-/* Clouds: soft shapes, gold underneath at golden hour, faint at night.
-   They drift very slowly across the sky. */
-.gate-clouds {
-  position: absolute;
-  inset: 0 -20% 42% -20%;
-  pointer-events: none;
-  opacity: var(--clouds);
-  filter: blur(10px);
-  background:
-    radial-gradient(ellipse 22% 7% at 20% 26%, var(--cloud-light), transparent 70%),
-    radial-gradient(ellipse 26% 10% at 20% 20%, var(--cloud-body), transparent 70%),
-    radial-gradient(ellipse 20% 6% at 64% 34%, var(--cloud-light), transparent 70%),
-    radial-gradient(ellipse 24% 9% at 64% 28%, var(--cloud-body), transparent 70%),
-    radial-gradient(ellipse 18% 5% at 88% 16%, var(--cloud-light), transparent 70%),
-    radial-gradient(ellipse 22% 8% at 88% 11%, var(--cloud-body), transparent 70%),
-    radial-gradient(ellipse 30% 4% at 42% 52%, var(--cloud-light), transparent 70%);
-  animation: cloud-drift 120s linear infinite alternate;
-}
-
-@keyframes cloud-drift {
-  from { transform: translateX(-4%); }
-  to   { transform: translateX(4%); }
-}
-
-/* Stars: tiny dots scattered across the sky. Only visible at night. */
-.gate-stars {
-  position: absolute;
-  inset: 0 0 35% 0;
-  pointer-events: none;
-  opacity: var(--stars);
-  transition: opacity 0.6s ease;
-  background-image:
-    radial-gradient(1px 1px at 12% 18%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 27% 8%, #fff 90%, transparent),
-    radial-gradient(1.5px 1.5px at 41% 26%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 58% 12%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 73% 30%, #fff 90%, transparent),
-    radial-gradient(1.5px 1.5px at 86% 10%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 93% 40%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 6% 44%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 34% 48%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 66% 52%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 19% 60%, #fff 90%, transparent),
-    radial-gradient(1px 1px at 80% 62%, #fff 90%, transparent);
-}
-
-/* A soft lawn fading in across the whole bottom of the screen */
-.gate-stage::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 9%;
-  background: linear-gradient(to bottom, transparent, var(--ground) 45%);
-  pointer-events: none;
-}
-
-/* A soft paper grain over the whole scene, for a painted, storybook feel */
-.gate-grain {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  opacity: var(--grain);
-  mix-blend-mode: multiply;
-}
-
-.gate-behind,
-.gate-frame {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* The doors sit in the opening between the pillars (x 70 to 330, y 208 to 548) */
-.gate-doors {
-  position: absolute;
-  left: 17.5%;
-  top: 37.14%;
-  width: 65%;
-  height: 60.71%;
-  perspective: 900px;             /* this is what makes the swing look 3D */
-}
-
-.gate-door {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  stroke: var(--iron);
-  color: var(--iron);             /* the spear tips and dots use this */
-  overflow: visible;
-}
-
-/* Each door swings away from you, on its outer hinge */
-.gate-door-left {
-  left: 0;
-  transform-origin: left center;
-  transform: rotateY(calc(var(--open) * 106deg));
-}
-
-.gate-door-right {
-  right: 0;
-  transform-origin: right center;
-  transform: rotateY(calc(var(--open) * -106deg));
-}
-
-/* The padlock: the shackle lifts, then the whole lock fades as the doors part */
-.gate-lock {
-  position: absolute;
-  left: 50%;
-  top: 42%;
-  width: 9%;
-  transform: translateX(-50%);
-  opacity: calc(1 - var(--open) * 5);
-}
-
-.lock-shackle {
-  stroke: var(--glow);
-  transform: translateY(calc(var(--unlock) * -6px));
-}
-
-.lock-body { fill: var(--glow); }
-.lock-hole { fill: var(--iron); }
-
-/* Colors for each part of the drawing (they change with the mode) */
-.g-sun-in  { stop-color: var(--sun-in); }
-.g-sun-out { stop-color: var(--sun-out); }
-.g-sun {
-  transform: scale(calc(1 + var(--open) * 0.6));   /* the light grows as the gate opens */
-  transform-origin: 200px 300px;
-}
-.g-tree     { fill: var(--tree); }
-.g-tree-far { fill: var(--tree-far); }
-.g-path     { fill: var(--path); }
-.g-stone    { fill: var(--stone); }
-.g-mortar   { stroke: var(--mortar); stroke-width: 1.2; fill: none; }
-.g-arch     { fill: none; stroke: var(--stone); stroke-width: 24; }
-.g-arch-line { fill: none; stroke: var(--mortar); stroke-width: 1.5; }
-.g-vine     { fill: var(--vine); }
-.g-rose-pink  { fill: var(--rose-pink);  color: var(--rose-pink-core); }
-.g-rose-cream { fill: var(--rose-cream); color: var(--rose-cream-core); }
-.g-wisteria { fill: var(--wisteria); }
-.g-ground   { fill: var(--ground); }
-.g-grass    { fill: none; stroke: var(--grass); stroke-width: 1.6; stroke-linecap: round; }
-
-
 
 /* Drifting lights: a few slow dots, each on its own path */
 .firefly {
   position: absolute;
+  z-index: 2;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -474,14 +381,14 @@ a:hover {
   animation: drift 9s ease-in-out infinite;
 }
 
-.firefly:nth-of-type(1) { left: 14%; top: 62%; animation-delay: 0s; }
-.firefly:nth-of-type(2) { left: 82%; top: 55%; animation-delay: 1.5s; }
-.firefly:nth-of-type(3) { left: 30%; top: 78%; animation-delay: 3s; }
-.firefly:nth-of-type(4) { left: 68%; top: 82%; animation-delay: 4.5s; }
-.firefly:nth-of-type(5) { left: 48%; top: 46%; animation-delay: 6s; }
-.firefly:nth-of-type(6) { left: 8%;  top: 38%; animation-delay: 2.2s; }
-.firefly:nth-of-type(7) { left: 90%; top: 30%; animation-delay: 5.2s; }
-.firefly:nth-of-type(8) { left: 58%; top: 70%; animation-delay: 7.4s; }
+.firefly:nth-of-type(1) { left: 14%; top: 66%; animation-delay: 0s; }
+.firefly:nth-of-type(2) { left: 82%; top: 58%; animation-delay: 1.5s; }
+.firefly:nth-of-type(3) { left: 30%; top: 80%; animation-delay: 3s; }
+.firefly:nth-of-type(4) { left: 68%; top: 84%; animation-delay: 4.5s; }
+.firefly:nth-of-type(5) { left: 48%; top: 62%; animation-delay: 6s; }
+.firefly:nth-of-type(6) { left: 8%;  top: 50%; animation-delay: 2.2s; }
+.firefly:nth-of-type(7) { left: 90%; top: 44%; animation-delay: 5.2s; }
+.firefly:nth-of-type(8) { left: 58%; top: 74%; animation-delay: 7.4s; }
 
 @keyframes drift {
   0%   { opacity: 0; transform: translate(0, 0); }
@@ -490,32 +397,21 @@ a:hover {
   100% { opacity: 0; transform: translate(18px, -40px); }
 }
 
-/* "Scroll to open the gate" sits under your name and fades as soon as you start */
-.gate-hint {
-  margin: 0.5rem 0 0;
-  margin-top: 0.75rem;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: calc(0.75 - var(--p) * 8);
-}
-
 /* REDUCED MOTION: no scroll effect. Show the gate already open and still. */
 @media (prefers-reduced-motion: reduce) {
   .gate-scene,
   .gate-scene.is-scroll-driven {
     --p: 0.5;
     --through: 0;
-    height: auto;
+    height: calc(100svh - var(--nav-h));
   }
   .gate-stage {
     position: relative;
-    height: auto;
-    padding: 5rem 0 2rem;
+    top: 0;
     opacity: 1;
   }
-  .firefly { animation: none; }
-  .gate-clouds { animation: none; }
+  .firefly,
+  .glow { animation: none; }
 }
 
 
@@ -745,9 +641,12 @@ a:hover {
   :root {
     --nav-h: 5rem;              /* the phone menu is two rows */
   }
-  .gate-box {
-    /* a little wider than the screen, so the gate fills it */
-    height: min(calc(100svh - var(--nav-h) - 8.5rem), calc(112vw * 1.4));
+  /* On a phone, show the painting a bit smaller so the whole doorway fits,
+     and let it fade into the sky above, where your name sits */
+  .gate-world {
+    width: 250vw;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%);
+    mask-image: linear-gradient(to bottom, transparent, #000 10%);
   }
 }
 
