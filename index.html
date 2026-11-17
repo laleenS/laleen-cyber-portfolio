@@ -75,14 +75,52 @@
     </section>
 
     <!-- ============================================================
-         NEXT STATIONS GO HERE, IN THIS ORDER:
+         STATIONS 2 TO 6 GO HERE, IN THIS ORDER:
          2. Education
          3. Experience
          4. Leadership
          5. Security work and things I've built
          6. Currently building
-         7. How I secured this site
-         8. Resume and contact
+         ============================================================ -->
+
+    <!-- ============================================================
+         STATION 7: HOW I SECURED THIS SITE
+         Only write things here that are actually true about the site.
+         When something changes (new host, new scan result), update it.
+         ============================================================ -->
+    <section id="security" class="station" aria-labelledby="security-title">
+
+      <h2 id="security-title">How I secured this site</h2>
+
+      <p>This site is small on purpose. Less code means less to attack.</p>
+
+      <h3>What I did</h3>
+      <ul>
+        <li>No backend, no database, no logins. There is nothing here to break into or leak.</li>
+        <li>A Content Security Policy that only lets this page load files from this site.</li>
+        <li>No outside scripts, trackers or cookies. Even the fonts are stored here.</li>
+        <li>Links to other sites can't take control of this tab.</li>
+        <li>No phone number or home address anywhere.</li>
+      </ul>
+
+      <h3>Building with AI, safely</h3>
+      <p>I built this site with Claude as a coding partner. AI-written code is a known risk. Security researchers keep finding leaked keys and missing security settings in sites built this way. So I set rules before any code was written:</p>
+      <ul>
+        <li>I wrote the plan and the security rules first, in a requirements doc.</li>
+        <li>The repo has a rules file for the AI: no new packages without asking, no inline code, no made-up facts.</li>
+        <li>An automated check runs every time I push a change. It looks for things like keys, phone numbers, inline code and broken links, and flags the change if it finds any.</li>
+        <li>It gets built one small piece at a time, and I read and approve each piece before it goes in.</li>
+      </ul>
+
+      <h3>What this site can't do yet</h3>
+      <p>GitHub Pages can't send custom security headers, so the security policy lives inside the page instead. A few protections, like stopping other sites from showing this page inside theirs, only work as real headers. Moving to a host that supports them is on my list.</p>
+
+      <p>You can check all of this yourself. The <a href="https://github.com/laleenS/laleen-cyber-portfolio" rel="noopener noreferrer">code is public on GitHub</a>.</p>
+
+    </section>
+
+    <!-- ============================================================
+         STATION 8 (RESUME AND CONTACT) GOES HERE
          ============================================================ -->
 
   </main>

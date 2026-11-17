@@ -158,6 +158,40 @@ a:hover {
 }
 
 
+/* 4b. HEADINGS AND LISTS FOR ALL OTHER STATIONS ----------------- */
+
+.station h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  line-height: 1.1;
+}
+
+.station h3 {
+  margin: 2rem 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--leaf);
+}
+
+.station ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.station li {
+  margin-bottom: 0.5rem;
+}
+
+/* The gate's link row is a list too, but without bullets */
+.station ul.links {
+  padding-left: 0;
+}
+
+
 /* 5. FOOTER ----------------------------------------------------- */
 
 .site-footer {

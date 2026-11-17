@@ -22,7 +22,7 @@ Recruiters, and people who study or work in cybersecurity.
 4. Leadership
 5. Security work and things I've built
 6. Currently building, plus certifications in progress
-7. How I secured this site
+7. How I secured this site, including how AI-written code was kept safe
 8. Resume and contact
 
 ## Decisions
