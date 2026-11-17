@@ -74,3 +74,17 @@ The first screen is the calmest. Effects build up the further a visitor scrolls,
 ## Out of scope
 
 Backend, payments, fake password gate, AI chatbot, analytics, contact form, unbuilt projects shown as finished, a live link to Hisaab, a free-roam game world, sound that plays by itself.
+
+## Where we left off (Nov 17, 2026)
+
+- Base is done: all eight stations, resume PDF, contact, security station, courses.
+- Visual phase so far: sections ease in on scroll; golden hour and night modes; the gate scene built on two of Laleen's AI-generated paintings, with a code-drawn iron gate that opens on scroll.
+- Latest feedback: it must still read as a student portfolio, not too much. Laleen is making calmer, more muted versions of the two paintings (fewer flowers, more empty sky for text).
+- Open question for Laleen: full-screen image with her name over the sky, or a split layout (text and buttons left, gate image right).
+- Next steps once the new images arrive:
+  1. Swap in the calmer paintings and re-measure the doorway for the gate
+  2. Add Resume and Contact buttons on the first screen
+  3. Soften the image behind the text; make the gate opening quicker and subtler
+  4. Light on the iron doors so they blend into the painting
+  5. Style the sections below the gate to match
+  6. Update the security station and run a real header scan on the live site
