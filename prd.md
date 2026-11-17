@@ -12,7 +12,7 @@ A static, single-page personal site with no backend. Words are written straight 
 
 ## Audience
 
-Recruiters, and people who study or work in cybersecurity.
+Anyone who could open a door in cybersecurity: recruiters, internship programs, employers and grad schools. Any cyber team (SOC, IAM, GRC, policy). Long-term goal: the policy side, especially AI.
 
 ## The eight stations, in order
 
@@ -30,7 +30,7 @@ Recruiters, and people who study or work in cybersecurity.
 - One scrolling page
 - No photo
 - Day and night with a switch. Day first.
-- Resume: open PDF download, with phone number removed (until that PDF exists, the site says to email for it)
+- Resume: open PDF download at assets/laleen-salim-resume.pdf, with phone number and GPA removed
 - Email: shown to people, hidden from spam bots
 - Contact is job email, LinkedIn and GitHub only
 - Hosting: GitHub Pages to start
