@@ -1,0 +1,192 @@
+/* ==============================================================
+   styles.css
+   Everything about how the site LOOKS lives in this one file.
+   The words live in index.html.
+
+   Sections in this file:
+   1. Fonts
+   2. Colors and sizes (change these to restyle the whole site)
+   3. Page basics
+   4. Station 1: the gate
+   5. Footer
+   6. Accessibility helpers
+   ============================================================== */
+
+
+/* 1. FONTS -----------------------------------------------------
+   The font files are stored in assets/fonts, inside this repo.
+   Nothing is loaded from another website. */
+
+@font-face {
+  font-family: 'Garden Oldstyle';
+  src: url('assets/fonts/garden-oldstyle-regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garden Oldstyle';
+  src: url('assets/fonts/garden-oldstyle-italic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garden Humanist';
+  src: url('assets/fonts/garden-humanist.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Garden Humanist';
+  src: url('assets/fonts/garden-humanist-semibold.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+
+/* 2. COLORS AND SIZES -------------------------------------------
+   These are the "day" colors. A "night" set gets added later,
+   and the switch will swap one set for the other. */
+
+:root {
+  --paper: #f6f1e4;   /* page background: warm cream */
+  --ink:   #26352b;   /* main text: deep garden green */
+  --leaf:  #4f6f4c;   /* small labels and link underlines: sage */
+  --petal: #a85f6c;   /* accent: dusty rose */
+  --glow:  #c98a2b;   /* accent: warm lamp light */
+
+  --font-display: 'Garden Oldstyle', Georgia, serif;
+  --font-body: 'Garden Humanist', system-ui, sans-serif;
+  --font-code: 'Courier New', monospace;
+
+  --page-width: 40rem;  /* how wide the text column can get */
+}
+
+
+/* 3. PAGE BASICS ------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--ink);
+  text-decoration-color: var(--leaf);
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  color: var(--petal);
+}
+
+/* Every station is a centered column with breathing room */
+.station {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+
+/* 4. STATION 1: THE GATE ---------------------------------------- */
+
+.gate {
+  min-height: 90vh;           /* the gate fills most of the first screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-flower {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  line-height: 1.15;
+  color: var(--leaf);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--leaf);
+}
+
+.gate h1 {
+  margin: 0.25rem 0 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3rem, 12vw, 5.5rem);  /* grows with the screen, within limits */
+  line-height: 1;
+}
+
+.tagline {
+  margin: 0 0 2rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--petal);
+}
+
+.intro p {
+  margin: 0 0 1rem;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+/* 5. FOOTER ----------------------------------------------------- */
+
+.site-footer {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  font-size: 0.85rem;
+  color: var(--leaf);
+}
+
+
+/* 6. ACCESSIBILITY HELPERS -------------------------------------- */
+
+/* A clear outline when someone moves around with the keyboard */
+:focus-visible {
+  outline: 3px solid var(--glow);
+  outline-offset: 3px;
+}
+
+/* The skip link stays hidden until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}

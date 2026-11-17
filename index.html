@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--
+    SECURITY: Content Security Policy (CSP)
+    This tells the browser what this page is allowed to load.
+    - default-src 'none'  : block everything unless a rule below allows it
+    - style-src 'self'    : only style files from this site
+    - font-src 'self'     : only font files from this site
+    - img-src 'self'      : only images from this site
+    - script-src 'self'   : only script files from this site (no inline scripts)
+    - base-uri 'none'     : nobody can change where links point from
+    - form-action 'none'  : this page never sends a form anywhere
+    If you add something new (like an image host), it must be added here on purpose.
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+
+  <!-- PRIVACY: when someone clicks a link, only send our site name, not the full page address -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Laleen Salim | Cybersecurity Portfolio</title>
+  <meta name="description" content="Laleen Salim is a cybersecurity and security policy student at UNC Charlotte. This is her portfolio.">
+
+  <!-- All the looks (colors, fonts, spacing) live in styles.css -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- ACCESSIBILITY: keyboard users can press Tab once and jump past the top of the page -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <main id="main">
+
+    <!-- ============================================================
+         STATION 1: THE GATE
+         Who I am, in a few lines. To change the words, edit the text
+         between the tags below. Nothing else needs to change.
+         ============================================================ -->
+    <section id="gate" class="station gate" aria-labelledby="gate-title">
+
+      <!-- A small flower made of text characters. Decoration only,
+           so screen readers skip it (aria-hidden). -->
+      <pre class="text-flower" aria-hidden="true">
+  @ @
+ @ o @
+  @ @
+   |
+ \ | /
+  \|/
+   |</pre>
+
+      <p class="eyebrow">Cybersecurity portfolio</p>
+
+      <h1 id="gate-title">Laleen Salim</h1>
+
+      <p class="tagline">Cybersecurity and security policy student at UNC Charlotte.</p>
+
+      <!-- DRAFT INTRO: written from Laleen's own answers. Edit freely. -->
+      <div class="intro">
+        <p>I saw my first phishing attack during my first internship, and I have been curious about how things break, and how to keep them safe, ever since.</p>
+        <p>I like to investigate. I also like to make things. This site is both.</p>
+      </div>
+
+      <!-- Outside links. rel="noopener noreferrer" stops the other site
+           from being able to control this tab. -->
+      <ul class="links">
+        <li><a href="https://www.linkedin.com/in/laleen-s" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/laleenS" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+
+    </section>
+
+    <!-- ============================================================
+         NEXT STATIONS GO HERE, IN THIS ORDER:
+         2. Education
+         3. Experience
+         4. Leadership
+         5. Security work and things I've built
+         6. Currently building
+         7. How I secured this site
+         8. Resume and contact
+         ============================================================ -->
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Built by Laleen Salim. No trackers, no cookies.</p>
+  </footer>
+</body>
+</html>
