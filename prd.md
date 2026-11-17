@@ -38,7 +38,7 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 ## Visual principle
 
-The gate: a symmetrical wrought-iron double gate under a rose and wisteria arch, storybook and old-Disney whimsy, with a few odd details (a padlock that unlocks, a little mushroom). It opens as you scroll (a short scroll, not a long one). Rose hedges run off both sides, her name sits above the gate, with soft light rays and a paper grain for a painted feel. Three.js 3D is planned for later.
+The gate: a symmetrical wrought-iron double gate under a rose and wisteria arch, storybook and old-Disney whimsy, with a few odd details (a padlock that unlocks, a little mushroom). It opens as you scroll (a short scroll, not a long one). Her name floats over a realistic sky gradient (golden hour: dusky blue to gold; night: royal blue with warm light on the stone, like a lit building at night). Soft light rays and a paper grain for a painted feel. Tone must stay professional, nothing childish. Hedges and the welcome line were tried and removed. Three.js 3D is planned for later.
 
 The first screen is the calmest. Effects build up the further a visitor scrolls, so it never overstimulates but still shows off creativity. Feel: advanced and game-like, inspired by the reference sites, without being hard to navigate.
 
