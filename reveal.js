@@ -12,6 +12,9 @@
 //   starts calm. The PRD says effects build up as you scroll.
 // ==============================================================
 
+// The { } around this file keep its names private, so two files can
+// use the same name (like wantsLessMotion) without clashing.
+{
 // 1. Respect the "reduce motion" setting on the visitor's device
 const wantsLessMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -54,4 +57,5 @@ if (!wantsLessMotion && canWatchScrolling) {
       if (isOnScreen) station.classList.add('is-visible');
     });
   }, 3000);
+}
 }

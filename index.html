@@ -25,6 +25,10 @@
   <title>Laleen Salim | Cybersecurity Portfolio</title>
   <meta name="description" content="Laleen Salim is a cybersecurity and security policy student at UNC Charlotte. This is her portfolio.">
 
+  <!-- Picks golden hour or night before the page draws, so there's no flash.
+       It's a file (not inline code) so the security policy still allows it. -->
+  <script src="theme-init.js"></script>
+
   <!-- All the looks (colors, fonts, spacing) live in styles.css -->
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -43,9 +47,292 @@
       <li><a href="#security">Security</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <!-- Switches between golden hour and night. theme.js makes it work. -->
+    <button class="theme-switch" type="button" aria-pressed="false">Night</button>
   </nav>
 
   <main id="main">
+
+    <!-- ============================================================
+         THE GARDEN GATE (artwork)
+         Decoration only, so screen readers skip it (aria-hidden).
+         gate.js opens the gate as you scroll. The drawing is made in
+         code (SVG). You don't need to edit anything in this block.
+         ============================================================ -->
+    <div class="gate-scene" aria-hidden="true">
+      <div class="gate-stage">
+
+        <div class="gate-box">
+
+          <!-- The garden you see through the gate, plus shared shapes -->
+          <svg class="gate-behind" viewBox="0 0 400 560" focusable="false">
+            <defs>
+<symbol id="g-leaf" overflow="visible"><path d="M0 0C4-6 12-6 16 0C12 6 4 6 0 0Z"/></symbol>
+<symbol id="g-rose" overflow="visible"><circle r="7"/><path d="M-2.5 .5a2.5 2.5 0 1 1 3 2.2M-4.5 -1a5 5 0 0 1 8.5 -2" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/></symbol>
+<symbol id="g-wisteria" overflow="visible"><circle cx="-6.5" cy="0" r="2.6"/><circle cx="-2.5" cy="0" r="2.6"/><circle cx="2.3" cy="0" r="2.6"/><circle cx="5.8" cy="0" r="2.6"/><circle cx="-6.3" cy="5.2" r="2.4"/><circle cx="-2.3" cy="5.2" r="2.4"/><circle cx="1.6" cy="5.2" r="2.4"/><circle cx="6.3" cy="5.2" r="2.4"/><circle cx="-4.8" cy="10.4" r="2.2"/><circle cx="-0.1" cy="10.4" r="2.2"/><circle cx="3.7" cy="10.4" r="2.2"/><circle cx="-4.7" cy="15.6" r="2"/><circle cx="-0.1" cy="15.6" r="2"/><circle cx="4.6" cy="15.6" r="2"/><circle cx="-2.6" cy="20.8" r="1.8"/><circle cx="1.8" cy="20.8" r="1.8"/><circle cx="-1.9" cy="26" r="1.6"/><circle cx="2.6" cy="26" r="1.6"/><circle cx="0.1" cy="31.2" r="1.4"/></symbol>
+<symbol id="g-door" viewBox="0 0 130 340" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 72 10 71.8 16 71.4 22 70.9 28 70.2 34 69.4 40 68.4 46 67.2 52 65.9 58 64.4 64 62.8 70 61 76 59 82 56.9 88 54.6 94 52.1 100 49.5 106 46.7 112 43.8 118 40.7 124 37.4" stroke-width="4.5"/><path d="M4 72V332M126 34V332M4 332H126M4 110H126M4 204H126M4 300H126" stroke-width="4"/><path d="M22 70.9V300" stroke-width="2.6"/><path d="M22 53.9l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="22" cy="69.4" r="2.4" fill="currentColor" stroke="none"/><path d="M41 68.2V300" stroke-width="2.6"/><path d="M41 51.2l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="41" cy="66.7" r="2.4" fill="currentColor" stroke="none"/><path d="M60 63.9V300" stroke-width="2.6"/><path d="M60 46.9l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="60" cy="62.4" r="2.4" fill="currentColor" stroke="none"/><path d="M79 58V300" stroke-width="2.6"/><path d="M79 41l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="79" cy="56.5" r="2.4" fill="currentColor" stroke="none"/><path d="M98 50.4V300" stroke-width="2.6"/><path d="M98 33.4l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="98" cy="48.9" r="2.4" fill="currentColor" stroke="none"/><path d="M113 43.3V300" stroke-width="2.6"/><path d="M113 26.3l3.4 8-3.4 7-3.4-7z" fill="currentColor" stroke="none"/><circle cx="113" cy="41.8" r="2.4" fill="currentColor" stroke="none"/><path d="M10 200C10 150 64 168 62 134C61 116 40 114 38 128C37 138 50 141 54 134" stroke-width="3"/><path d="M124 200C124 166 84 162 86 140C88 124 108 124 109 138C110 148 98 150 96 143" stroke-width="3"/><path d="M62 134C70 120 100 116 120 112" stroke-width="2.2"/><path d="M65 294C34 276 32 224 65 214C98 224 96 276 65 294Z" stroke-width="3"/><path d="M65 276C50 266 50 238 65 232C78 238 78 258 68 262C62 264 60 256 65 252" stroke-width="2.2"/><circle cx="16" cy="316" r="6" stroke-width="2"/><circle cx="34" cy="316" r="6" stroke-width="2"/><circle cx="52" cy="316" r="6" stroke-width="2"/><circle cx="70" cy="316" r="6" stroke-width="2"/><circle cx="88" cy="316" r="6" stroke-width="2"/><circle cx="106" cy="316" r="6" stroke-width="2"/><circle cx="124" cy="316" r="6" stroke-width="2"/></symbol>
+</defs>
+            <!-- Only show the garden inside the arch opening -->
+            <clipPath id="g-opening"><path d="M70 548V182A130 130 0 0 1 330 182V548Z"/></clipPath>
+            <radialGradient id="g-sun-fade">
+              <stop offset="0" class="g-sun-in"/>
+              <stop offset="1" class="g-sun-out"/>
+            </radialGradient>
+            <circle class="g-sun" cx="200" cy="300" r="120" fill="url(#g-sun-fade)"/>
+            <g clip-path="url(#g-opening)">
+<circle class="g-tree g-tree-far" cx="59" cy="299" r="33"/>
+            <circle class="g-tree g-tree-far" cx="81" cy="298" r="29"/>
+            <circle class="g-tree g-tree-far" cx="98" cy="298" r="30"/>
+            <circle class="g-tree g-tree-far" cx="127" cy="288" r="26"/>
+            <circle class="g-tree g-tree-far" cx="139" cy="305" r="30"/>
+            <circle class="g-tree g-tree-far" cx="160" cy="310" r="34"/>
+            <circle class="g-tree g-tree-far" cx="188" cy="301" r="24"/>
+            <circle class="g-tree g-tree-far" cx="201" cy="299" r="23"/>
+            <circle class="g-tree g-tree-far" cx="224" cy="292" r="22"/>
+            <circle class="g-tree g-tree-far" cx="249" cy="297" r="32"/>
+            <circle class="g-tree g-tree-far" cx="270" cy="301" r="28"/>
+            <circle class="g-tree g-tree-far" cx="293" cy="297" r="25"/>
+            <circle class="g-tree g-tree-far" cx="318" cy="310" r="32"/>
+            <circle class="g-tree g-tree-far" cx="335" cy="294" r="25"/>
+            <circle class="g-tree" cx="47" cy="330" r="37"/>
+            <circle class="g-tree" cx="81" cy="347" r="31"/>
+            <circle class="g-tree" cx="123" cy="347" r="26"/>
+            <circle class="g-tree" cx="144" cy="348" r="33"/>
+            <circle class="g-tree" cx="241" cy="335" r="39"/>
+            <circle class="g-tree" cx="285" cy="331" r="29"/>
+            <circle class="g-tree" cx="308" cy="329" r="37"/>
+            <circle class="g-tree" cx="342" cy="340" r="32"/>
+            <path class="g-path" d="M190 318H210L300 560H100Z"/>
+            <circle class="g-wisteria" cx="182" cy="330" r="1.2"/>
+            <circle class="g-rose-cream" cx="224" cy="330" r="1.2"/>
+            <circle class="g-rose-pink" cx="171" cy="345" r="1.4"/>
+            <circle class="g-rose-pink" cx="226" cy="345" r="1.4"/>
+            <circle class="g-wisteria" cx="171" cy="361" r="1.6"/>
+            <circle class="g-rose-pink" cx="232" cy="361" r="1.6"/>
+            <circle class="g-rose-cream" cx="163" cy="376" r="1.8"/>
+            <circle class="g-wisteria" cx="245" cy="376" r="1.8"/>
+            <circle class="g-rose-pink" cx="152" cy="391" r="2.1"/>
+            <circle class="g-rose-pink" cx="242" cy="391" r="2.1"/>
+            <circle class="g-rose-cream" cx="150" cy="407" r="2.3"/>
+            <circle class="g-wisteria" cx="248" cy="407" r="2.3"/>
+            <circle class="g-rose-cream" cx="142" cy="422" r="2.5"/>
+            <circle class="g-rose-pink" cx="258" cy="422" r="2.5"/>
+            <circle class="g-wisteria" cx="138" cy="438" r="2.7"/>
+            <circle class="g-rose-pink" cx="267" cy="438" r="2.7"/>
+            <circle class="g-rose-cream" cx="127" cy="453" r="2.9"/>
+            <circle class="g-rose-pink" cx="274" cy="453" r="2.9"/>
+            <circle class="g-rose-cream" cx="117" cy="468" r="3.1"/>
+            <circle class="g-rose-pink" cx="282" cy="468" r="3.1"/>
+            <circle class="g-rose-pink" cx="111" cy="484" r="3.3"/>
+            <circle class="g-rose-cream" cx="287" cy="484" r="3.3"/>
+            <circle class="g-wisteria" cx="104" cy="499" r="3.6"/>
+            <circle class="g-rose-pink" cx="289" cy="499" r="3.6"/>
+            <circle class="g-wisteria" cx="105" cy="514" r="3.8"/>
+            <circle class="g-rose-pink" cx="303" cy="514" r="3.8"/>
+            <circle class="g-rose-cream" cx="94" cy="530" r="4.0"/>
+            <circle class="g-wisteria" cx="308" cy="530" r="4.0"/>
+            <circle class="g-rose-pink" cx="93" cy="545" r="4.2"/>
+            <circle class="g-rose-pink" cx="307" cy="545" r="4.2"/>
+            </g>
+          </svg>
+
+          <!-- The two iron doors. The right one is the left one, flipped. -->
+          <div class="gate-doors">
+            <svg class="gate-door gate-door-left" viewBox="0 0 130 340" focusable="false"><use href="#g-door"/></svg>
+            <svg class="gate-door gate-door-right" viewBox="0 0 130 340" focusable="false"><use href="#g-door" transform="matrix(-1 0 0 1 130 0)"/></svg>
+
+            <!-- The padlock. It unlocks first, a small nod to security. -->
+            <svg class="gate-lock" viewBox="0 0 40 52" focusable="false">
+              <path class="lock-shackle" d="M11 24V15a9 9 0 0 1 18 0v9" fill="none" stroke-width="4.5" stroke-linecap="round"/>
+              <rect class="lock-body" x="5" y="22" width="30" height="26" rx="5"/>
+              <circle class="lock-hole" cx="20" cy="33" r="3.2"/>
+              <path class="lock-hole" d="M18.6 34h2.8l1 7h-4.8z"/>
+            </svg>
+          </div>
+
+          <!-- Stone arch, pillars, roses, wisteria and vines, in front of the doors -->
+          <svg class="gate-frame" viewBox="0 0 400 560" focusable="false">
+            <rect class="g-stone" x="24" y="176" width="46" height="370" rx="3"/>
+<path class="g-mortar" d="M24 200H70"/>
+<path class="g-mortar" d="M47 200V226"/>
+<path class="g-mortar" d="M24 226H70"/>
+<path class="g-mortar" d="M35 226V252"/>
+<path class="g-mortar" d="M24 252H70"/>
+<path class="g-mortar" d="M47 252V278"/>
+<path class="g-mortar" d="M24 278H70"/>
+<path class="g-mortar" d="M35 278V304"/>
+<path class="g-mortar" d="M24 304H70"/>
+<path class="g-mortar" d="M47 304V330"/>
+<path class="g-mortar" d="M24 330H70"/>
+<path class="g-mortar" d="M35 330V356"/>
+<path class="g-mortar" d="M24 356H70"/>
+<path class="g-mortar" d="M47 356V382"/>
+<path class="g-mortar" d="M24 382H70"/>
+<path class="g-mortar" d="M35 382V408"/>
+<path class="g-mortar" d="M24 408H70"/>
+<path class="g-mortar" d="M47 408V434"/>
+<path class="g-mortar" d="M24 434H70"/>
+<path class="g-mortar" d="M35 434V460"/>
+<path class="g-mortar" d="M24 460H70"/>
+<path class="g-mortar" d="M47 460V486"/>
+<path class="g-mortar" d="M24 486H70"/>
+<path class="g-mortar" d="M35 486V512"/>
+<path class="g-mortar" d="M24 512H70"/>
+<path class="g-mortar" d="M47 512V538"/>
+<path class="g-mortar" d="M24 538H70"/>
+<path class="g-mortar" d="M35 538V564"/>
+<rect class="g-stone g-cap" x="18" y="166" width="58" height="16" rx="3"/>
+<rect class="g-stone" x="330" y="176" width="46" height="370" rx="3"/>
+<path class="g-mortar" d="M330 200H376"/>
+<path class="g-mortar" d="M353 200V226"/>
+<path class="g-mortar" d="M330 226H376"/>
+<path class="g-mortar" d="M341 226V252"/>
+<path class="g-mortar" d="M330 252H376"/>
+<path class="g-mortar" d="M353 252V278"/>
+<path class="g-mortar" d="M330 278H376"/>
+<path class="g-mortar" d="M341 278V304"/>
+<path class="g-mortar" d="M330 304H376"/>
+<path class="g-mortar" d="M353 304V330"/>
+<path class="g-mortar" d="M330 330H376"/>
+<path class="g-mortar" d="M341 330V356"/>
+<path class="g-mortar" d="M330 356H376"/>
+<path class="g-mortar" d="M353 356V382"/>
+<path class="g-mortar" d="M330 382H376"/>
+<path class="g-mortar" d="M341 382V408"/>
+<path class="g-mortar" d="M330 408H376"/>
+<path class="g-mortar" d="M353 408V434"/>
+<path class="g-mortar" d="M330 434H376"/>
+<path class="g-mortar" d="M341 434V460"/>
+<path class="g-mortar" d="M330 460H376"/>
+<path class="g-mortar" d="M353 460V486"/>
+<path class="g-mortar" d="M330 486H376"/>
+<path class="g-mortar" d="M341 486V512"/>
+<path class="g-mortar" d="M330 512H376"/>
+<path class="g-mortar" d="M353 512V538"/>
+<path class="g-mortar" d="M330 538H376"/>
+<path class="g-mortar" d="M341 538V564"/>
+<rect class="g-stone g-cap" x="324" y="166" width="58" height="16" rx="3"/>
+<path class="g-arch" d="M48 182A152 152 0 0 1 352 182"/>
+<path class="g-arch-line" d="M64 182A136 136 0 0 1 336 182"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(77.8 128.4) scale(1)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(98.9 97) scale(1.2)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(127.9 72.7) scale(0.9)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(164.8 56.6) scale(1.2)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(235.2 56.6) scale(1)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(272.1 72.7) scale(0.9)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(301.1 97) scale(0.9)"/>
+<use href="#g-wisteria" class="g-wisteria" transform="translate(322.2 128.4) scale(1)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(44.3 187.4) rotate(206.1)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(47.7 168.7) rotate(221.2)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(50.8 150.3) rotate(233.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(54.9 132) rotate(344.4)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(64.2 115.7) rotate(345)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(68.3 96.4) rotate(347)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(80.9 82) rotate(247.5)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(98 72.6) rotate(378.3)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(109 56.8) rotate(377.3)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(128.8 53.5) rotate(370.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(143.8 42.8) rotate(385.7)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(159.2 29.8) rotate(302.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(178.7 30.6) rotate(397.2)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(197.4 31.8) rotate(411.4)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(215.8 31.4) rotate(329.3)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(234.1 34.2) rotate(309.8)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(252.8 36.9) rotate(423.5)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(268.4 47.8) rotate(422.7)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(284.7 56.4) rotate(347.3)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(299.7 67.3) rotate(359)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(309.7 83.3) rotate(354.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(328.6 91.9) rotate(452.4)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(333.7 110.9) rotate(483.5)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(345.5 126.2) rotate(485.2)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(353.1 143.8) rotate(499.7)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(346.7 164) rotate(382.5)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(353.9 182) rotate(399.5)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(51.8 170.2) scale(0.9)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(49.9 149.5) scale(1.3)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(58 127.1) scale(1.1)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(75.1 96.4) scale(1.2)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(98 71.2) scale(1.1)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(138.5 47.7) scale(1)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(172.5 31.1) scale(0.9)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(194.7 35.7) scale(1.1)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(214 34.8) scale(0.9)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(257.4 43.6) scale(1.1)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(297 65.2) scale(1.1)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(321.7 99.5) scale(1)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(345.8 124.8) scale(1.1)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(353.8 144.3) scale(0.9)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(345.1 172.5) scale(1)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(54.7 186) rotate(304.4) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(39.2 210) rotate(195) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(60.9 246) rotate(86.2) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(30.8 270) rotate(263.2) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(45.5 294) rotate(217.9) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(59 318) rotate(350.8) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(24.3 330) rotate(169.2) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(38.2 342) rotate(354.7) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(53 354) rotate(327.3) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(65.1 378) rotate(139.9) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(58.4 390) rotate(320) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(59 426) rotate(267.6) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(24.6 438) rotate(357.5) scale(.9)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(51.2 214) scale(.8)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(50.6 262) scale(.8)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(46 330) scale(.8)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(376.6 186) rotate(197.4) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(365.2 210) rotate(269.8) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(327.5 246) rotate(180.4) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(367.2 258) rotate(196) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(371 270) rotate(266.4) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(370 294) rotate(297.8) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(373.4 306) rotate(54.7) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(367.9 342) rotate(51) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(359.4 354) rotate(22.2) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(362.8 366) rotate(173.7) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(329.1 390) rotate(15.2) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(331.3 402) rotate(10) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(374.3 414) rotate(117.2) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(336.8 438) rotate(182.9) scale(.9)"/>
+<use href="#g-leaf" class="g-vine" transform="translate(369.6 450) rotate(89.2) scale(.9)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(369.3 214) scale(.8)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(369.1 262) scale(.8)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(367.9 330) scale(.8)"/>
+<path class="g-ground" d="M0 548C80 530 150 540 200 536C260 532 330 528 400 546V560H0Z"/>
+<path class="g-grass" d="M4 552q-0.4 -6.2 -0.5 -12.4"/>
+<path class="g-grass" d="M13 552q-1.5 -7.4 1 -14.7"/>
+<path class="g-grass" d="M22 552q-2.3 -7.6 -1.2 -15.1"/>
+<path class="g-grass" d="M31 552q2.2 -5.7 2.6 -11.5"/>
+<path class="g-grass" d="M40 552q-1.1 -8.9 -1.5 -17.7"/>
+<path class="g-grass" d="M49 552q-0.3 -5.8 1.5 -11.6"/>
+<path class="g-grass" d="M58 552q3.1 -5.6 -2 -11.1"/>
+<path class="g-grass" d="M67 552q-2.2 -9 1.2 -18"/>
+<path class="g-grass" d="M76 552q-0.8 -11 -0.5 -21.9"/>
+<path class="g-grass" d="M320 552q-3.3 -7.1 -0.8 -14.3"/>
+<path class="g-grass" d="M329 552q-0.3 -7 1.2 -14.1"/>
+<path class="g-grass" d="M338 552q0.1 -7.3 -1.2 -14.6"/>
+<path class="g-grass" d="M347 552q-3.1 -10.8 2.5 -21.5"/>
+<path class="g-grass" d="M356 552q3 -6.4 -2.5 -12.7"/>
+<path class="g-grass" d="M365 552q3.2 -6.6 -1.9 -13.3"/>
+<path class="g-grass" d="M374 552q2.6 -9.5 2.1 -19.1"/>
+<path class="g-grass" d="M383 552q3.6 -9.1 -0.6 -18.1"/>
+<path class="g-grass" d="M392 552q0.1 -8.2 -0 -16.4"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(14 538) scale(.9)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(34 544) scale(.9)"/>
+<use href="#g-rose" class="g-rose-pink" transform="translate(372 540) scale(.9)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(390 548) scale(.9)"/>
+<use href="#g-rose" class="g-rose-cream" transform="translate(356 548) scale(.9)"/>
+<g class="g-mushroom" transform="translate(84 548)"><path class="g-mush-stem" d="M-3 0V-9H3V0Z"/><path class="g-mush-cap" d="M-11 -8C-11 -20 11 -20 11 -8Z"/><circle class="g-mush-dot" cx="-4" cy="-13" r="1.6"/><circle class="g-mush-dot" cx="4" cy="-11" r="1.3"/></g>
+          </svg>
+        </div>
+
+        <!-- A few drifting lights. More of them glow at night. -->
+        <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
+        <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
+
+        <p class="gate-hint">Scroll to open the gate</p>
+      </div>
+    </div>
 
     <!-- ============================================================
          STATION 1: THE GATE
@@ -54,16 +341,6 @@
          ============================================================ -->
     <section id="gate" class="station gate" aria-labelledby="gate-title">
 
-      <!-- A small flower made of text characters. Decoration only,
-           so screen readers skip it (aria-hidden). -->
-      <pre class="text-flower" aria-hidden="true">
-  @ @
- @ o @
-  @ @
-   |
- \ | /
-  \|/
-   |</pre>
 
       <p class="eyebrow">Cybersecurity portfolio</p>
 
@@ -422,5 +699,7 @@
   <!-- Scripts go last so the words load first. "defer" means: run after the page is ready. -->
   <script src="contact.js" defer></script>
   <script src="reveal.js" defer></script>
+  <script src="gate.js" defer></script>
+  <script src="theme.js" defer></script>
 </body>
 </html>

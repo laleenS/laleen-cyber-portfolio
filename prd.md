@@ -29,7 +29,7 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 - One scrolling page
 - No photo
-- Three light modes: day (default, light), golden hour, and night
+- Two modes: golden hour (default) and night, with a switch in the menu
 - Resume: open PDF download at assets/laleen-salim-resume.pdf, with phone number and GPA removed
 - Email: shown to people, hidden from spam bots
 - Contact is job email, LinkedIn and GitHub only
@@ -38,7 +38,7 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 ## Visual principle
 
-Next focus: the gate. It should feel more realistic and lush (like the archway reference), never overstimulating.
+The gate: a symmetrical wrought-iron double gate under a rose and wisteria arch, storybook and old-Disney whimsy, with a few odd details (a padlock that unlocks, a little mushroom). It opens as you scroll. Three.js 3D is planned for later.
 
 The first screen is the calmest. Effects build up the further a visitor scrolls, so it never overstimulates but still shows off creativity. Feel: advanced and game-like, inspired by the reference sites, without being hard to navigate.
 

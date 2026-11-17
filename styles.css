@@ -51,21 +51,74 @@
 
 
 /* 2. COLORS AND SIZES -------------------------------------------
-   These are the "day" colors. A "night" set gets added later,
-   and the switch will swap one set for the other. */
+   Two modes: golden hour (the default) and night.
+   Change a color here and it changes everywhere it's used. */
 
 :root {
-  --paper: #f6f1e4;   /* page background: warm cream */
-  --ink:   #26352b;   /* main text: deep garden green */
+  /* GOLDEN HOUR: page */
+  --paper: #f8efdf;   /* page background: warm cream */
+  --ink:   #2a3326;   /* main text: deep garden green */
   --leaf:  #4f6f4c;   /* small labels and link underlines: sage */
   --petal: #a85f6c;   /* accent: dusty rose */
   --glow:  #c98a2b;   /* accent: warm lamp light */
+
+  /* GOLDEN HOUR: the gate artwork */
+  --sky-top: #f2cf98;
+  --sky-bottom: #f8efdf;
+  --sun-in: #fff2c9;
+  --sun-out: rgba(255, 226, 160, 0);
+  --tree: #a8b98a;
+  --tree-far: #c5cf9f;
+  --path: #f4dfaf;
+  --iron: #3b3027;
+  --stone: #d8c6a6;
+  --mortar: #bca88a;
+  --vine: #5f7d4f;
+  --rose-pink: #e7a9ad;
+  --rose-pink-core: #b0606e;
+  --rose-cream: #f6e8cf;
+  --rose-cream-core: #c99d63;
+  --wisteria: #b9a2d8;
+  --ground: #a5b783;
+  --grass: #708f58;
+  --firefly: #fff4cf;
+  --firefly-amount: 0.45;
 
   --font-display: 'Garden Oldstyle', Georgia, serif;
   --font-body: 'Garden Humanist', system-ui, sans-serif;
   --font-code: 'Courier New', monospace;
 
   --page-width: 40rem;  /* how wide the text column can get */
+}
+
+/* NIGHT: the same names, darker values. theme.js turns this on. */
+[data-theme="night"] {
+  --paper: #111827;
+  --ink:   #ece4d2;
+  --leaf:  #a9c39d;
+  --petal: #eaaab7;
+  --glow:  #f0c46c;
+
+  --sky-top: #070c1a;
+  --sky-bottom: #111827;
+  --sun-in: #dfe7ff;      /* the moon */
+  --sun-out: rgba(170, 190, 255, 0);
+  --tree: #1f3326;
+  --tree-far: #2b4232;
+  --path: #b9c4e6;
+  --iron: #05070d;
+  --stone: #4a5068;
+  --mortar: #393e54;
+  --vine: #3e6a4e;
+  --rose-pink: #f3a7c2;   /* the flowers glow a little at night */
+  --rose-pink-core: #ffe0ea;
+  --rose-cream: #fff3d6;
+  --rose-cream-core: #f0c46c;
+  --wisteria: #a993f0;
+  --ground: #1c2f25;
+  --grass: #2f5a41;
+  --firefly: #ffe9a3;
+  --firefly-amount: 1;
 }
 
 
@@ -104,21 +157,207 @@ a:hover {
 }
 
 
-/* 4. STATION 1: THE GATE ---------------------------------------- */
+/* 4. THE GARDEN GATE (artwork that opens as you scroll) ---------
+   gate.js sets --p from 0 (closed) to 1 (walked through).
+   Everything below is worked out from --p:
+     --unlock  0 to 1 while the padlock opens    (first 12% of the scroll)
+     --open    0 to 1 while the doors swing      (12% to 62%)
+     --through 0 to 1 while you move into the arch (45% to 100%)  */
 
-.gate {
-  min-height: 90vh;           /* the gate fills most of the first screen */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.gate-scene {
+  --p: 0;
+  --unlock: clamp(0, calc(var(--p) / 0.12), 1);
+  --open: clamp(0, calc((var(--p) - 0.12) / 0.5), 1);
+  --through: clamp(0, calc((var(--p) - 0.45) / 0.55), 1);
+  position: relative;
+  height: 100svh;                 /* without gate.js: one screen, gate closed */
 }
 
-.text-flower {
-  margin: 0 0 1.5rem;
-  font-family: var(--font-code);
-  font-size: 0.9rem;
-  line-height: 1.15;
-  color: var(--leaf);
+/* With gate.js running, the area is taller, so scrolling has room to open it */
+.gate-scene.is-scroll-driven {
+  height: 260svh;
+}
+
+/* The stage stays pinned to the screen while you scroll through the area */
+.gate-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 3rem;              /* room for the top menu */
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom) 75%);
+  /* fade the whole stage out at the very end, so the page takes over */
+  opacity: calc(1 - clamp(0, calc((var(--p) - 0.8) / 0.2), 1));
+}
+
+/* The artwork box keeps the drawing's shape (400 wide by 560 tall) */
+.gate-box {
+  position: relative;
+  height: min(78svh, calc(92vw * 1.4));
+  aspect-ratio: 400 / 560;
+  /* moving through: grow toward the center of the doorway */
+  transform: scale(calc(1 + var(--through) * 1.1));
+  transform-origin: 50% 64%;
+}
+
+.gate-behind,
+.gate-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* The doors sit in the opening between the pillars (x 70 to 330, y 208 to 548) */
+.gate-doors {
+  position: absolute;
+  left: 17.5%;
+  top: 37.14%;
+  width: 65%;
+  height: 60.71%;
+  perspective: 900px;             /* this is what makes the swing look 3D */
+}
+
+.gate-door {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  stroke: var(--iron);
+  color: var(--iron);             /* the spear tips and dots use this */
+  overflow: visible;
+}
+
+/* Each door swings away from you, on its outer hinge */
+.gate-door-left {
+  left: 0;
+  transform-origin: left center;
+  transform: rotateY(calc(var(--open) * 106deg));
+}
+
+.gate-door-right {
+  right: 0;
+  transform-origin: right center;
+  transform: rotateY(calc(var(--open) * -106deg));
+}
+
+/* The padlock: the shackle lifts, then the whole lock fades as the doors part */
+.gate-lock {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 9%;
+  transform: translateX(-50%);
+  opacity: calc(1 - var(--open) * 5);
+}
+
+.lock-shackle {
+  stroke: var(--glow);
+  transform: translateY(calc(var(--unlock) * -6px));
+}
+
+.lock-body { fill: var(--glow); }
+.lock-hole { fill: var(--iron); }
+
+/* Colors for each part of the drawing (they change with the mode) */
+.g-sun-in  { stop-color: var(--sun-in); }
+.g-sun-out { stop-color: var(--sun-out); }
+.g-sun {
+  transform: scale(calc(1 + var(--open) * 0.6));   /* the light grows as the gate opens */
+  transform-origin: 200px 300px;
+}
+.g-tree     { fill: var(--tree); }
+.g-tree-far { fill: var(--tree-far); }
+.g-path     { fill: var(--path); }
+.g-stone    { fill: var(--stone); }
+.g-mortar   { stroke: var(--mortar); stroke-width: 1.2; fill: none; }
+.g-arch     { fill: none; stroke: var(--stone); stroke-width: 24; }
+.g-arch-line { fill: none; stroke: var(--mortar); stroke-width: 1.5; }
+.g-vine     { fill: var(--vine); }
+.g-rose-pink  { fill: var(--rose-pink);  color: var(--rose-pink-core); }
+.g-rose-cream { fill: var(--rose-cream); color: var(--rose-cream-core); }
+.g-wisteria { fill: var(--wisteria); }
+.g-ground   { fill: var(--ground); }
+.g-grass    { fill: none; stroke: var(--grass); stroke-width: 1.6; stroke-linecap: round; }
+.g-mush-stem { fill: var(--rose-cream); }
+.g-mush-cap  { fill: var(--petal); }
+.g-mush-dot  { fill: var(--rose-cream); }
+
+/* At night, the flowers give off a soft glow */
+[data-theme="night"] .g-rose-pink,
+[data-theme="night"] .g-rose-cream,
+[data-theme="night"] .g-wisteria {
+  filter: drop-shadow(0 0 3px currentColor);
+}
+
+/* Drifting lights: a few slow dots, each on its own path */
+.firefly {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--firefly);
+  box-shadow: 0 0 10px 3px var(--firefly);
+  opacity: 0;
+  animation: drift 9s ease-in-out infinite;
+}
+
+.firefly:nth-of-type(1) { left: 14%; top: 62%; animation-delay: 0s; }
+.firefly:nth-of-type(2) { left: 82%; top: 55%; animation-delay: 1.5s; }
+.firefly:nth-of-type(3) { left: 30%; top: 78%; animation-delay: 3s; }
+.firefly:nth-of-type(4) { left: 68%; top: 82%; animation-delay: 4.5s; }
+.firefly:nth-of-type(5) { left: 48%; top: 46%; animation-delay: 6s; }
+.firefly:nth-of-type(6) { left: 8%;  top: 38%; animation-delay: 2.2s; }
+.firefly:nth-of-type(7) { left: 90%; top: 30%; animation-delay: 5.2s; }
+.firefly:nth-of-type(8) { left: 58%; top: 70%; animation-delay: 7.4s; }
+
+@keyframes drift {
+  0%   { opacity: 0; transform: translate(0, 0); }
+  30%  { opacity: var(--firefly-amount); }
+  70%  { opacity: var(--firefly-amount); }
+  100% { opacity: 0; transform: translate(18px, -40px); }
+}
+
+/* "Scroll to open the gate" fades away as soon as you start */
+.gate-hint {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: calc(0.7 - var(--p) * 8);
+}
+
+/* REDUCED MOTION: no scroll effect. Show the gate already open and still. */
+@media (prefers-reduced-motion: reduce) {
+  .gate-scene,
+  .gate-scene.is-scroll-driven {
+    --p: 0.5;
+    --through: 0;
+    height: auto;
+  }
+  .gate-stage {
+    position: relative;
+    height: auto;
+    padding: 5rem 0 2rem;
+    opacity: 1;
+  }
+  .firefly { animation: none; }
+}
+
+
+/* 4a. STATION 1: THE WORDS UNDER THE GATE --------------------- */
+
+.gate {
+  padding-top: 3rem;
 }
 
 .eyebrow {
@@ -281,7 +520,7 @@ a:hover {
   gap: 0.5rem 1.5rem;
   padding: 0.75rem 1.5rem;
   background: var(--paper);
-  border-bottom: 1px solid rgba(79, 111, 76, 0.2);
+  border-bottom: 1px solid color-mix(in srgb, var(--leaf) 25%, transparent);
   font-size: 0.9rem;
 }
 
@@ -301,6 +540,50 @@ a:hover {
 .nav-name {
   font-family: var(--font-display);
   font-size: 1.15rem;
+}
+
+/* The golden hour / night switch */
+.theme-switch {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--leaf);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.theme-switch:hover {
+  border-color: var(--petal);
+  color: var(--petal);
+}
+
+/* The menu's own background follows the mode */
+.site-nav {
+  transition: background-color 0.4s ease;
+}
+
+/* PHONES: name and mode switch on the first row, links on the second.
+   Keeps the menu to two short rows so the gate has room. */
+@media (max-width: 640px) {
+  .site-nav {
+    padding: 0.6rem 1.25rem;
+    gap: 0.35rem 1rem;
+  }
+  .site-nav ul {
+    order: 3;
+    width: 100%;
+    gap: 0.2rem 1rem;
+    font-size: 0.85rem;
+  }
+  .gate-stage {
+    padding-top: 5.5rem;
+    align-items: flex-start;
+  }
+  .gate-box {
+    height: min(72svh, calc(88vw * 1.4));
+  }
 }
 
 /* When the menu jumps to a section, leave room so the title isn't hidden under the sticky menu */

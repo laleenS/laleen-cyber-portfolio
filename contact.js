@@ -11,6 +11,9 @@
 // innerHTML, so nothing can be injected as HTML.
 // ==============================================================
 
+// The { } around this file keep its names private, so two files can
+// use the same name (like wantsLessMotion) without clashing.
+{
 // Find every email placeholder on the page
 const emailSpots = document.querySelectorAll('.email');
 
@@ -31,3 +34,4 @@ emailSpots.forEach((spot) => {
   // Swap the placeholder text for the link
   spot.replaceChildren(link);
 });
+}
