@@ -316,6 +316,48 @@ section[id] {
 }
 
 
+/* 4d. SCROLL REVEAL ----------------------------------------------
+   Used by reveal.js. A station starts slightly lower and see-through,
+   then eases into place. Its title comes first, then each entry a
+   moment later, like a path unfolding.
+   If reveal.js never runs, these classes are never added, so the
+   page just shows normally. */
+
+/* Hidden state. No transition here, so hiding happens instantly
+   and off screen. Only the arrival is animated. */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Inside a station: the title, paragraphs and entries arrive one after another */
+.reveal > * {
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.reveal.is-visible > * {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The small delays that create the one-after-another feel.
+   After the 6th item, everything else arrives together, so long
+   sections never feel slow. */
+.reveal.is-visible > :nth-child(2) { transition-delay: 0.08s; }
+.reveal.is-visible > :nth-child(3) { transition-delay: 0.16s; }
+.reveal.is-visible > :nth-child(4) { transition-delay: 0.24s; }
+.reveal.is-visible > :nth-child(5) { transition-delay: 0.32s; }
+.reveal.is-visible > :nth-child(n+6) { transition-delay: 0.40s; }
+
+
 /* 5. FOOTER ----------------------------------------------------- */
 
 .site-footer {
