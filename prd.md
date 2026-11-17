@@ -62,6 +62,10 @@ The first screen is the calmest. Effects build up the further a visitor scrolls,
 3. Beauty: smooth scrolling, the text flower bouquet, the garden walk, a pond with fish, 3D tests
 4. Extras: an honest puzzle, optional sound
 
+## Parked for later
+
+- Lenis smooth scrolling. Tried it Nov 17. Skipped for now because the floaty scroll can feel like extra work. Revisit at the end of the beauty phase, desktop only if added.
+
 ## Out of scope
 
 Backend, payments, fake password gate, AI chatbot, analytics, contact form, unbuilt projects shown as finished, a live link to Hisaab, a free-roam game world, sound that plays by itself.
