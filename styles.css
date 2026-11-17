@@ -66,30 +66,35 @@
      The sky is a real golden-hour fade: dusky blue up high,
      soft lilac and peach in the middle, warm gold at the horizon. */
   --sky: linear-gradient(to bottom,
-         #4d6788 0%, #8a8fae 22%, #d6a7a0 46%, #f2c58f 66%, #f8dcae 80%);
+         #3f66a6 0%, #6f93c8 26%, #b9c6c4 46%, #f1d985 62%, #f6c35f 74%, #f3d58e 86%);
+  --cloud-body: rgba(70, 86, 122, 0.42);
+  --cloud-light: rgba(255, 226, 160, 0.75);
+  --clouds: 1;
+  --horizon-far: #b7b24e;     /* distant trees lit gold */
+  --horizon-near: #7e8f36;
   --title-color: #fffaf0;
   --title-shadow: rgba(40, 30, 60, 0.35);
   --stars: 0;
-  --sun-in: #fff2c9;
-  --sun-out: rgba(255, 226, 160, 0);
-  --tree: #a8b98a;
-  --tree-far: #c5cf9f;
-  --path: #f4dfaf;
+  --sun-in: #fff6c4;
+  --sun-out: rgba(255, 214, 110, 0);
+  --tree: #8fa543;
+  --tree-far: #c3c25a;
+  --path: #f7dd8f;
   --iron: #3b3027;
-  --stone: #d8c6a6;
-  --mortar: #bca88a;
-  --vine: #5f7d4f;
+  --stone: #e2c48a;
+  --mortar: #bb945a;
+  --vine: #6a8636;
   --rose-pink: #e7a9ad;
   --rose-pink-core: #b0606e;
   --rose-cream: #f6e8cf;
   --rose-cream-core: #c99d63;
   --wisteria: #b9a2d8;
-  --ground: #a5b783;
-  --grass: #708f58;
+  --ground: #7f9a3e;
+  --grass: #5c7a2c;
   --firefly: #fff4cf;
   --firefly-amount: 0.45;
-  --stone-light: #eadbc0;
-  --ray: rgba(255, 238, 196, 0.55);
+  --stone-light: #f7e0a6;
+  --ray: rgba(255, 232, 160, 0.6);
   --uplight: rgba(255, 210, 140, 0);   /* lamp light on the pillars, only at night */
   --grain: 0.22;
 
@@ -106,17 +111,22 @@
   /* NIGHT, inspired by a lit-up stone building at night:
      a deep royal blue sky (not black), and warm golden light
      shining up onto the stone. */
-  --paper: #0b1631;
+  --paper: #11163a;
   --ink:   #efe7d6;
   --leaf:  #b7c9a8;
   --petal: #e6b0bb;
   --glow:  #f2c46d;
 
   --sky: linear-gradient(to bottom,
-         #06102b 0%, #0b1c47 40%, #12296a 75%, #1a3378 92%);
+         #0b1236 0%, #1b2160 34%, #33307a 66%, #4a3c86 84%, #5b4790 96%);
   --title-color: #f6efe0;
   --title-shadow: rgba(0, 0, 0, 0.55);
-  --stars: 0.35;
+  --stars: 0.75;
+  --cloud-body: rgba(28, 20, 70, 0.5);
+  --cloud-light: rgba(150, 130, 210, 0.2);
+  --clouds: 0.7;
+  --horizon-far: #1b1c3a;     /* tree silhouettes against the twilight */
+  --horizon-near: #0f1424;
   --sun-in: #ffd892;      /* warm light glowing through the gate */
   --sun-out: rgba(255, 196, 110, 0);
   --tree: #13261d;
@@ -132,7 +142,7 @@
   --rose-cream: #eee0c2;
   --rose-cream-core: #b58e57;
   --wisteria: #8d79c6;
-  --ground: #0c1913;
+  --ground: #0d1420;
   --grass: #1d3a2b;
   --firefly: #ffd98a;
   --firefly-amount: 0.7;
@@ -216,6 +226,7 @@ a:hover {
 /* The artwork box keeps the drawing's shape (400 wide by 560 tall) */
 .gate-box {
   position: relative;
+  z-index: 1;                     /* in front of the clouds and stars */
   height: min(calc(100svh - var(--nav-h) - 11rem), calc(96vw * 1.4));   /* the welcome text floats over the top of it */
   aspect-ratio: 400 / 560;
   /* moving through: grow toward the center of the doorway */
@@ -286,6 +297,42 @@ a:hover {
     radial-gradient(ellipse 16% 42% at 11.5% 100%, var(--uplight), transparent 100%),
     radial-gradient(ellipse 16% 42% at 88.5% 100%, var(--uplight), transparent 100%);
   mix-blend-mode: screen;
+}
+
+/* The tree line on the horizon. Lit warm at golden hour, dark at night. */
+.gate-horizon {
+  position: absolute;
+  left: 0;
+  bottom: 6%;
+  width: 100%;
+  height: 90px;
+  pointer-events: none;
+}
+.hz-far  { fill: var(--horizon-far); }
+.hz-near { fill: var(--horizon-near); }
+
+/* Clouds: soft shapes, gold underneath at golden hour, faint at night.
+   They drift very slowly across the sky. */
+.gate-clouds {
+  position: absolute;
+  inset: 0 -20% 42% -20%;
+  pointer-events: none;
+  opacity: var(--clouds);
+  filter: blur(10px);
+  background:
+    radial-gradient(ellipse 22% 7% at 20% 26%, var(--cloud-light), transparent 70%),
+    radial-gradient(ellipse 26% 10% at 20% 20%, var(--cloud-body), transparent 70%),
+    radial-gradient(ellipse 20% 6% at 64% 34%, var(--cloud-light), transparent 70%),
+    radial-gradient(ellipse 24% 9% at 64% 28%, var(--cloud-body), transparent 70%),
+    radial-gradient(ellipse 18% 5% at 88% 16%, var(--cloud-light), transparent 70%),
+    radial-gradient(ellipse 22% 8% at 88% 11%, var(--cloud-body), transparent 70%),
+    radial-gradient(ellipse 30% 4% at 42% 52%, var(--cloud-light), transparent 70%);
+  animation: cloud-drift 120s linear infinite alternate;
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(-4%); }
+  to   { transform: translateX(4%); }
 }
 
 /* Stars: tiny dots scattered across the sky. Only visible at night. */
@@ -468,6 +515,7 @@ a:hover {
     opacity: 1;
   }
   .firefly { animation: none; }
+  .gate-clouds { animation: none; }
 }
 
 
