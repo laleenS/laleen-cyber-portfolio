@@ -29,7 +29,7 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 - One scrolling page
 - No photo
-- Day and night with a switch. Day first.
+- Three light modes: day (default, light), golden hour, and night
 - Resume: open PDF download at assets/laleen-salim-resume.pdf, with phone number and GPA removed
 - Email: shown to people, hidden from spam bots
 - Contact is job email, LinkedIn and GitHub only
@@ -37,6 +37,8 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 - Laleen edits on the GitHub website, so files stay simple
 
 ## Visual principle
+
+Next focus: the gate. It should feel more realistic and lush (like the archway reference), never overstimulating.
 
 The first screen is the calmest. Effects build up the further a visitor scrolls, so it never overstimulates but still shows off creativity. Feel: advanced and game-like, inspired by the reference sites, without being hard to navigate.
 
@@ -64,6 +66,7 @@ The first screen is the calmest. Effects build up the further a visitor scrolls,
 
 ## Parked for later
 
+- Code-art centerpiece: a photo redrawn as thousands of colored text characters. Liked it, parked so it doesn't slow down the gate.
 - Lenis smooth scrolling. Tried it Nov 17. Skipped for now because the floaty scroll can feel like extra work. Revisit at the end of the beauty phase, desktop only if added.
 
 ## Out of scope
