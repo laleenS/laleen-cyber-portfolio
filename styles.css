@@ -7,9 +7,14 @@
    1. Fonts
    2. Colors and sizes (change these to restyle the whole site)
    3. Page basics
-   4. Station 1: the gate
-   5. Footer
-   6. Accessibility helpers
+   4. Top menu and the sun/moon switch
+   5. The first screen: words, painting, numbered labels,
+      Explore / Learn / Build / Secure
+   6. Phones and small screens
+   7. The stations below
+   8. Scroll reveal
+   9. Footer
+   10. Accessibility helpers
    ============================================================== */
 
 
@@ -51,65 +56,64 @@
 
 
 /* 2. COLORS AND SIZES -------------------------------------------
-   Two modes: golden hour (the default) and night.
-   Change a color here and it changes everywhere it's used. */
+   Two modes: day (the default) and night.
+   Colors come from Laleen's mockups. Change one here and it
+   changes everywhere it's used. */
 
 :root {
-  /* GOLDEN HOUR: page */
-  --paper: #f8efdf;   /* page background: warm cream */
-  --ink:   #2a3326;   /* main text: deep garden green */
-  --leaf:  #4f6f4c;   /* small labels and link underlines: sage */
-  --petal: #a85f6c;   /* accent: dusty rose */
-  --glow:  #c98a2b;   /* accent: warm lamp light */
+  /* DAY: soft ivory, plum ink, champagne gold */
+  --paper:   #fbf5ee;   /* page background */
+  --paper-2: #f3e8de;   /* slightly darker panels */
+  --ink:     #2a2130;   /* main text */
+  --muted:   #66586a;   /* quieter text */
+  --accent:  #6b4766;   /* plum: main button, italic words */
+  --on-accent: #fbf5ee; /* text on the main button */
+  --gold:    #b08a4f;   /* champagne gold: dots, small numbers */
+  --line:    #8a6a3a;   /* connector lines: a deeper gold so they show on the light sky */
+  --rule:    rgba(42, 33, 48, 0.18);       /* thin lines */
+  --glass:   rgba(255, 251, 246, 0.62);    /* see-through label background */
+  --glass-strong: rgba(255, 251, 246, 0.88);
+  --glass-edge: rgba(42, 33, 48, 0.32);    /* label border */
+  --wash:    rgba(251, 245, 238, 0.55);    /* soft fade behind the hero words */
+  --night: 0;              /* 0 = show the day painting */
+  --firefly: #f6d58c;
+  --firefly-amount: 0.3;
 
-  /* GOLDEN HOUR: the gate scene */
-  --stage-sky: linear-gradient(to bottom, #4d72b4, #8fa9d4);   /* shows above the painting on phones */
-  --night: 0;                 /* 0 = show the golden hour painting */
-  --title-color: #fffaf0;
-  --title-shadow: rgba(20, 24, 40, 0.55);
-  --shade: rgba(20, 28, 52, 0.45);
-  --iron: #1f1813;
-  --glow: #e3a33f;
-  --ray: rgba(255, 228, 150, 0.5);
-  --sun-glow: 1;
-  --lantern-glow: 0;
-  --firefly: #fff1c2;
-  --firefly-amount: 0.35;
-  /* where the doorway sits in the golden hour painting (percent of the painting) */
-  --door-left: 32.6%;
-  --door-width: 34.27%;
-  --door-bottom: 11.8%;
-  --door-height: 47.1%;
+  /* Where each line meets the arch in the DAY painting (percent of the painting) */
+  --node-1-x: 72.7%;  --node-1-y: 17.5%;   /* top of the arch */
+  --node-2-x: 60.5%;  --node-2-y: 61%;     /* fingerprint panel */
+  --node-3-x: 88%;    --node-3-y: 65.8%;   /* geometric panel */
 
-  --page-width: 40rem;  /* how wide the text column can get */
-  --nav-h: 3.6rem;      /* height of the top menu (the gate fits under it) */
+  --font-display: 'Garden Oldstyle', Georgia, serif;
+  --font-body: 'Garden Humanist', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;  /* the device's own, no download */
+
+  --page-width: 44rem;   /* how wide the text column can get */
+  --nav-h: 4rem;         /* height of the top menu */
 }
 
 /* NIGHT: the same names, darker values. theme.js turns this on. */
 [data-theme="night"] {
-  /* NIGHT: blue-violet twilight, warm lanterns and lit stone */
-  --paper: #11163a;
-  --ink:   #efe7d6;
-  --leaf:  #b7c9a8;
-  --petal: #e6b0bb;
-  --glow:  #f2c46d;
-
-  --stage-sky: linear-gradient(to bottom, #0b1236, #1b2160);
-  --night: 1;                 /* 1 = show the night painting */
-  --title-color: #f6efe0;
-  --title-shadow: rgba(0, 0, 0, 0.6);
-  --shade: rgba(5, 8, 25, 0.5);
-  --iron: #08090f;
-  --ray: rgba(255, 214, 140, 0);
-  --sun-glow: 0;
-  --lantern-glow: 1;
+  --paper:   #0d1726;
+  --paper-2: #142036;
+  --ink:     #f3ebe0;
+  --muted:   #b8adb9;
+  --accent:  #f0cba6;   /* soft peach */
+  --on-accent: #1d1724;
+  --gold:    #e2bd76;
+  --line:    #e2bd76;
+  --rule:    rgba(243, 235, 224, 0.18);
+  --glass:   rgba(13, 23, 38, 0.5);
+  --glass-strong: rgba(13, 23, 38, 0.82);
+  --glass-edge: rgba(243, 235, 224, 0.38);
+  --wash:    rgba(13, 23, 38, 0.45);
+  --night: 1;
   --firefly: #ffd98a;
-  --firefly-amount: 0.8;
-  /* the doorway sits slightly differently in the night painting */
-  --door-left: 33.6%;
-  --door-width: 31.1%;
-  --door-bottom: 9.1%;
-  --door-height: 42.7%;
+  --firefly-amount: 0.85;
+
+  /* The night painting is a little different, so two spots move */
+  --node-1-y: 26%;
+  --node-3-y: 63.5%;
 }
 
 
@@ -128,353 +132,739 @@ body {
   font-family: var(--font-body);
   font-size: 1.0625rem;
   line-height: 1.6;
+  transition: background-color 0.8s ease, color 0.8s ease;
 }
 
 a {
   color: var(--ink);
-  text-decoration-color: var(--leaf);
+  text-decoration-color: var(--gold);
   text-underline-offset: 0.2em;
 }
 
 a:hover {
-  color: var(--petal);
+  color: var(--accent);
 }
 
-/* Every station is a centered column with breathing room */
-.station {
-  max-width: var(--page-width);
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
+/* The little four-point star used in the logo and markers */
+.star {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  flex: none;
 }
 
 
-/* 4. THE GARDEN GATE (two paintings, with an iron gate that opens) ---
-   gate.js sets --p from 0 (closed) to 1 (walked through).
-   Everything below is worked out from --p:
-     --unlock  0 to 1 while the padlock opens      (first 8% of the scroll)
-     --open    0 to 1 while the doors swing        (8% to 53%)
-     --through 0 to 1 while you move into the garden (35% to 100%)  */
+/* 4. TOP MENU ---------------------------------------------------- */
 
-.gate-scene {
-  --p: 0;
-  --unlock: clamp(0, calc(var(--p) / 0.08), 1);
-  --open: clamp(0, calc((var(--p) - 0.08) / 0.45), 1);
-  --through: clamp(0, calc((var(--p) - 0.35) / 0.65), 1);
+.site-nav {
+  position: sticky;            /* stays at the top while you scroll */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 2rem;
+  min-height: var(--nav-h);
+  padding: 0.6rem 5vw;
+  /* see-through, so the garden shows a little behind it */
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  font-size: 0.88rem;
+  transition: background-color 0.8s ease;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-right: auto;
+  font-size: 0.8rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.logo .star {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 2rem;
+  margin: 0 auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav ul a {
+  text-decoration: none;
+}
+
+/* The sun/moon switch: a small pill. The icon for the current mode sits in a soft circle. */
+.theme-switch {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  border: 1px solid var(--glass-edge);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.theme-switch[hidden] {
+  display: none;
+}
+
+.theme-switch svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  padding: 0.3rem;
+  border-radius: 50%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.55;
+  transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+
+.theme-switch .icon-moon {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Day: sun is lit. Night: moon is lit. */
+.theme-switch .icon-sun,
+[data-theme="night"] .theme-switch .icon-moon {
+  background: var(--accent);
+  color: var(--on-accent);
+  opacity: 1;
+}
+
+[data-theme="night"] .theme-switch .icon-sun {
+  background: transparent;
+  color: var(--ink);
+  opacity: 0.55;
+}
+
+.theme-switch .icon-sun {
+  color: var(--on-accent);
+}
+
+
+/* 5. THE FIRST SCREEN ("Root Access") ----------------------------
+   The painting fills the screen. The words sit on the left, over
+   the empty sky. Everything on the painting is placed in percent
+   of the painting, so it stays put at any size. */
+
+.hero {
   position: relative;
-  height: calc(100svh - var(--nav-h));   /* without gate.js: one screen, gate closed */
-}
-
-/* With gate.js running, the area is taller, so scrolling has room to open it */
-.gate-scene.is-scroll-driven {
-  height: 170svh;
-}
-
-/* The stage stays pinned under the menu while you scroll through the area */
-.gate-stage {
-  position: sticky;
-  top: var(--nav-h);
-  height: calc(100svh - var(--nav-h));
+  display: flex;
+  align-items: center;
   overflow: hidden;
-  background: var(--stage-sky);
-  /* fade the whole stage out at the very end, so the page takes over */
-  opacity: calc(1 - clamp(0, calc((var(--p) - 0.78) / 0.22), 1));
+  /* One screen tall, but never taller than the painting itself */
+  height: min(calc(100svh - var(--nav-h)), calc(100vw / 1.7768));
+  min-height: 34rem;
+  background: var(--paper);
 }
 
-/* The world box keeps the paintings' shape and always fills the screen
-   (like a background photo set to "cover"), standing on the bottom edge. */
-.gate-world {
+/* LEFT SIDE: the words */
+.hero-text {
+  position: relative;
+  z-index: 2;
+  width: min(30rem, 31vw);
+  margin-left: 5vw;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0 0 1.6rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.hero h1 {
+  margin: 0 0 1.2rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 5.8vw, 6.2rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+/* The italic accent words */
+.hero h1 em,
+.hero-line em {
+  font-style: italic;
+}
+
+.hero h1 em {
+  color: var(--accent);
+}
+
+.hero-line {
+  margin: 0 0 1.3rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.4vw, 2.5rem);
+  line-height: 1.12;
+}
+
+.hero-intro {
+  max-width: 26rem;
+  margin: 0 0 1.8rem;
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+/* Pill buttons. The main one is filled, the second is an outline.
+   Big enough to tap easily on a phone. */
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.8s ease;
+}
+
+.button:hover {
+  color: var(--on-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px -8px var(--accent);
+}
+
+.button-outline {
+  border-color: var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+
+.button-outline:hover {
+  color: var(--ink);
+  background: var(--glass);
+}
+
+/* "Scroll to explore", with a thin line above it */
+.scroll-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 3.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+}
+
+.scroll-marker::before {
+  content: "";
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: max(100vw, calc((100svh - var(--nav-h)) * 1.7768));
-  aspect-ratio: 1672 / 941;
-  /* moving through: grow toward the doorway */
-  transform: translateX(-50%) scale(calc(1 + var(--through) * 1.3));
-  transform-origin: 50% 64%;
+  left: 0.45em;
+  bottom: calc(100% + 0.8rem);
+  width: 1px;
+  height: 1.8rem;
+  background: var(--ink);
+  opacity: 0.4;
 }
 
-/* Both paintings sit on top of each other. The mode decides which one shows. */
-.gate-painting {
+/* RIGHT SIDE: the painting.
+   .art is the painting's shape, centered on the screen's height.
+   .art-frame crops it. .art-canvas holds the painting and everything on it. */
+.art {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  transform: translateY(-50%);
+}
+
+.art-frame,
+.art-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.painting {
+  position: absolute;
+  transition: opacity 1.2s ease;
+}
+
+/* The night painting fills the canvas exactly */
+.painting-night {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: var(--night);
+}
+
+/* The day painting is a different shape, so it's nudged until
+   its arch lines up with the night one */
+.painting-day {
+  left: -1.2%;
+  top: -10.3%;
+  width: 102%;
+  height: auto;
+  opacity: calc(1 - var(--night));
+}
+
+/* A soft fade on the left, so the words are easy to read */
+.art-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to right, var(--wash) 0%, var(--wash) 22%, transparent 48%);
+}
+
+/* Lantern glows, night only */
+.glow {
+  position: absolute;
+  width: 6%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255, 210, 130, 0.55), rgba(255, 170, 80, 0) 65%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: var(--night);
+  transition: opacity 1.2s ease;
+}
+.glow-1 { left: 50.5%; top: 79%; }
+.glow-2 { left: 92.5%; top: 80%; }
+.glow-3 { left: 87.5%; top: 46%; width: 4.5%; }
+
+/* THE CONNECTOR LINES.
+   Thin gold lines. Each mode shows its own copy. */
+.lines {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 0.8s ease;
-}
-.gate-painting-day   { opacity: calc(1 - var(--night)); }
-.gate-painting-night { opacity: var(--night); }
-
-/* Soft glows placed on the painting's sun and lanterns (positions are percent of the painting) */
-.glow {
-  position: absolute;
-  border-radius: 50%;
+  overflow: visible;
   pointer-events: none;
-  mix-blend-mode: screen;
-  transition: opacity 0.8s ease;
 }
 
-.glow-sun {
-  left: 34.2%;
-  top: 38.5%;
-  width: 16%;
-  aspect-ratio: 1;
+.line {
+  stroke: var(--line);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;   /* stays 1px thin at any size */
+  opacity: 0.75;
+  transition: opacity 0.4s ease, stroke-width 0.4s ease;
+}
+
+.for-night { display: none; }
+[data-theme="night"] .for-day   { display: none; }
+[data-theme="night"] .for-night { display: inline; }
+
+/* THE DOTS where each line meets the arch */
+.node {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--paper);
   transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 236, 170, 0.85), rgba(255, 200, 100, 0) 65%);
-  opacity: calc(var(--sun-glow) * (0.55 + var(--open) * 0.45));
-  animation: breathe 7s ease-in-out infinite;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 25%, transparent);
+  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
 }
+.node-1 { left: var(--node-1-x); top: var(--node-1-y); }
+.node-2 { left: var(--node-2-x); top: var(--node-2-y); }
+.node-3 { left: var(--node-3-x); top: var(--node-3-y); }
 
-.glow-lantern {
-  width: 5%;
-  aspect-ratio: 1;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(255, 210, 130, 0.9), rgba(255, 170, 80, 0) 65%);
-  opacity: var(--lantern-glow);
-  animation: flicker 3.2s ease-in-out infinite;
-}
-.glow-lantern-1 { left: 38%;   top: 56.8%; }
-.glow-lantern-2 { left: 47%;   top: 56.3%; animation-delay: -1.1s; }
-.glow-lantern-3 { left: 52%;   top: 54.2%; animation-delay: -2s; width: 3.5%; }
-.glow-lantern-4 { left: 56.2%; top: 54.7%; animation-delay: -0.6s; width: 3.5%; }
-
-@keyframes breathe {
-  0%, 100% { filter: brightness(1); }
-  50%      { filter: brightness(1.15); }
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: calc(var(--lantern-glow) * 0.85); }
-  40%      { opacity: calc(var(--lantern-glow) * 1); }
-  55%      { opacity: calc(var(--lantern-glow) * 0.7); }
-}
-
-/* Light rays fanning out from the sun. Brighter as the gate opens. */
-.gate-rays {
+/* THE NUMBERED LABELS (desktop).
+   Each one is placed by the spot where its line starts.
+   The label sits just left of that spot. */
+.hotspots {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background: repeating-conic-gradient(from 90deg at 34.2% 38.5%,
-    transparent 0deg, var(--ray) 3deg, transparent 8deg, transparent 14deg);
-  -webkit-mask-image: radial-gradient(ellipse 30% 45% at 34.2% 38.5%, #000 10%, transparent 75%);
-  mask-image: radial-gradient(ellipse 30% 45% at 34.2% 38.5%, #000 10%, transparent 75%);
-  mix-blend-mode: screen;
-  opacity: calc(0.35 + var(--open) * 0.5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  pointer-events: none;     /* only the labels themselves can be clicked */
 }
 
-/* The doors fill the painting's doorway. Its position comes from the mode's colors above. */
-.gate-doors {
+.hotspot {
   position: absolute;
-  left: var(--door-left);
-  width: var(--door-width);
-  bottom: var(--door-bottom);
-  height: var(--door-height);
-  perspective: 1100px;            /* this is what makes the swing look 3D */
+  transform: translate(-100%, -50%);
+  pointer-events: auto;
+}
+.hotspot-1 { left: 61%; top: 14%; }
+.hotspot-2 { left: 54%; top: 80%; }
+.hotspot-3 { left: 80%; top: 82%; }
+
+.hotspot a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid var(--glass-edge);
+  border-radius: 4px;
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.4s ease, border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-.gate-shapes {
+.hotspot-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* The short preview. Hidden until you hover or tab to the label. */
+.hotspot-preview {
   position: absolute;
-  width: 0;
-  height: 0;
-}
-
-.gate-door {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  stroke: var(--iron);
-  color: var(--iron);             /* the spear tips and dots use this */
-  overflow: visible;
-  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35));
-}
-
-/* Each door swings away from you, on its outer hinge */
-.gate-door-left {
-  left: 0;
-  transform-origin: left center;
-  transform: rotateY(calc(var(--open) * 100deg));
-}
-
-.gate-door-right {
+  top: calc(100% + 0.5rem);
   right: 0;
-  transform-origin: right center;
-  transform: rotateY(calc(var(--open) * -100deg));
-}
-
-/* The padlock: the shackle lifts, then the whole lock fades as the doors part */
-.gate-lock {
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  width: 7%;
-  transform: translateX(-50%);
-  opacity: calc(1 - var(--open) * 5);
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
-}
-
-.lock-shackle {
-  stroke: var(--glow);
-  transform: translateY(calc(var(--unlock) * -6px));
-}
-
-.lock-body { fill: var(--glow); }
-.lock-hole { fill: var(--iron); }
-
-/* A soft dark shade at the top of the screen, behind your name */
-.gate-shade {
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 38%;
+  width: 15rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--glass-edge);
+  border-radius: 4px;
+  background: var(--glass-strong);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: normal;
+  color: var(--muted);
+  opacity: 0;
+  transform: translateY(-4px);
   pointer-events: none;
-  background: linear-gradient(to bottom, var(--shade), transparent);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* Your name floats over the scene. It rises a little faster than the
-   garden as you scroll, then fades as the doors open. */
-.gate-title {
+/* Label 3 is near the bottom, so its preview opens upward */
+.hotspot-3 .hotspot-preview {
+  top: auto;
+  bottom: calc(100% + 0.5rem);
+  transform: translateY(4px);
+}
+
+/* HOVER OR KEYBOARD FOCUS: the label lifts, its preview shows,
+   and its line and dot light up */
+.hotspot a:hover,
+.hotspot a:focus-visible {
+  color: var(--ink);
+  border-color: var(--gold);
+  background: var(--glass-strong);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px -14px var(--gold);
+}
+
+.hotspot a:hover .hotspot-preview,
+.hotspot a:focus-visible .hotspot-preview {
+  opacity: 1;
+  transform: none;
+}
+
+.art:has(.hotspot-1 a:is(:hover, :focus-visible)) .line-1,
+.art:has(.hotspot-2 a:is(:hover, :focus-visible)) .line-2,
+.art:has(.hotspot-3 a:is(:hover, :focus-visible)) .line-3 {
+  opacity: 1;
+  stroke-width: 1.6;
+  stroke-dasharray: 4 3;
+  animation: flow 1.4s linear infinite;    /* a little data moving along the line */
+}
+
+.art:has(.hotspot-1 a:is(:hover, :focus-visible)) .node-1,
+.art:has(.hotspot-2 a:is(:hover, :focus-visible)) .node-2,
+.art:has(.hotspot-3 a:is(:hover, :focus-visible)) .node-3 {
+  background: var(--gold);
+  transform: translate(-50%, -50%) scale(1.5);
+  box-shadow: 0 0 14px 4px color-mix(in srgb, var(--gold) 60%, transparent);
+}
+
+@keyframes flow {
+  to { stroke-dashoffset: -14; }
+}
+
+/* TOP RIGHT: Explore / Learn / Build / Secure */
+.compass {
   position: absolute;
   z-index: 3;
-  top: 1.5rem;
-  left: 0;
-  right: 0;
-  padding: 0 1rem;
-  text-align: center;
-  pointer-events: none;
-  color: var(--title-color);
-  text-shadow: 0 2px 18px var(--title-shadow);
-  opacity: calc(1 - var(--open) * 1.6);
-  transform: translateY(calc(var(--p) * -140px));
+  top: 19%;
+  right: 2.5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem 1.2rem;
+  border-left: 1px solid var(--glass-edge);
+  border-right: 1px solid var(--glass-edge);
+  background: color-mix(in srgb, var(--glass) 70%, transparent);
+  backdrop-filter: blur(4px);
 }
 
-.gate-name {
+.compass .star {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--gold);
+}
+
+.compass ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
   margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(2.6rem, 8vw, 4.75rem);
-  line-height: 1.05;
+  padding: 0;
+  list-style: none;
 }
 
-.gate-eyebrow {
-  margin: 0.5rem 0 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.24em;
+.compass a {
+  font-size: 0.66rem;
+  letter-spacing: 0.34em;
+  margin-right: -0.34em;    /* keeps the spaced letters centered */
   text-transform: uppercase;
+  text-decoration: none;
 }
 
-.gate-hint {
-  margin: 0.75rem 0 0;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: calc(0.8 - var(--p) * 8);
+.compass a:hover,
+.compass a:focus-visible {
+  color: var(--accent);
 }
 
 /* Drifting lights: a few slow dots, each on its own path */
 .firefly {
   position: absolute;
-  z-index: 2;
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background: var(--firefly);
-  box-shadow: 0 0 10px 3px var(--firefly);
+  box-shadow: 0 0 8px 2px var(--firefly);
   opacity: 0;
-  animation: drift 9s ease-in-out infinite;
+  pointer-events: none;
+  animation: drift 11s ease-in-out infinite;
 }
-
-.firefly:nth-of-type(1) { left: 14%; top: 66%; animation-delay: 0s; }
-.firefly:nth-of-type(2) { left: 82%; top: 58%; animation-delay: 1.5s; }
-.firefly:nth-of-type(3) { left: 30%; top: 80%; animation-delay: 3s; }
-.firefly:nth-of-type(4) { left: 68%; top: 84%; animation-delay: 4.5s; }
-.firefly:nth-of-type(5) { left: 48%; top: 62%; animation-delay: 6s; }
-.firefly:nth-of-type(6) { left: 8%;  top: 50%; animation-delay: 2.2s; }
-.firefly:nth-of-type(7) { left: 90%; top: 44%; animation-delay: 5.2s; }
-.firefly:nth-of-type(8) { left: 58%; top: 74%; animation-delay: 7.4s; }
+.firefly:nth-of-type(1) { left: 56%; top: 72%; animation-delay: 0s; }
+.firefly:nth-of-type(2) { left: 70%; top: 58%; animation-delay: 2s; }
+.firefly:nth-of-type(3) { left: 83%; top: 76%; animation-delay: 4s; }
+.firefly:nth-of-type(4) { left: 64%; top: 40%; animation-delay: 6s; }
+.firefly:nth-of-type(5) { left: 95%; top: 62%; animation-delay: 8s; }
+.firefly:nth-of-type(6) { left: 76%; top: 86%; animation-delay: 9.5s; }
 
 @keyframes drift {
   0%   { opacity: 0; transform: translate(0, 0); }
   30%  { opacity: var(--firefly-amount); }
   70%  { opacity: var(--firefly-amount); }
-  100% { opacity: 0; transform: translate(18px, -40px); }
+  100% { opacity: 0; transform: translate(14px, -34px); }
 }
 
-/* REDUCED MOTION: no scroll effect. Show the gate already open and still. */
-@media (prefers-reduced-motion: reduce) {
-  .gate-scene,
-  .gate-scene.is-scroll-driven {
-    --p: 0.5;
-    --through: 0;
-    height: calc(100svh - var(--nav-h));
+/* Idle: the three dots breathe one at a time, never all together */
+@media (prefers-reduced-motion: no-preference) {
+  .node-1 { animation: breathe 9s ease-in-out infinite; }
+  .node-2 { animation: breathe 9s ease-in-out 3s infinite; }
+  .node-3 { animation: breathe 9s ease-in-out 6s infinite; }
+}
+
+@keyframes breathe {
+  0%, 30%, 100% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 25%, transparent); }
+  15%           { box-shadow: 0 0 10px 4px color-mix(in srgb, var(--gold) 55%, transparent); }
+}
+
+
+/* 6. PHONES AND SMALL SCREENS ------------------------------------
+   Under 1100px the labels would crowd the words, so the screen stacks:
+   words, then the painting (zoomed in on the arch), then the labels
+   as simple cards, then Explore / Learn / Build / Secure in a row. */
+
+@media (max-width: 1099px) {
+  .hero {
+    display: block;
+    height: auto;
+    min-height: 0;
   }
-  .gate-stage {
+
+  .hero-text {
+    width: auto;
+    max-width: 36rem;
+    margin: 0;
+    padding: 2.5rem 1.5rem 2rem;
+  }
+
+  .scroll-marker {
+    display: none;     /* on a phone the painting right below does the job */
+  }
+
+  .art {
     position: relative;
-    top: 0;
-    opacity: 1;
+    top: auto;
+    aspect-ratio: auto;
+    transform: none;
   }
-  .firefly,
-  .glow { animation: none; }
+
+  /* The window onto the painting */
+  .art-frame {
+    position: relative;
+    aspect-ratio: 1.1;
+    overflow: hidden;
+  }
+
+  /* Twice as wide, slid left, standing on the bottom edge: shows the arch */
+  .art-canvas {
+    inset: auto;
+    left: -95%;
+    bottom: 0;
+    width: 200%;
+    aspect-ratio: 1672 / 941;
+  }
+
+  .art-canvas::after,
+  .lines {
+    display: none;
+  }
+
+  .hotspots {
+    position: static;
+    display: grid;
+    gap: 0.7rem;
+    padding: 1.5rem;
+    pointer-events: auto;
+  }
+
+  .hotspot {
+    position: static;
+    transform: none;
+  }
+
+  .hotspot a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.2rem 0.9rem;
+    padding: 0.9rem 1rem;
+    white-space: normal;
+  }
+
+  /* The preview is always shown on a card */
+  .hotspot-preview,
+  .hotspot-3 .hotspot-preview {
+    position: static;
+    grid-column: 2;
+    width: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .compass {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 1.5rem 1rem;
+    padding: 0.9rem 0;
+    border: 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: none;
+    backdrop-filter: none;
+  }
+
+  .compass ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.6rem;
+  }
+
+  .compass a {
+    display: inline-block;
+    padding: 0.4rem 0;       /* bigger tap area */
+  }
+
+  .site-nav ul {
+    order: 3;
+    width: 100%;
+    gap: 0.2rem 1.4rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .compass .star {
+    display: none;
+  }
 }
 
 
-/* 4a. STATION 1: THE WORDS UNDER THE GATE --------------------- */
+/* 7. THE STATIONS BELOW ------------------------------------------ */
 
-.gate {
-  padding-top: 3rem;
+.station {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 3rem;
 }
 
-.eyebrow {
-  margin: 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--leaf);
-}
-
-.gate h1 {
-  margin: 0.25rem 0 0.5rem;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(3rem, 12vw, 5.5rem);  /* grows with the screen, within limits */
-  line-height: 1;
-}
-
-.tagline {
-  margin: 0 0 2rem;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.35rem;
-  color: var(--petal);
-}
-
-.intro p {
-  margin: 0 0 1rem;
-}
-
-.links {
+/* The small gold number above each title, with a thin line */
+.section-num {
   display: flex;
-  gap: 1.5rem;
-  margin: 1.5rem 0 0;
-  padding: 0;
-  list-style: none;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 0 0 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
 }
 
-
-/* 4b. HEADINGS AND LISTS FOR ALL OTHER STATIONS ----------------- */
+.section-num::after {
+  content: "";
+  width: 3rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
 
 .station h2 {
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(2rem, 7vw, 2.75rem);
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  line-height: 1.05;
 }
 
 .station h3 {
-  margin: 2rem 0 0.5rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  margin: 2.4rem 0 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--leaf);
+  color: var(--muted);
 }
 
 .station ul {
@@ -486,14 +876,35 @@ a:hover {
   margin-bottom: 0.5rem;
 }
 
-/* The gate's link row is a list too, but without bullets */
+.station li::marker {
+  color: var(--gold);
+}
+
+.intro p {
+  margin: 0 0 1rem;
+}
+
+/* A row of links (resume, contact, LinkedIn, GitHub) */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+  margin: 1.8rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
 .station ul.links {
   padding-left: 0;
 }
 
-/* One job, school or project. Title on the left, date on the right. */
+/* One job, school or project. Title on the left, date on the right,
+   with a thin line above each one. */
 .entry {
-  margin: 0 0 1.75rem;
+  margin: 0;
+  padding: 1.2rem 0 0.8rem;
+  border-top: 1px solid var(--rule);
 }
 
 .entry-head {
@@ -508,6 +919,7 @@ a:hover {
 /* Entry titles are h3 for screen readers, but styled like normal bold text */
 .station .entry-title {
   margin: 0;
+  font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: 0;
@@ -517,18 +929,20 @@ a:hover {
 
 .entry-date {
   margin: 0;
-  font-size: 0.85rem;
-  color: var(--leaf);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--muted);
 }
 
 /* Skills: group name, then what's in it */
 .skills dt {
-  margin-top: 0.75rem;
+  margin-top: 0.9rem;
   font-weight: 600;
 }
 
 .skills dd {
   margin: 0;
+  color: var(--muted);
 }
 
 /* Currently building: no bullets, a little more space */
@@ -539,120 +953,13 @@ a:hover {
 
 .status-list li {
   margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--gold);
 }
 
-.contact-links {
-  flex-wrap: wrap;
-}
-
-/* The gate's link row wraps on small phones instead of running off the edge */
-.links {
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/* A button-style link for the one action that matters most (the resume).
-   Big enough to tap easily on a phone. */
-.button {
-  display: inline-block;
-  padding: 0.6rem 1.1rem;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--paper);
-  text-decoration: none;
-}
-
-.button:hover {
-  background: var(--petal);
-  color: var(--paper);
-}
-
-
-/* 4c. TOP MENU ---------------------------------------------------- */
-
-.site-nav {
-  position: sticky;            /* stays at the top while you scroll */
-  top: 0;
-  z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background: var(--paper);
-  border-bottom: 1px solid color-mix(in srgb, var(--leaf) 25%, transparent);
-  font-size: 0.9rem;
-}
-
-.site-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 1.25rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.site-nav a {
-  text-decoration: none;
-}
-
-.nav-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-}
-
-/* The golden hour / night switch */
-.theme-switch {
-  padding: 0.3rem 0.8rem;
-  border: 1px solid var(--leaf);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--ink);
-  font: inherit;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.theme-switch:hover {
-  border-color: var(--petal);
-  color: var(--petal);
-}
-
-/* The menu's own background follows the mode */
-.site-nav {
-  transition: background-color 0.4s ease;
-}
-
-/* PHONES: name and mode switch on the first row, links on the second.
-   Keeps the menu to two short rows so the gate has room. */
-@media (max-width: 640px) {
-  .site-nav {
-    padding: 0.6rem 1.25rem;
-    gap: 0.35rem 1rem;
-  }
-  .site-nav ul {
-    order: 3;
-    width: 100%;
-    gap: 0.2rem 1rem;
-    font-size: 0.85rem;
-  }
-  :root {
-    --nav-h: 5rem;              /* the phone menu is two rows */
-  }
-  /* On a phone, show the painting a bit smaller so the whole doorway fits,
-     and let it fade into the sky above, where your name sits */
-  .gate-world {
-    width: 250vw;
-    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%);
-    mask-image: linear-gradient(to bottom, transparent, #000 10%);
-  }
-}
-
-/* When the menu jumps to a section, leave room so the title isn't hidden under the sticky menu */
-section[id] {
-  scroll-margin-top: 4.5rem;
+/* When a link jumps to a section, leave room for the sticky menu */
+[id] {
+  scroll-margin-top: 5.5rem;
 }
 
 /* Smooth jumps between sections, unless the visitor asked for less motion */
@@ -663,7 +970,7 @@ section[id] {
 }
 
 
-/* 4d. SCROLL REVEAL ----------------------------------------------
+/* 8. SCROLL REVEAL ----------------------------------------------
    Used by reveal.js. A station starts slightly lower and see-through,
    then eases into place. Its title comes first, then each entry a
    moment later, like a path unfolding.
@@ -705,28 +1012,32 @@ section[id] {
 .reveal.is-visible > :nth-child(n+6) { transition-delay: 0.40s; }
 
 
-/* 5. FOOTER ----------------------------------------------------- */
+/* 9. FOOTER ----------------------------------------------------- */
 
 .site-footer {
   max-width: var(--page-width);
   margin: 0 auto;
   padding: 2rem 1.5rem 3rem;
-  font-size: 0.85rem;
-  color: var(--leaf);
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
 }
 
 
-/* 6. ACCESSIBILITY HELPERS -------------------------------------- */
+/* 10. ACCESSIBILITY HELPERS ------------------------------------- */
 
 /* A clear outline when someone moves around with the keyboard */
 :focus-visible {
-  outline: 3px solid var(--glow);
+  outline: 2px solid var(--gold);
   outline-offset: 3px;
 }
 
 /* The skip link stays hidden until a keyboard user tabs to it */
 .skip-link {
   position: absolute;
+  z-index: 20;
   left: 1rem;
   top: -4rem;
   padding: 0.5rem 1rem;
@@ -736,4 +1047,18 @@ section[id] {
 
 .skip-link:focus {
   top: 1rem;
+}
+
+/* REDUCED MOTION: everything stays still. Hover still lights things up,
+   just without movement. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  .firefly {
+    display: none;
+  }
 }

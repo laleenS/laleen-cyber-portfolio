@@ -23,9 +23,9 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <title>Laleen Salim | Cybersecurity Portfolio</title>
-  <meta name="description" content="Laleen Salim is a cybersecurity and security policy student at UNC Charlotte. This is her portfolio.">
+  <meta name="description" content="Laleen Salim is a cybersecurity and security policy student at UNC Charlotte. This is her portfolio, Root Access.">
 
-  <!-- Picks golden hour or night before the page draws, so there's no flash.
+  <!-- Picks day or night before the page draws, so there's no flash.
        It's a file (not inline code) so the security policy still allows it. -->
   <script src="theme-init.js"></script>
 
@@ -37,104 +37,164 @@
   <!-- ACCESSIBILITY: keyboard users can press Tab once and jump past the top of the page -->
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- TOP MENU: jumps straight to any station. Each href matches a section id below. -->
+  <!-- TOP MENU: jumps straight to any station. Each href matches an id below. -->
   <nav class="site-nav" aria-label="Sections">
-    <a class="nav-name" href="#gate">Laleen Salim</a>
+
+    <!-- The logo: a small star and your name. Goes back to the top. -->
+    <a class="logo" href="#top">
+      <svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0l1.6 10.4L24 12l-10.4 1.6L12 24l-1.6-10.4L0 12l10.4-1.6z"/></svg>
+      <span>Laleen Salim</span>
+    </a>
+
     <ul>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#security">Security</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <!-- Switches between golden hour and night. theme.js makes it work. -->
-    <button class="theme-switch" type="button" aria-pressed="false">Night</button>
+
+    <!-- Day / night switch. It starts hidden, and theme.js shows it,
+         so people without scripts never see a button that does nothing. -->
+    <button class="theme-switch" type="button" aria-pressed="false" aria-label="Night mode" hidden>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.5 3.5a8.5 8.5 0 1 0 5 15.2A9 9 0 0 1 15.5 3.5z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg>
+    </button>
   </nav>
 
   <main id="main">
 
     <!-- ============================================================
-         THE GARDEN GATE
-         Decoration only, so screen readers skip it (aria-hidden).
-         The two paintings (golden hour and night) are in assets/.
-         gate.js opens the iron gate as you scroll. You don't need to
-         edit this block, except the text in "gate-title" if you want.
+         STATION 1: THE FIRST SCREEN ("Root Access")
+         Left: who I am and two buttons.
+         Right: the garden painting with three numbered labels.
+         Top right: Explore / Learn / Build / Secure.
+         To change the words, edit the text between the tags.
          ============================================================ -->
-    <div class="gate-scene" aria-hidden="true">
-      <div class="gate-stage">
+    <section id="top" class="hero" aria-labelledby="hero-title">
 
-        <!-- Your name over the top of the scene -->
-        <div class="gate-title">
-          <p class="gate-name">Laleen Salim</p>
-          <p class="gate-eyebrow">Cybersecurity portfolio</p>
-          <p class="gate-hint">Scroll to open the gate</p>
-        </div>
+      <!-- LEFT SIDE: the words -->
+      <div class="hero-text">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Computer science <span aria-hidden="true">/</span> Cybersecurity</p>
 
-        <!-- The world: both paintings stacked, with the gate fitted into the doorway.
-             It keeps the paintings' shape (1672 by 941) at every screen size. -->
-        <div class="gate-world">
-          <img class="gate-painting gate-painting-day" src="assets/garden-day.webp" alt="" width="1672" height="941" decoding="async">
-          <img class="gate-painting gate-painting-night" src="assets/garden-night.webp" alt="" width="1672" height="941" decoding="async">
+        <h1 id="hero-title">Root <em>Access.</em></h1>
 
-          <!-- Soft glows placed on the sun (golden hour) and on the lanterns (night) -->
-          <span class="glow glow-sun"></span>
-          <span class="glow glow-lantern glow-lantern-1"></span>
-          <span class="glow glow-lantern glow-lantern-2"></span>
-          <span class="glow glow-lantern glow-lantern-3"></span>
-          <span class="glow glow-lantern glow-lantern-4"></span>
+        <p class="hero-line">Building a more<br><em>secure digital world.</em></p>
 
-          <!-- Light rays from the sun -->
-          <div class="gate-rays"></div>
+        <p class="hero-intro">I'm Laleen Salim. I study cybersecurity and security policy at UNC Charlotte, and I graduate in December 2026.</p>
 
-          <!-- The two iron doors, fitted into the doorway. The right one is the left one, flipped. -->
-          <div class="gate-doors">
-            <svg class="gate-shapes" focusable="false"><defs><symbol id="g-door" viewBox="0 0 220 340" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 64 13 63.9 21 63.6 29 63.3 37 62.9 45 62.3 53 61.7 61 60.9 69 60.1 77 59.1 85 58 93 56.9 101 55.6 109 54.2 117 52.7 125 51.1 133 49.4 141 47.6 149 45.7 157 43.6 165 41.5 173 39.3 181 36.9 189 34.5 197 31.9 205 29.3 213 26.5" stroke-width="5"/><path d="M5 64V334M216 24V334M5 334H216M5 106H216M5 206H216M5 300H216" stroke-width="4.5"/><path d="M26 63.4V300" stroke-width="2.8"/><path d="M26 45.4l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="26" cy="61.9" r="2.6" fill="currentColor" stroke="none"/><path d="M47 62.2V300" stroke-width="2.8"/><path d="M47 44.2l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="47" cy="60.7" r="2.6" fill="currentColor" stroke="none"/><path d="M68 60.2V300" stroke-width="2.8"/><path d="M68 42.2l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="68" cy="58.7" r="2.6" fill="currentColor" stroke="none"/><path d="M89 57.5V300" stroke-width="2.8"/><path d="M89 39.5l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="89" cy="56" r="2.6" fill="currentColor" stroke="none"/><path d="M110 54V300" stroke-width="2.8"/><path d="M110 36l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="110" cy="52.5" r="2.6" fill="currentColor" stroke="none"/><path d="M131 49.8V300" stroke-width="2.8"/><path d="M131 31.8l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="131" cy="48.3" r="2.6" fill="currentColor" stroke="none"/><path d="M152 44.9V300" stroke-width="2.8"/><path d="M152 26.9l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="152" cy="43.4" r="2.6" fill="currentColor" stroke="none"/><path d="M173 39.3V300" stroke-width="2.8"/><path d="M173 21.3l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="173" cy="37.8" r="2.6" fill="currentColor" stroke="none"/><path d="M194 32.9V300" stroke-width="2.8"/><path d="M194 14.9l3.6 8.5-3.6 7.5-3.6-7.5z" fill="currentColor" stroke="none"/><circle cx="194" cy="31.4" r="2.6" fill="currentColor" stroke="none"/><g transform="scale(1.7 1)"><path vector-effect="non-scaling-stroke" d="M10 200C10 150 64 168 62 134C61 116 40 114 38 128C37 138 50 141 54 134" stroke-width="3.2"/><path vector-effect="non-scaling-stroke" d="M124 200C124 166 84 162 86 140C88 124 108 124 109 138C110 148 98 150 96 143" stroke-width="3.2"/><path vector-effect="non-scaling-stroke" d="M62 134C70 120 100 116 120 112" stroke-width="2.4"/><path vector-effect="non-scaling-stroke" d="M65 294C34 276 32 224 65 214C98 224 96 276 65 294Z" stroke-width="3.2"/><path vector-effect="non-scaling-stroke" d="M65 276C50 266 50 238 65 232C78 238 78 258 68 262C62 264 60 256 65 252" stroke-width="2.4"/></g><circle cx="15" cy="317" r="6.5" stroke-width="2.2"/><circle cx="34" cy="317" r="6.5" stroke-width="2.2"/><circle cx="53" cy="317" r="6.5" stroke-width="2.2"/><circle cx="72" cy="317" r="6.5" stroke-width="2.2"/><circle cx="91" cy="317" r="6.5" stroke-width="2.2"/><circle cx="110" cy="317" r="6.5" stroke-width="2.2"/><circle cx="129" cy="317" r="6.5" stroke-width="2.2"/><circle cx="148" cy="317" r="6.5" stroke-width="2.2"/><circle cx="167" cy="317" r="6.5" stroke-width="2.2"/><circle cx="186" cy="317" r="6.5" stroke-width="2.2"/><circle cx="205" cy="317" r="6.5" stroke-width="2.2"/></symbol></defs></svg>
-            <svg class="gate-door gate-door-left" viewBox="0 0 220 340" focusable="false"><use href="#g-door"/></svg>
-            <svg class="gate-door gate-door-right" viewBox="0 0 220 340" focusable="false"><use href="#g-door" transform="matrix(-1 0 0 1 220 0)"/></svg>
+        <p class="hero-buttons">
+          <a class="button" href="#work">Explore my work <span aria-hidden="true">&rarr;</span></a>
+          <a class="button button-outline" href="assets/laleen-salim-resume.pdf">View resume</a>
+        </p>
 
-            <!-- The padlock. It unlocks first, a small nod to security. -->
-            <svg class="gate-lock" viewBox="0 0 40 52" focusable="false">
-              <path class="lock-shackle" d="M11 24V15a9 9 0 0 1 18 0v9" fill="none" stroke-width="4.5" stroke-linecap="round"/>
-              <rect class="lock-body" x="5" y="22" width="30" height="26" rx="5"/>
-              <circle class="lock-hole" cx="20" cy="33" r="3.2"/>
-              <path class="lock-hole" d="M18.6 34h2.8l1 7h-4.8z"/>
-            </svg>
+        <!-- A quiet marker that says there's more below -->
+        <a class="scroll-marker" href="#about">
+          <svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0l1.6 10.4L24 12l-10.4 1.6L12 24l-1.6-10.4L0 12l10.4-1.6z"/></svg>
+          Scroll to explore
+        </a>
+      </div>
+
+      <!-- RIGHT SIDE: the painting and the numbered labels.
+           Every position below is a percent of the painting, so the
+           labels stay on the same spot of the arch at any screen size. -->
+      <div class="art">
+
+        <!-- The picture itself. Decoration only, so screen readers skip it. -->
+        <div class="art-frame" aria-hidden="true">
+          <!-- The canvas is the painting's own shape. On phones it gets
+               bigger and slides left, so the arch fills the screen. -->
+          <div class="art-canvas">
+          <img class="painting painting-day" src="assets/garden-day.webp"
+               srcset="assets/garden-day-900.webp 900w, assets/garden-day.webp 1536w"
+               sizes="100vw" alt="" width="1536" height="1024" decoding="async">
+          <img class="painting painting-night" src="assets/garden-night.webp"
+               srcset="assets/garden-night-900.webp 900w, assets/garden-night.webp 1672w"
+               sizes="100vw" alt="" width="1672" height="941" decoding="async">
+
+          <!-- Soft lantern glows (night only) -->
+          <span class="glow glow-1"></span>
+          <span class="glow glow-2"></span>
+          <span class="glow glow-3"></span>
+
+          <!-- The thin connector lines. Each label has a day line and a
+               night line, because the two paintings differ a little.
+               Numbers are x y in percent: label end, then the arch spot. -->
+          <svg class="lines" viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false">
+            <line class="line line-1 for-day"   x1="61" y1="14" x2="72.7" y2="17.5"/>
+            <line class="line line-1 for-night" x1="61" y1="14" x2="73"   y2="26"/>
+            <line class="line line-2 for-day"   x1="54" y1="80" x2="60.5" y2="61"/>
+            <line class="line line-2 for-night" x1="54" y1="80" x2="60.5" y2="61"/>
+            <line class="line line-3 for-day"   x1="80" y1="82" x2="88"   y2="65.8"/>
+            <line class="line line-3 for-night" x1="80" y1="82" x2="88"   y2="63.5"/>
+          </svg>
+
+          <!-- The glowing dots where each line meets the arch -->
+          <span class="node node-1"></span>
+          <span class="node node-2"></span>
+          <span class="node node-3"></span>
+
+          <!-- A few drifting lights -->
+          <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
+          <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
           </div>
         </div>
 
-        <!-- A soft shade at the top so your name stays easy to read -->
-        <div class="gate-shade"></div>
-
-        <!-- A few drifting lights (mostly at night) -->
-        <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
-        <span class="firefly"></span><span class="firefly"></span><span class="firefly"></span><span class="firefly"></span>
+        <!-- THE NUMBERED LABELS: real links to real sections.
+             On phones they turn into a simple list of cards. -->
+        <ol class="hotspots" aria-label="Jump to my work">
+          <li class="hotspot hotspot-1">
+            <a href="#work">
+              <span class="hotspot-num">01</span>
+              <span class="hotspot-name">Security Testing <span aria-hidden="true">&rarr;</span></span>
+              <span class="hotspot-preview">A web app pentest (SQL injection, XSS) and disk forensics in Autopsy.</span>
+            </a>
+          </li>
+          <li class="hotspot hotspot-2">
+            <a href="#experience">
+              <span class="hotspot-num">02</span>
+              <span class="hotspot-name">Identity &amp; Access <span aria-hidden="true">&rarr;</span></span>
+              <span class="hotspot-preview">MFA and least privilege at PIMOSH. Role-based access on Truist's winning team.</span>
+            </a>
+          </li>
+          <li class="hotspot hotspot-3">
+            <a href="#built">
+              <span class="hotspot-num">03</span>
+              <span class="hotspot-name">Things I've Built <span aria-hidden="true">&rarr;</span></span>
+              <span class="hotspot-preview">This site, a calligraphy site, a catering demo and a family tree app.</span>
+            </a>
+          </li>
+        </ol>
       </div>
-    </div>
+
+      <!-- TOP RIGHT: Explore / Learn / Build / Secure. Small, real links. -->
+      <nav class="compass" aria-label="Quick links">
+        <svg class="star" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0l1.6 10.4L24 12l-10.4 1.6L12 24l-1.6-10.4L0 12l10.4-1.6z"/></svg>
+        <ul>
+          <li><a href="#about">Explore</a></li>
+          <li><a href="#education">Learn</a></li>
+          <li><a href="#built">Build</a></li>
+          <li><a href="#work">Secure</a></li>
+        </ul>
+      </nav>
+
+    </section>
 
     <!-- ============================================================
-         STATION 1: THE GATE
-         Who I am, in a few lines. To change the words, edit the text
-         between the tags below. Nothing else needs to change.
+         ABOUT: the longer intro, in my own words. Edit freely.
          ============================================================ -->
-    <section id="gate" class="station gate" aria-labelledby="gate-title">
+    <section id="about" class="station" aria-labelledby="about-title">
 
+      <p class="section-num" aria-hidden="true">01</p>
+      <h2 id="about-title">About</h2>
 
-      <p class="eyebrow">Cybersecurity portfolio</p>
-
-      <h1 id="gate-title">Laleen Salim</h1>
-
-      <p class="tagline">I study cybersecurity and security policy at UNC Charlotte.</p>
-
-      <!-- INTRO: written from Laleen's own answers. Edit freely. -->
       <div class="intro">
         <p>I ran into my first phishing attack at my first internship. Working out what happened taught me a lot, and I've been into security ever since.</p>
         <p>I'm building my technical skills now so I can work on the policy side later, where the rules for AI and security are still being written.</p>
         <p>I'm also a self-taught Arabic calligrapher, which is mostly a long lesson in patience and detail. This site is where both sides meet.</p>
       </div>
 
-      <!-- The two things a recruiter wants most, right on the first screen.
-           Outside links use rel="noopener noreferrer" so the other site
-           can't control this tab. -->
+      <!-- Outside links use rel="noopener noreferrer" so the other site can't control this tab. -->
       <ul class="links">
         <li><a class="button" href="assets/laleen-salim-resume.pdf" download>Resume (PDF)</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -149,6 +209,7 @@
          ============================================================ -->
     <section id="education" class="station" aria-labelledby="education-title">
 
+      <p class="section-num" aria-hidden="true">02</p>
       <h2 id="education-title">Education</h2>
 
       <article class="entry">
@@ -205,6 +266,7 @@
          ============================================================ -->
     <section id="experience" class="station" aria-labelledby="experience-title">
 
+      <p class="section-num" aria-hidden="true">03</p>
       <h2 id="experience-title">Experience</h2>
 
       <article class="entry">
@@ -272,6 +334,7 @@
          ============================================================ -->
     <section id="leadership" class="station" aria-labelledby="leadership-title">
 
+      <p class="section-num" aria-hidden="true">04</p>
       <h2 id="leadership-title">Leadership</h2>
 
       <article class="entry">
@@ -309,6 +372,7 @@
          ============================================================ -->
     <section id="work" class="station" aria-labelledby="work-title">
 
+      <p class="section-num" aria-hidden="true">05</p>
       <h2 id="work-title">Security work and things I've built</h2>
 
       <h3>Security work</h3>
@@ -344,7 +408,7 @@
         </ul>
       </article>
 
-      <h3>Things I've built</h3>
+      <h3 id="built">Things I've built</h3>
 
       <article class="entry">
         <div class="entry-head">
@@ -393,6 +457,7 @@
          ============================================================ -->
     <section id="building" class="station" aria-labelledby="building-title">
 
+      <p class="section-num" aria-hidden="true">06</p>
       <h2 id="building-title">Currently building</h2>
 
       <p>These are in progress or planned. Nothing here is finished yet.</p>
@@ -414,6 +479,7 @@
          ============================================================ -->
     <section id="security" class="station" aria-labelledby="security-title">
 
+      <p class="section-num" aria-hidden="true">07</p>
       <h2 id="security-title">How I secured this site</h2>
 
       <p>This site is small on purpose. Less code means less to attack.</p>
@@ -450,6 +516,7 @@
          ============================================================ -->
     <section id="contact" class="station" aria-labelledby="contact-title">
 
+      <p class="section-num" aria-hidden="true">08</p>
       <h2 id="contact-title">Say hello</h2>
 
       <p>I graduate in December 2026 and I'm looking for my next step in cybersecurity: a full-time role, an internship, or a grad program. If you think I'd be a good fit, I'd love to hear from you.</p>
@@ -476,7 +543,6 @@
   <!-- Scripts go last so the words load first. "defer" means: run after the page is ready. -->
   <script src="contact.js" defer></script>
   <script src="reveal.js" defer></script>
-  <script src="gate.js" defer></script>
   <script src="theme.js" defer></script>
 </body>
 </html>

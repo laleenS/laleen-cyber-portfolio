@@ -8,7 +8,7 @@
 //   removes CSS classes. If it fails or scripts are off, everything
 //   is simply visible, with no animation.
 // - If the visitor's device asks for less motion, it does nothing.
-// - The gate (first screen) is skipped on purpose, so the site
+// - The first screen isn't a station, so it never fades in. The site
 //   starts calm. The PRD says effects build up as you scroll.
 // ==============================================================
 
@@ -23,8 +23,8 @@ const canWatchScrolling = 'IntersectionObserver' in window;
 
 if (!wantsLessMotion && canWatchScrolling) {
 
-  // Every station except the gate
-  const stations = document.querySelectorAll('.station:not(.gate)');
+  // Every station below the first screen
+  const stations = document.querySelectorAll('.station');
 
   // The watcher: when the top of a station passes the bottom 10% of
   // the screen, reveal it once. This works even for very tall sections.

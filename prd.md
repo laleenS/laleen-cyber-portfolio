@@ -29,7 +29,7 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 - One scrolling page
 - No photo
-- Two modes: golden hour (default) and night, with a switch in the menu
+- Two modes: day (default) and night, with a small sun/moon switch. The choice is remembered on the visitor's device only.
 - Resume: open PDF download at assets/laleen-salim-resume.pdf, with phone number and GPA removed
 - Email: shown to people, hidden from spam bots
 - Contact is job email, LinkedIn and GitHub only
@@ -38,11 +38,30 @@ Anyone who could open a door in cybersecurity: recruiters, internship programs, 
 
 ## Visual principle
 
-The gate scene now uses two painted images Laleen generated (golden hour and night, same garden archway). Code adds the iron gate in the doorway, light rays, lantern glows and fireflies, and crossfades between the two paintings. Code-drawn scenery looked too flat.
+Updated Nov 17, 2026. The look is "Root Access": modern botanical tech, luxury editorial, whimsical but professional. Laleen's day and night mockups are the reference. Her two blank paintings (same stone archway with circuit engravings, a fingerprint panel, a geometric panel and a glass greenhouse) are the actual artwork. No text is ever baked into an image.
 
-The gate: a symmetrical wrought-iron double gate under a rose and wisteria arch, storybook and old-Disney whimsy, with a few odd details (a padlock that unlocks, a little mushroom). It opens as you scroll (a short scroll, not a long one). Her name floats over a realistic sky gradient (golden hour: blue sky with gold-lit clouds fading to a bright gold horizon and warm yellow-green light, from her photos; night: blue-violet twilight with stars, tree silhouettes, and warm golden light glowing through the gate and up the stone, like a castle or lit building at night). Soft light rays and a paper grain for a painted feel. Tone must stay professional, nothing childish. Hedges and the welcome line were tried and removed. Three.js 3D is planned for later.
+The first screen is a split layout:
+- Left: a small eyebrow, the headline "Root Access." with an italic accent, "Building a more secure digital world.", one true line about her, and two buttons (Explore my work, View resume)
+- Right: the painting, with three numbered glass labels and thin connector lines pointing at parts of the arch
+- Top right: a small vertical "Explore / Learn / Build / Secure" element with a star icon. Each word is a real link.
+- A quiet "scroll to explore" marker
 
-The first screen is the calmest. Effects build up the further a visitor scrolls, so it never overstimulates but still shows off creativity. Feel: advanced and game-like, inspired by the reference sites, without being hard to navigate.
+The numbered labels are real links to real content. The mockup labels (Cryptography, Network Security, System Design) didn't match her actual work, so they are:
+1. Security Testing: the pentest and forensics work
+2. Identity and Access: MFA, least privilege and role-based access at PIMOSH and Truist
+3. Things I've Built: her sites and apps
+
+Hovering or focusing a label lights its line and node and shows a one-line preview. On phones the labels become a simple list of cards under the painting.
+
+Day: soft ivory, muted greens, dusty lavender and blush, champagne gold, deep plum text. Night: deep midnight blue, muted indigo, warm gold, ivory text. Both modes keep the same layout and label positions.
+
+Fonts: the serif and sans already in the repo, plus the device's own monospace font for small technical notes (no new download).
+
+Avoid: neon, code rain, big padlocks, anything that looks like a fantasy game site. Motion is slow, small and never everywhere at once. Reduced motion turns it off.
+
+The old iron gate that opened on scroll was removed. The new archway is open, so it no longer fit.
+
+The first screen is the calmest. Effects build up the further a visitor scrolls. Three.js 3D is still planned for later.
 
 ## Security and privacy rules
 
@@ -78,13 +97,9 @@ Backend, payments, fake password gate, AI chatbot, analytics, contact form, unbu
 ## Where we left off (Nov 17, 2026)
 
 - Base is done: all eight stations, resume PDF, contact, security station, courses.
-- Visual phase so far: sections ease in on scroll; golden hour and night modes; the gate scene built on two of Laleen's AI-generated paintings, with a code-drawn iron gate that opens on scroll.
-- Latest feedback: it must still read as a student portfolio, not too much. Laleen is making calmer, more muted versions of the two paintings (fewer flowers, more empty sky for text).
-- Open question for Laleen: full-screen image with her name over the sky, or a split layout (text and buttons left, gate image right).
-- Next steps once the new images arrive:
-  1. Swap in the calmer paintings and re-measure the doorway for the gate
-  2. Add Resume and Contact buttons on the first screen
-  3. Soften the image behind the text; make the gate opening quicker and subtler
-  4. Light on the iron doors so they blend into the painting
-  5. Style the sections below the gate to match
-  6. Update the security station and run a real header scan on the live site
+- New "Root Access" look built on the `garden-redesign` branch: split first screen, Laleen's new day and night paintings, three numbered labels, the Explore / Learn / Build / Secure links, sun/moon switch, sections below restyled to match.
+- Next steps:
+  1. Laleen reviews the branch and merges it into main
+  2. Fine-tune label positions and colors after seeing it on her own screens
+  3. Update the security station and run a real header scan on the live site
+  4. Later: when the SOC Investigation Lab and IAM Access Review are built, they could take over labels 1 and 2 (her old "SOC Observatory" and "Access Greenhouse" ideas)
