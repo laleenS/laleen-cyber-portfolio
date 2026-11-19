@@ -10,3 +10,5 @@ How it works:
 ## Ideas
 
 - (Nov 19, 2026) Personal photo for the About section. Optional, not decided yet.
+- (Nov 19, 2026) **Parallax depth:** the garden shifts slightly with the mouse for a 3D feel
+- (Nov 19, 2026) **Swaying wisteria and flowers:** needs cut-out art layers (transparent PNGs) first
