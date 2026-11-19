@@ -15,7 +15,8 @@ This file tracks where we are. Update it at the end of every session.
 | 1 | Audit site and resume | Done (no file changes) |
 | 2 | Homepage and About | Done, live (PR #3) |
 | 3 | Education and Skills | Done, live (PR #4) |
-| Bonus | Living Light (homepage garden) | Done, in PR #6 (merge to go live) |
+| Bonus | Living Light (homepage garden) | Done, live (PR #6) |
+| Bonus | Homepage label titles match their sections | Done, in PR #7 (merge to go live) |
 | 4 | Experience | Next |
 | 5 to 12 | See `prd.md`, section 15 | Not started |
 
@@ -27,19 +28,20 @@ This file tracks where we are. Update it at the end of every session.
 
 ## Pull requests
 Merged and live: #1, #2, #3, #4, #5
-Open: **#6 Living Light**. Merge it to go live.
+Merged and live: #6 Living Light
+Open: **#7 Homepage labels** (01 is now Security Work, 02 is now Experience). Merge it to go live.
 
 ## Site status (Nov 19, 2026)
 - GitHub Pages now publishes from `main` (it was stuck on the old `root-access-review` branch until Nov 19)
 - Night mode works: the switch is visible on desktop and phone, it changes the painting and colors, and the choice is remembered. Checked on the live site.
-- Living Light: built and tested, live once PR #6 is merged
+- Living Light: live (PR #6), checked on the live site
   - Files: `index.html`, `styles.css`, new `garden-light.js`
   - 4 lanterns flicker; desktop light follows the mouse; phone light drifts; reduced motion turns it off
 
 ## Outstanding tasks (for Laleen)
 - [ ] Update the resume PDF: certs say Dec 2026, should say in progress, aiming for Feb 2027
 - [ ] Optional: add TypeScript, React, Node.js, Linux and Wireshark to the resume
-- [ ] Merge PR #6 (Living Light), then check it on the live site, desktop and phone
+- [ ] Merge PR #7 (homepage labels), then check it on the live site
 - [ ] Delete old merged branches on GitHub (Claude can't delete branches): `garden-redesign`, `setup-master-prd`, `session-2-intro`, `session-3-education`, `progress-notes`
 
 ## Verified facts
@@ -57,7 +59,7 @@ Open: **#6 Living Light**. Merge it to go live.
 
 ## Still needs confirming (don't add until confirmed)
 - **XSS.** It's in her resume and Tunestore report, but she wants to verify.
-  It still appears in the Security Work section and the homepage label 01 preview.
+  It still appears in the Security Work section (removed from the homepage label 01 preview in PR #7).
   Decide in Session 6.
 - Exact pentest tools (Burp Suite, sqlmap, OWASP ZAP?)
 - Log analysis examples and tools
