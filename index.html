@@ -110,10 +110,16 @@
                srcset="assets/garden-night-900.webp 900w, assets/garden-night.webp 1672w"
                sizes="100vw" alt="" width="1672" height="941" decoding="async">
 
-          <!-- Soft lantern glows (night only) -->
+          <!-- LIVING LIGHT: a soft glow on each of the 4 lanterns.
+               They flicker on their own timing (see styles.css). -->
           <span class="glow glow-1"></span>
           <span class="glow glow-2"></span>
           <span class="glow glow-3"></span>
+          <span class="glow glow-4"></span>
+
+          <!-- LIVING LIGHT: a warm light that follows the mouse (desktop)
+               or drifts slowly on its own (phones). garden-light.js moves it. -->
+          <span class="garden-light"></span>
 
           <!-- The thin connector lines. Each label has a day line and a
                night line, because the two paintings differ a little.
@@ -554,5 +560,6 @@
   <script src="contact.js" defer></script>
   <script src="reveal.js" defer></script>
   <script src="theme.js" defer></script>
+  <script src="garden-light.js" defer></script>
 </body>
 </html>
