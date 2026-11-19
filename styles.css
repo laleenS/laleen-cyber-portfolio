@@ -84,6 +84,15 @@
   --node-2-x: 60.5%;  --node-2-y: 61%;     /* fingerprint panel */
   --node-3-x: 88%;    --node-3-y: 65.8%;   /* geometric panel */
 
+  /* Living light: where each lantern sits in the DAY painting, and how bright */
+  --lamp-1-x: 46.7%;  --lamp-1-y: 86.4%;   /* left lantern by the water */
+  --lamp-2-x: 67.1%;  --lamp-2-y: 83.3%;   /* small lantern at the steps */
+  --lamp-3-x: 92.1%;  --lamp-3-y: 90%;     /* right lantern */
+  --lamp-4-x: 86.7%;  --lamp-4-y: 44.7%;   /* lantern on the arch */
+  --lamp-amount: 0.45;                      /* soft in daylight */
+  --light-color: rgba(255, 190, 95, 0.9);   /* the moving light: warm gold */
+  --light-blend: overlay;                    /* on a light painting, this warms the gold without washing it out */
+
   --font-display: 'Garden Oldstyle', Georgia, serif;
   --font-body: 'Garden Humanist', system-ui, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;  /* the device's own, no download */
@@ -114,6 +123,15 @@
   /* The night painting is a little different, so two spots move */
   --node-1-y: 26%;
   --node-3-y: 63.5%;
+
+  /* Living light: the lanterns in the NIGHT painting, warmer and brighter */
+  --lamp-1-x: 50.5%;  --lamp-1-y: 81%;
+  --lamp-2-x: 67%;    --lamp-2-y: 80%;
+  --lamp-3-x: 92.3%;  --lamp-3-y: 80%;
+  --lamp-4-x: 87.5%;  --lamp-4-y: 46%;
+  --lamp-amount: 1;
+  --light-color: rgba(255, 206, 130, 0.55);
+  --light-blend: screen;
 }
 
 
@@ -447,7 +465,10 @@ a:hover {
   background: linear-gradient(to right, var(--wash) 0%, var(--wash) 22%, transparent 48%);
 }
 
-/* Lantern glows, night only */
+/* LIVING LIGHT, part 1: the lantern glows.
+   One soft glow sits on each painted lantern. Each flickers on its own
+   timing, so they never pulse together. The positions and brightness
+   change with the mode (see --lamp-... in section 2). */
 .glow {
   position: absolute;
   width: 6%;
@@ -457,12 +478,77 @@ a:hover {
   background: radial-gradient(circle, rgba(255, 210, 130, 0.55), rgba(255, 170, 80, 0) 65%);
   mix-blend-mode: screen;
   pointer-events: none;
-  opacity: var(--night);
+  opacity: var(--lamp-amount);
   transition: opacity 1.2s ease;
 }
-.glow-1 { left: 50.5%; top: 79%; }
-.glow-2 { left: 92.5%; top: 80%; }
-.glow-3 { left: 87.5%; top: 46%; width: 4.5%; }
+.glow-1 { left: var(--lamp-1-x); top: var(--lamp-1-y); }
+.glow-2 { left: var(--lamp-2-x); top: var(--lamp-2-y); width: 4.5%; }
+.glow-3 { left: var(--lamp-3-x); top: var(--lamp-3-y); }
+.glow-4 { left: var(--lamp-4-x); top: var(--lamp-4-y); width: 4.5%; }
+
+/* The flicker: small, uneven dips in brightness, like a real flame.
+   Each lantern gets its own speed and start time. */
+@media (prefers-reduced-motion: no-preference) {
+  .glow-1 { animation: flicker 3.1s ease-in-out infinite; }
+  .glow-2 { animation: flicker 2.6s ease-in-out -0.9s infinite; }
+  .glow-3 { animation: flicker 3.7s ease-in-out -1.7s infinite; }
+  .glow-4 { animation: flicker 2.9s ease-in-out -2.3s infinite; }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: calc(var(--lamp-amount) * 0.9); }
+  20%      { opacity: calc(var(--lamp-amount) * 1); }
+  35%      { opacity: calc(var(--lamp-amount) * 0.7); }
+  50%      { opacity: calc(var(--lamp-amount) * 0.95); }
+  70%      { opacity: calc(var(--lamp-amount) * 0.8); }
+}
+
+/* LIVING LIGHT, part 2: the moving light.
+   A soft warm circle. garden-light.js sets --light-x and --light-y
+   to wherever the mouse is. It only shows while the mouse is over
+   the garden (the .is-lit class). On phones it drifts by itself. */
+.garden-light {
+  position: absolute;
+  left: var(--light-x, 70%);
+  top: var(--light-y, 50%);
+  width: 34%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, var(--light-color), transparent 62%);
+  mix-blend-mode: var(--light-blend);   /* how the light mixes with the painting (set per mode above) */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.art.is-lit .garden-light {
+  opacity: 1;
+}
+
+/* While the light is on the garden, the gold lines and dots wake up a little */
+.art.is-lit .line {
+  opacity: 0.95;
+}
+
+.art.is-lit .node {
+  box-shadow: 0 0 10px 3px color-mix(in srgb, var(--gold) 45%, transparent);
+}
+
+/* PHONES AND TABLETS (no mouse): the light drifts slowly across the arch by itself */
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .garden-light {
+    opacity: 0.85;
+    animation: wander 22s ease-in-out infinite;
+  }
+}
+
+@keyframes wander {
+  0%, 100% { left: 60%; top: 62%; }
+  25%      { left: 74%; top: 40%; }
+  50%      { left: 88%; top: 60%; }
+  75%      { left: 72%; top: 78%; }
+}
 
 /* THE CONNECTOR LINES.
    Thin gold lines. Each mode shows its own copy. */
@@ -1058,7 +1144,8 @@ a:hover {
     animation: none !important;
     transition-duration: 0.01ms !important;
   }
-  .firefly {
+  .firefly,
+  .garden-light {
     display: none;
   }
 }
